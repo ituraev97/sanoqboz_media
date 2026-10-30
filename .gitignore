@@ -7,3 +7,4 @@ pipeline/node_modules/
 pipeline/render.html
 pipeline/clips/
 !pipeline/assets/*.wav
+*.mp3
