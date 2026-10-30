@@ -1,0 +1,4 @@
+- Mia Khalifa ≈ $12 000 total (her own X post; BBC HARDtalk 2019): https://www.dailydot.com/?p=619751 , https://ladbible.com/entertainment/celebrity/lana-rhoades-mia-khalifa-net-worth-earnings-050011-20250604
+- Lana Rhoades ≈ $1 200 per shoot, ≈ $100 000 when she quit (BFFs podcast 2022): ladbible link above
+- OnlyFans FY2024: $7.22B gross, $1.41B net (→ ≈$5.81B to creators), 4.634M creator accounts: https://hypebeast.com/2025/8/onlyfans-2024-revenue-7-2-billion-usd-nine-percent-increase-report
+- Mia Khalifa regrets: https://www.thedailybeast.com/mia-khalifa-opens-up-about-life-after-porn-im-ashamed-of-my-past

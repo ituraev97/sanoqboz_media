@@ -1,0 +1,9 @@
+*.mp4
+*.wav
+episodes/*/shots/
+episodes/*/*.log
+episodes/*/sheet.jpg
+pipeline/node_modules/
+pipeline/render.html
+pipeline/clips/
+!pipeline/assets/*.wav

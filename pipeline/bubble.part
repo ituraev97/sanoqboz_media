@@ -1,0 +1,2 @@
+function bubble(x,y,s,t,t0,dark){const e=eo(P(t,t0,.3));if(e<=0)return;ctx.save();ctx.globalAlpha*=e;ctx.font='700 30px JBM';const w=ctx.measureText(s).width+56;ctx.fillStyle=dark?'#1f4f8a':'#e8ecf0';rrect(x-w/2,y-40,w,80,26);ctx.fill();ctx.beginPath();ctx.moveTo(x-30,y+38);ctx.lineTo(x-50,y+80);ctx.lineTo(x,y+38);ctx.fill();
+  ctx.fillStyle=dark?C.white:'#05070a';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(s,x,y+2);ctx.restore();}
