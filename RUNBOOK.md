@@ -63,7 +63,7 @@ python3 $P/mix.py $EP <DURATION> && bash $P/render_all.sh $EP <DURATION>   # ~5 
 QA: 50–70 s, loudnorm −14 LUFS done by render_all; spot-check 3 frames of final.mp4.
 
 ## 8. Upload (public raw URLs for Metricool)
-Branch = weekday of the Tashkent publish date: drop-mon … drop-sun. Orphan commit with only that day’s 3 files, force-push:
+Branch = weekday of the Tashkent publish date: drop-mon … drop-sun. Orphan commit with only that day’s 3 files, force-push. **Commit/stash main changes (backlog, pipeline) first** — `git rm -rqf .` wipes uncommitted edits of tracked files:
 ```bash
 cd /home/claude/sanoqboz_media && git checkout --orphan up && git rm -rqf . && cp $EP08/final.mp4 s08.mp4 && cp $EP13/final.mp4 s13.mp4 && cp $EP20/final.mp4 s20.mp4 && \
 git add s08.mp4 s13.mp4 s20.mp4 && git -c user.name="sanoqboz bot" -c user.email="ituraev97@users.noreply.github.com" commit -qm "drop DATE" && \

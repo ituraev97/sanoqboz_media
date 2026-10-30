@@ -1,0 +1,3 @@
+- 62 440 cybercrimes in 2025 (4 865 in 2021, 11×), IIV press conference 23 Dec 2025: https://www.gazeta.uz/oz/2025/12/24/cybercrime/
+- Schemes: phishing sites imitating Telegram ("vote", "prize"), malicious APKs, session hijack, asking contacts for loans; advice: check domain, never enter code via link, end active sessions: https://www.spot.uz/oz/2026/06/04/oson/
+- Telegram FAQ: login codes "should never be shared with anyone"; 2-Step Verification: "you will need both an SMS code and a password"; terminate sessions in Settings > Devices: https://telegram.org/faq

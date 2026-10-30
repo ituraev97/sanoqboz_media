@@ -1,0 +1,5 @@
+- CBU official rate start of 2016 = 2 809 so'm/$, start of 2017 = 3 239: https://www.kun.uz/news/2017/01/03/uzbekiston-millij-valutasining-dollarga-nisbatan-kijmati-2016-jilda-kandaj-uzgardi
+- From 5 Sep 2017 banks sell currency freely to individuals (decree PF-5177): https://kun.uz/kr/news/2017/09/03/prezident-farmoni-imzolandi-5-sentabrdan-uzbekiston-banklarida-valuta-erkin-sotila-boslanadi
+- 5 Sep 2017 official rate set to 8 100 so'm, +3 889.65 vs week before (≈4 210): https://kun.uz/news/2017/09/05/markazij-bank-sum-devalvaciasi-bujica-rasmij-baenot-berdi
+- CBU rate from 31 Oct 2026 = 12 023.46 so'm: https://www.spot.uz/oz/2026/10/30/dollar-pasaydi
+- Calculations (on screen): 100×2 809 = 280 900; 100×8 100 = 810 000; 100×12 023 = 1 202 346; 12 023/2 809 ≈ 4.3×

@@ -1,0 +1,7 @@
+- Population 39 535 225 on 1 Oct 2026 (Statistics Agency): https://anhor.uz/uzl/news/ozbekiston-aholisi-39-5-milliondan-oshdi
+- Individuals' vehicles 4 725.9k, passenger cars 4 392.4k (1 Oct 2025): https://stat.uz/en/press-center/news-of-committee/65603-zbekistonda-zhismonij-shakhslarga-tegishli-avtotransport-vositalari-soni-4-7-mlndan-oshdi-4
+- Chevrolet Cobalt length 4 479 mm: https://autospot.ru/brands/chevrolet/cobalt/sedan/spec/sizes/
+- Calculation: 4 392 400 × 4.479 m ≈ 19 674 km; Earth equator ≈ 40 075 km (Wikipedia "Earth") → ≈49%
+- Cycling 12–13.9 mph, 30 min, 155 lb (70 kg) = 288 kcal: https://www.health.harvard.edu/exercise-and-fitness/calories-burned-in-30-minutes-for-people-of-three-different-weights
+- Calculation: 39.5 mln × 288 ≈ 11.4 bn kcal (fantasy: everyone incl. children)
+- 1.2 mln t gasoline produced in 2025: https://stat.uz/en/press-center/news-of-committee/66460-2025-jilda-1-2-mln-tonna-benzin-ishlab-chi-arilgan-4 ; /365 ≈ 3 290 t/day

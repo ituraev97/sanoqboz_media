@@ -1,6 +1,6 @@
 # Backlog — one row per reel. Status: todo / done YYYY-MM-DD / skip (reason)
 ## 08:00 Pul hisobi (money & daily life)
-- todo | Dollar kursi: 10 yilda so‘m bilan nima bo‘ldi
+- done 2026-10-31 | Dollar kursi: 10 yilda so‘m bilan nima bo‘ldi
 - todo | Toshkentda kvartira — necha yillik o‘rtacha oylik
 - todo | «0% nasiya» aslida qancha turadi
 - todo | To‘y narxi raqamlarda
@@ -11,7 +11,7 @@
 - todo | Oltin narxi nega oshyapti
 - todo | Yangi yil dasturxoni qancha turadi (December)
 ## 13:00 Agar… (fantasy on real numbers)
-- todo | Agar hamma O‘zbekiston bir kunda velosipedga o‘tsa
+- done 2026-10-31 | Agar hamma O‘zbekiston bir kunda velosipedga o‘tsa
 - todo | Agar Toshkent metrosi Samarqandgacha bo‘lsa
 - todo | Agar butun O‘zbekiston uchun bitta qozonda osh pishirilsa
 - todo | Agar internet bir hafta o‘chsa
@@ -22,7 +22,7 @@
 - todo | Agar Chorsu bozori to‘liq onlayn bo‘lsa
 - todo | Agar maktablarda haftada 3 kun dam olish bo‘lsa
 ## 20:00 Qanday ishlaydi / Ehtiyot bo‘ling
-- todo | Telegram akkaunt qanday o‘g‘irlanadi va qanday himoyalanish
+- done 2026-10-31 | Telegram akkaunt qanday o‘g‘irlanadi va qanday himoyalanish
 - todo | «Uzumdan sovg‘a» — soxta yutuqlardan qanday saqlanish
 - todo | SMS-kodni nega hech kimga aytmaslik kerak
 - todo | Click/Payme: pulingiz 1 soniyada qayerga boradi

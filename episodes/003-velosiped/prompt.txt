@@ -1,0 +1,13 @@
+[curious] Agar ertaga butun O‘zbekiston velosipedga o‘tsa, nima bo‘ladi? Hisoblab ko‘ramiz.
+
+[warm] Aholimiz — o‘ttiz to‘qqiz yarim million kishi. Demak, o‘ttiz to‘qqiz yarim million velosiped kerak. Buvijonlar uchun — savatchali. Qaynona esa, albatta, orqa o‘rindiqda.
+
+[intrigued] Yo‘llarda to‘rt million to‘rt yuz mingga yaqin yengil mashina to‘xtab qoladi. Ularni bitta qatorga tizsak, har biri Kobalt uzunligida, taxminan o‘n to‘qqiz ming yetti yuz kilometr chiqadi. Bu... Yer aylanasining deyarli yarmi. Toshkentda tirbandlik bir kunda yo‘qoladi.
+
+[serious] Endi energiya. Yetmish kilogrammli odam yarim soat velosiped haydasa, ikki yuz sakson sakkiz kaloriya yoqadi. Hamma birdan pedal bossa, o‘n bir milliard kaloriyadan ko‘p.
+
+[serious] Velosipedga benzin kerak emas. O‘tgan yili yurtimizda bir million ikki yuz ming tonna benzin ishlab chiqarilgan. Bu kuniga taxminan uch ming uch yuz tonna.
+
+[warm] Eng katta muammo esa boshqa: to‘ydan qolgan oshni velosipedda qanday olib qaytamiz?
+
+[curious] Siz velosipedda ishga borarmidingiz? Izohda yozing. Obuna bo‘ling.
