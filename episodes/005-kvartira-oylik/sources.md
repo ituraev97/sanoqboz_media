@@ -1,0 +1,3 @@
+- Tashkent apartments, 1 m² avg 16.5 mln so'm on 1 Jul 2026; Shayxontohur 25.3 mln (max), Yangihayot 11 mln (min). National Center for Mass Valuation of Real Estate, via Spot.uz 04.07.2026: https://www.spot.uz/oz/2026/07/04/housing-price
+- Avg monthly nominal wage, Tashkent city, Jan–Jun 2026 = 12 mln 13.9 thousand so'm (national 7.09 mln). National Statistics Committee via Spot.uz 25.07.2026: https://www.spot.uz/oz/2026/07/25/salary
+- Calculations (on screen, "taxminan"): 16.5 / 12.01 ≈ 1.4 salaries per m²; 60 m² × 16.5 = 990 mln; 990 / 12.01 ≈ 82 months ≈ 6.9 years; saving 1/3: 990 / 4.0 ≈ 247 months ≈ 20.6 years (prices unchanged). 60 m² is our assumption for a typical 2-room flat.

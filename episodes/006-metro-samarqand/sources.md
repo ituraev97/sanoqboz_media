@@ -1,0 +1,6 @@
+- Tashkent metro network 70.5 km now, to be extended to 103 km (2030 targets): https://www.spot.uz/oz/2025/12/05/tashkent-metro
+- New Tashkent–Samarkand HSR options: 282 km (1 h 26 min), 291.7 km, 302 km; current Afrosiyob trip ≈ 2 h 13 min: https://advice.uz/oz/news/2647
+- Afrosiyob Tashkent–Samarkand from 1 Feb 2026: economy 311 000, business 455 000, VIP 709 000 so'm: https://www.spot.uz/oz/2026/03/17/afrasiyob
+- Metro/bus fare from 1 Oct 2026: 2 500 so'm electronic (was 1 700), 3 000 cash: https://www.afisha.uz/uz/gorod/2026/09/28/the-fare
+- Metro 2025: 286.8 mln passengers, 785.6 thousand per day (stat.uz): https://stat.uz/en/press-center/news-of-committee/66658-2025-jilda-metropoliten-or-ali-286-milliondan-zijod-j-lovchi-tashilgan-4
+- Calculations: 282 / 70.5 = 4.0 metros; 311 000 / 2 500 ≈ 124×. Fantasy scenario (clearly "Agar…").
