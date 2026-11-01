@@ -75,7 +75,7 @@ URL `https://raw.githubusercontent.com/ituraev97/sanoqboz_media/drop-XXX/s08.mp4
 One `createScheduledPost` per reel with providers instagram + youtube + tiktok (NOT facebook):
 - `text`: Uzbek caption — line 1 = hook question; 2–3 short sentences; «Manbalar: …» (short site names); 4–5 hashtags (#sanoqboz + topic tags, Uzbek).
 - `firstCommentText`: the comment question.
-- `instagramData`: {"type":"REEL","showReelOnFeed":true}
+- `instagramData`: {"type":"TRIAL_REEL"}  ← owner rule (2026-11-02): ALL Instagram posts go out as Trial Reels (shown to non-followers first). Never use "REEL".
 - `youtubeData`: {"title": ≤60 chars Uzbek with the key query first, "type":"short","privacy":"public","category":"EDUCATION","madeForKids":false,"tags":[...]} 
 - `tiktokData`: {"privacyOption":"PUBLIC_TO_EVERYONE","title": short}
 - `media`: [raw URL]; `autoPublish`: true; `videoCoverMilliseconds`: a frame with the big headline (e.g. 1500).
