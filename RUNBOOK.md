@@ -13,7 +13,7 @@ Chromium/Playwright + ffmpeg are preinstalled (render.js/shot.js use /opt/pw-bro
 Network allowlist (owner set it): storage.googleapis.com, api.elevenlabs.io, videos.pexels.com, www.pexels.com.
 
 ## 1. What to make
-- Target date = tomorrow (Asia/Tashkent). Metricool `getScheduledPosts` blogId **7755543** (brand "Sanoqboz", tz Asia/Tashkent) for that date: if 3 posts already scheduled → stop and report.
+- Target date = tomorrow (Asia/Tashkent), or today if the run starts before 05:00 Tashkent and today's daily slots are empty. Metricool `getScheduledPosts` blogId **7755543** (brand "Sanoqboz", tz Asia/Tashkent) for that date: count ONLY daily posts in the 08:00 / 13:00 / 20:00 slots (instagram+youtube+tiktok). Instagram-only trial posts of old videos at other times (10:30, 15:30, 22:15…) do NOT count. All 3 slots taken → stop and report; some taken → make only the missing ones. A slot less than 30 min away → use the nearest time 30+ min ahead.
 - Take the first `todo` row of each rubric in `backlog.md`: 08:00 **Pul hisobi**, 13:00 **Agar…**, 20:00 **Qanday ishlaydi / Ehtiyot bo‘ling**. Episode folder `episodes/NNN-slug/` (NNN = next number).
 
 ## 2. Facts (decide everything)
