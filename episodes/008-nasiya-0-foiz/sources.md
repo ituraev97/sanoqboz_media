@@ -1,0 +1,4 @@
+- CBU study "Nasiya savdosi" (S. Agzamov, Statistics & Research Dept, 2025; prices as of Dec 2024): store selling appliances "ortiqcha to‘lovlarsiz" for 6 months at 21 990 000 so'm (3 665 000 / month), 52.4% above market average 14.4 mln so'm; 12-month nasiya for iPhone 16 Pro Max adds 27.3–44.3% (avg 39.6%); bank credit overpayment ≈ 17% avg: https://cbu.uz/upload/iblock/4d0/1nk5l6gpbya4i8fi70rm7synz2b2bad7/Nasiya-savdosi-lotin.pdf
+- Same figures summarized by Gazeta.uz 03.07.2025: https://www.gazeta.uz/oz/2025/07/03/nasiya-bnpl/
+- New rules from 1 Jan 2027: max term 12 months, final price shown separately in contract, early repayment without penalties (Kun.uz 17.08.2026): https://kun.uz/news/2026/08/17/maksimal-muddat-12-oy-miqdor-110-mln-som-muddatli-tolov-boyicha-yangi-qoidalar
+- Calculations: 6 × 3 665 000 = 21 990 000; 21.99 / 14.4 = 1.527 → +52%; hidden markup ≈ 7.6 mln so'm.

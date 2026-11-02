@@ -1,0 +1,3 @@
+- Ministry of Justice social experiment at "Aviasozlar" (Kadisheva) market, Tashkent: "you won a car" pitch, 62 people; 28 (45%) gave SMS code, 29 refused, 5 couldn't (Zamin.uz): https://zamin.uz/uz/jamiyat/208160-toshkentda-xavotirli-tajriba-fuqarolarning-qariyb-yarmi-sms-kodini-firibgarlarga.html
+- Jan–Sep 2026: 69 962 IT crimes, >1 trln so'm damage; never give SMS codes; quick reporting raises chance to save funds (Spot.uz 12.10.2026): https://www.spot.uz/oz/2026/10/12/cybercrime/
+- CBU advice: fraudsters ask for one-time SMS code; to send money to a card only the card number is needed; contact your bank immediately (Kun.uz): https://kun.uz/news/2021/05/13/firibgarni-qanday-tanib-olish-mumkin-markaziy-bank-tavsiyalari

@@ -1,0 +1,4 @@
+- Uzbekistan permanent population 39 535 225 on 1 Oct 2026 (Statistics Committee via UZA 19.10.2026): https://uza.uz/ar/posts/ozbekiston-aholisi-395-million-kishidan-oshdi_924256
+- Guinness World Records "Largest serving of plov": 7 360 kg, Tashkent, 8 Sep 2017, 50 chefs: https://www.guinnessworldrecords.com/world-records/483487-largest-serving-of-plov
+- Record recipe (rice 1 900 kg, carrots 2 700 kg, …) and kazan: diameter 4.2 m, ~8 000 L (UzDaily): https://www.uzdaily.uz/en/world-record-about-736-tonnes-of-pilaf-cooked-in-uzbekistan/
+- Calculations (our assumption, "taxminan"): 300 g plate × 39.54 mln = 11 860 t; 11 860 / 7.36 ≈ 1 611 record pots; rice 11 860 × 1900/7360 ≈ 3 060 t; carrots × 2700/7360 ≈ 4 350 t; 1 611 × 4.2 m ≈ 6.8 km; volume 1 611 × 8 000 L ≈ 12.9 mln L ≈ 5 Olympic pools (50×25×2 m = 2 500 m³). Fantasy scenario ("Agar…").
