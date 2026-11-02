@@ -2,7 +2,7 @@
 ## 08:00 Pul hisobi (money & daily life)
 - done 2026-10-31 | Dollar kursi: 10 yilda so‘m bilan nima bo‘ldi
 - done 2026-11-01 | Toshkentda kvartira — necha yillik o‘rtacha oylik
-- todo | «0% nasiya» aslida qancha turadi
+- done 2026-11-03 | «0% nasiya» aslida qancha turadi
 - todo | To‘y narxi raqamlarda
 - todo | iPhone necha oylik turadi: O‘zbekiston, Rossiya, Koreya
 - todo | Metan vs benzin: Cobalt bir yilda qancha yeydi
@@ -13,7 +13,7 @@
 ## 13:00 Agar… (fantasy on real numbers)
 - done 2026-10-31 | Agar hamma O‘zbekiston bir kunda velosipedga o‘tsa
 - done 2026-11-01 | Agar Toshkent metrosi Samarqandgacha bo‘lsa
-- todo | Agar butun O‘zbekiston uchun bitta qozonda osh pishirilsa
+- done 2026-11-03 | Agar butun O‘zbekiston uchun bitta qozonda osh pishirilsa
 - todo | Agar internet bir hafta o‘chsa
 - todo | Agar O‘zbekiston dengizga chiqsa
 - todo | Agar barcha migrantlar bir kunda qaytsa
@@ -24,7 +24,7 @@
 ## 20:00 Qanday ishlaydi / Ehtiyot bo‘ling
 - done 2026-10-31 | Telegram akkaunt qanday o‘g‘irlanadi va qanday himoyalanish
 - done 2026-11-01 | «Uzumdan sovg‘a» — soxta yutuqlardan qanday saqlanish
-- todo | SMS-kodni nega hech kimga aytmaslik kerak
+- done 2026-11-03 | SMS-kodni nega hech kimga aytmaslik kerak
 - todo | Click/Payme: pulingiz 1 soniyada qayerga boradi
 - todo | Taksi narxi qanday hisoblanadi (pik soatlar)
 - todo | Is gazidan qanday himoyalanish

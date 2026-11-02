@@ -10,7 +10,7 @@ git clone --depth 1 https://github.com/ituraev97/sanoqboz_media /home/claude/san
 cd /home/claude/sanoqboz_media/pipeline && npm i
 ```
 Chromium/Playwright + ffmpeg are preinstalled (render.js/shot.js use /opt/pw-browsers/... if present).
-Network allowlist (owner set it): storage.googleapis.com, api.elevenlabs.io, videos.pexels.com, www.pexels.com.
+Network allowlist (owner set it): storage.googleapis.com, elevenlabsusercontent.com (ElevenLabs audio content_url since 2026-11), api.elevenlabs.io, videos.pexels.com, www.pexels.com.
 
 ## 1. What to make
 - Target date = tomorrow (Asia/Tashkent), or today if the run starts before 05:00 Tashkent and today's daily slots are empty. Metricool `getScheduledPosts` blogId **7755543** (brand "Sanoqboz", tz Asia/Tashkent) for that date: count ONLY daily posts in the 08:00 / 13:00 / 20:00 slots (instagram+youtube+tiktok). Instagram-only trial posts of old videos at other times (10:30, 15:30, 22:15…) do NOT count. All 3 slots taken → stop and report; some taken → make only the missing ones. A slot less than 30 min away → use the nearest time 30+ min ahead.
