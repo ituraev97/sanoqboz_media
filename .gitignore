@@ -8,3 +8,8 @@ pipeline/render.html
 pipeline/clips/
 !pipeline/assets/*.wav
 *.mp3
+
+*.png
+*.jpg
+episodes/**/prev/
+episodes/**/noaudio.mp4

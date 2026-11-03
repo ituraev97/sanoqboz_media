@@ -1,16 +1,17 @@
 # SANOQBOZ — daily production runbook
 
 One run = **3 vertical reels (~60 s each, Uzbek Latin)** for ONE Tashkent day, published at **08:00, 13:00, 20:00 Asia/Tashkent** to Instagram (Reel), YouTube (Short) and TikTok. No Facebook.
-Owner talks Russian. Channel: @sanoqboz, slogan «Raqamlar gapiradi». Animated infographics + a few real stock clips.
+Owner talks Russian. Channel: @sanoqboz, slogan «Raqamlar gapiradi». Animated infographic explainers in the sanoqboz brand (Remotion, style in remotion/STYLE.md).
 
 ## 0. Setup (fresh container)
 ```bash
 # needs: add_repo owner=ituraev97 repo=sanoqboz_media access=push
 git clone --depth 1 https://github.com/ituraev97/sanoqboz_media /home/claude/sanoqboz_media
-cd /home/claude/sanoqboz_media/pipeline && npm i
+R=/home/claude/sanoqboz_media/remotion; P=/home/claude/sanoqboz_media/pipeline
+bash $R/tools/setup.sh          # Remotion deps, Oswald/Inter/JBM fonts, brand mark+lockup, Kenney SFX
 ```
-Chromium/Playwright + ffmpeg are preinstalled (render.js/shot.js use /opt/pw-browsers/... if present).
-Network allowlist (owner set it): storage.googleapis.com, elevenlabsusercontent.com (ElevenLabs audio content_url since 2026-11), api.elevenlabs.io, videos.pexels.com, www.pexels.com.
+Chromium headless shell + ffmpeg are preinstalled. Network allowlist (owner set it): storage.googleapis.com, elevenlabsusercontent.com (ElevenLabs audio content_url), api.elevenlabs.io, videos.pexels.com, www.pexels.com.
+**Style = `remotion/STYLE.md` (owner's playbook + sanoqboz brand). Read it fully before writing scenes.** Reference episode: `episodes/014-shtraf-kamera/` (script, meta.json, rv/ep.ts, rv/scenes.tsx, rv/sfx.json).
 
 ## 1. What to make
 - Target date = tomorrow (Asia/Tashkent), or today if the run starts before 05:00 Tashkent and today's daily slots are empty. Metricool `getScheduledPosts` blogId **7755543** (brand "Sanoqboz", tz Asia/Tashkent) for that date: count ONLY daily posts in the 08:00 / 13:00 / 20:00 slots (instagram+youtube+tiktok). Instagram-only trial posts of old videos at other times (10:30, 15:30, 22:15…) do NOT count. All 3 slots taken → stop and report; some taken → make only the missing ones. A slot less than 30 min away → use the nearest time 30+ min ahead.
@@ -23,53 +24,51 @@ Network allowlist (owner set it): storage.googleapis.com, elevenlabsusercontent.
 - Safety/scam episodes: explain how to protect yourself, never a step-by-step of the scam.
 
 ## 3. Script → `script.txt` (plain, for alignment) + `prompt.txt` (same text with ElevenLabs v4 tags)
-- 140–165 words → 55–65 s after speed 1.06. Uzbek Latin with correct o‘ g‘ (U+2018) and ’.
-- Numbers written as words (ElevenLabs reads them right). Short sentences. Hook question in the first sentence (no intro). One light, kind joke about everyday life (ona, xotin, qaynona, Damas, to‘y, osh…). Pause «...» before the twist. End: question for comments + «Obuna bo‘ling.» Ideally the last phrase loops into the first.
+- 140–165 words → 55–70 s after speed 1.06–1.12. Uzbek Latin with correct o‘ g‘ (U+2018) and ’.
+- Numbers written as words (ElevenLabs reads them right). Short sentences. Hook question in the first sentence (no intro). One light, kind joke about everyday life (ona, xotin, qaynona, Damas, to‘y, osh…). Pause «...» before the twist. Structure: hook → mechanism step by step → twist around 55 % («Endi qiziq joyi...») → payoff → last line «Buni … do‘stingizga yuboring.» (the ending scene is the share sheet). Abbreviations spelled for TTS in prompt.txt only (BHM → be-ha-em, SMS → es-em-es).
 - Tags allowed: [curious] [serious] [warm] [intrigued] [dramatic] [softly] [whispers].
 
 ## 4. Voice (ElevenLabs connector, owner plan Creator)
 - `creative_generate_speech`: model `eleven_v4`, voice **mirzaev `RaNVfTYq3HYeFPLng6XN`**, **generations_count 1** (owner rule), flow_id `xzPQiLWcQ1A1HZLw9uNR` (or create one). Poll `creative_get_flow_run_status`; download `content_url` → `EP/raw.mp3` with curl. Never re-run a generation to “retry” (costs credits) unless it failed.
 - ≈1 000 credits per reel.
 
-## 5. Timing + scenes
+## 5. Timing → captions
 ```bash
-P=/home/claude/sanoqboz_media/pipeline; EP=/home/claude/sanoqboz_media/episodes/NNN-slug
-# meta.json first: {"title":..,"speed":1.06,"pause_at":null,"num_words":[...words to highlight blue...],"whoosh":[],"ding":[],"boom":[]}
-python3 $P/prep.py $EP        # prints DURATION and caption timeline (use these times for scenes)
+EP=/home/claude/sanoqboz_media/episodes/NNN-slug
+# meta.json: {"title":..,"speed":1.08,"pause_at":null,"num_words":[],"caps":{"merge":[[["bir","ming","sakkiz","yuz"],"1 800"]],"kw":["kamera","jarima"]}}
+python3 $P/prep.py $EP              # raw.mp3 -> nar_f.wav (silence trim + speed), words.json; prints DURATION
+python3 $R/tools/mkcaps.py $EP      # -> EP/rv/caps.ts (≤4 words/line, numbers shown as digits via "merge", keywords boxed via "kw"); prints word times
 ```
-- If you want the 0.5 s silence before the twist: set `pause_at` (nar_f time a little before the twist word, inside a pause), rerun prep.py.
-- Write `episode.js` copying `episodes/001-aktrisalar/episode.js`: defines `HDR_SUB`, `CH` (chapters, first at -1, last = [DURATION,'']), `CL` (stock clips), `S` (scenes {t0,t1,d(t),heads}), `CHIPS` (source/calculation chips). Helpers available in pipeline/template.js + base.part: txt, mono, card8, bigNum, profile, person, cash, pairBars, gasMeter, receipt, hbar, days30, clock, heater, meter, house, uzMap(+mp8 lon/lat→xy), bubble, stamp, chip, drop, flame, bulb, kazan, rice, hourglass, infinity, snowI, damas, taxiCar, metroCar, bars, calendar, nonBread…
-- First scene `t0:-1` and head `t:-1` → the first frame is already full (hook visible without sound).
-- Headlines ≤ 2 lines, big numbers; every number on screen = what the voice says.
+- Pick `speed` 1.06–1.12 so the reel is 55–70 s. `merge` turns spelled-out numbers into digits on screen; every number on screen = what the voice says.
 
-### Layout (Instagram/TikTok/Shorts safe — owner checked on phone)
-- Header (logo, @sanoqboz, chapter, progress) is at y 240–345 — never draw above y≈400 in scenes.
-- Captions y≈450, headline HY=620, scene drawing area = scene coords x 60–1020, y 760–1340 (rendered scaled .78 → screen x 156–924, y 890–1350). Keep everything inside; nothing important below screen y 1450 or right of x 930 (buttons).
+## 6. Scenes (Remotion, new style — NO stock clips, NO old canvas pipeline)
+- `EP/rv/ep.ts`: `TOPIC` (lowercase Uzbek topic line for the HUD), `TINT` ([start,end] red background pulse around the twist, or null), `END` (= last word end + ~2 s), `CH` (7–9 chapters `[start, 'name']`, first at 0, short lowercase Uzbek names), `T` (word start times you need).
+- `EP/rv/scenes.tsx`: one component per chapter + `HITS` (screen shakes) + `export const Video = () => <Reel scenes={[...]} hits={HITS} />` + `export const Cover`. Copy the structure of `episodes/014-shtraf-kamera/rv/scenes.tsx`. Primitives are in `remotion/src/kit.tsx` (Layer, Head, Pill, Glow, Stamp, Num, Card, Src, flight, fmt, flashAt, Road, SmsScreen, Avatar, **ShareEnd** for the standard ending); art in `remotion/src/Art.tsx` (Phone, Car, CarFront, Plate, CamPole, Gauge, Packet, Donut, Piyola, Logo, Lockup). Add new art for the topic in scenes.tsx (generic objects, no real logos/brands).
+- One big hero object per frame; headline at y 490; everything inside x 70–930, y 470–1410; first frame already shows the hook headline (scene/headline start at t0 = -1). Source line (`Src`) under every statistic.
+- The ending is always `ShareEnd` (share sheet → "Yuborildi ✓" → sanoqboz lockup).
 
-## 6. Stock clips (optional, 1–3 per reel, only where they help: hook, emotional moment)
-- Find a Pexels video page via WebSearch (allowed_domains pexels.com), WebFetch the page asking for the `videos.pexels.com/video-files/...mp4` URL from the “Edit in Canva” link; download with curl. Prefer vertical (1440×2560). Pexels license: free, no attribution needed (we still show “VIDEO: PEXELS”).
-- `bash $P/clip.sh NAME src.mp4 START DUR full [cropX]` (or `card`), then add to `CL`: {k:'NAME',t0,t1,n:<frames>,full:1, ov:t=>{...overlay...}}. Never YouTube/TV/news footage.
-
-## 7. Build, check, render
+## 7. Check, audio, render
 ```bash
-python3 $P/build.py $EP
-node $P/shot.js $EP/shots 0.5 3 ... (every 3–4 s)  && python3 $P/sheet.py $EP/shots $EP/sheet.jpg 8
+bash $R/tools/use.sh $EP                              # copies rv/* into the template, typechecks, bundles
+bash $R/tools/stills.sh $EP/prev 0.3 2 4 ... (every ~2 s, 30+ stills)   # -> $EP/prev/sheet1.jpg, sheet2.jpg
 ```
-Look at sheet.jpg yourself: no overlaps, nothing in unsafe zones, numbers match voice. Fix, rebuild.
-Set whoosh (chapter starts), ding (big numbers), boom (stamps) in meta.json, then:
+Look at every sheet yourself (Read the jpg). Fix overlaps, cut-off text, empty frames, anything in the red zones, wrong numbers; re-run use.sh + stills. **At least 2 rounds.**
+- Cover: `Cover` still — lockup on top (y≈300), grey mono kicker, huge yellow 2–4-word question (Oswald), hero art, green/red payoff line; all text within y 280–1640. Check `$EP/cover.jpg` after render.
+- `EP/rv/sfx.json`: `{"twist":[t0,t1] (music drops out), "cues":[[time,"whoosh|boom|boomS|shutter|ping|tick|riser|ticks:N:step|ui:<kenney file>|casino:<file>|digital:<file>",gain,pan?]...]}` — whoosh on every chapter change, ticks under counters, ui:confirmation_* for "yes/ok", boom on the twist and big numbers (see episode 014).
 ```bash
-python3 $P/mix.py $EP <DURATION> && bash $P/render_all.sh $EP <DURATION>   # ~5 min, writes EP/final.mp4
+python3 $R/tools/audio.py $EP && bash $R/tools/mix.sh $EP      # music.wav + sfx.wav -> mix.wav (-14 LUFS)
+nohup bash $R/tools/render.sh $EP > $EP/render.log 2>&1 &      # ~25 min per reel on 2 cores -> EP/final.mp4, cover.jpg, final_sheet.jpg
 ```
-QA: 50–70 s, loudnorm −14 LUFS done by render_all; spot-check 3 frames of final.mp4.
+Wait for "RENDER DONE" in render.log (Monitor / background until-loop; never sleep in the foreground). Renders one at a time — use the waiting time to write the next episode. QA: 55–70 s, ≈ −14 LUFS, Read final_sheet.jpg.
 
 ## 8. Upload (public raw URLs for Metricool)
 Branch = weekday of the Tashkent publish date: drop-mon … drop-sun. Orphan commit with only that day’s 3 files, force-push. **Commit/stash main changes (backlog, pipeline) first** — `git rm -rqf .` wipes uncommitted edits of tracked files:
 ```bash
 cd /home/claude/sanoqboz_media && git checkout --orphan up && git rm -rqf . && cp $EP08/final.mp4 s08.mp4 && cp $EP13/final.mp4 s13.mp4 && cp $EP20/final.mp4 s20.mp4 && \
-git add s08.mp4 s13.mp4 s20.mp4 && git -c user.name="sanoqboz bot" -c user.email="ituraev97@users.noreply.github.com" commit -qm "drop DATE" && \
+cp $EP08/cover.jpg c08.jpg && cp $EP13/cover.jpg c13.jpg && cp $EP20/cover.jpg c20.jpg && git add -f s08.mp4 s13.mp4 s20.mp4 c08.jpg c13.jpg c20.jpg && git -c user.name="sanoqboz bot" -c user.email="ituraev97@users.noreply.github.com" commit -qm "drop DATE" && \
 git push -f origin up:drop-XXX && git checkout -q main && git branch -D up
 ```
-URL `https://raw.githubusercontent.com/ituraev97/sanoqboz_media/drop-XXX/s08.mp4` → `curl -sI` must be 200.
+URLs `https://raw.githubusercontent.com/ituraev97/sanoqboz_media/drop-XXX/s08.mp4` and `.../c08.jpg` → `curl -sI` must be 200.
 
 ## 9. Schedule in Metricool (blogId 7755543, timezone Asia/Tashkent)
 One `createScheduledPost` per reel with providers instagram + youtube + tiktok (NOT facebook):
@@ -79,9 +78,9 @@ One `createScheduledPost` per reel with providers instagram + youtube + tiktok (
 - PLUS, owner rule (2026-11-02): every reel ALSO goes to Instagram as a Trial Reel (shown to non-followers). Second `createScheduledPost` per reel: providers [instagram] only, same media/text/firstCommentText, `instagramData` {"type":"TRIAL_REEL"}, time = slot + 1 h (09:00 / 14:00 / 21:00). So each day = 3 posts (IG Reel + YT Short + TikTok) + 3 IG Trial Reels.
 - `youtubeData`: {"title": ≤60 chars Uzbek with the key query first, "type":"short","privacy":"public","category":"EDUCATION","madeForKids":false,"tags":[...]} 
 - `tiktokData`: {"privacyOption":"PUBLIC_TO_EVERYONE","title": short}
-- `media`: [raw URL]; `autoPublish`: true; `videoCoverMilliseconds`: a frame with the big headline (e.g. 1500).
+- `media`: [raw mp4 URL]; `autoPublish`: true; `videoThumbnailUrl`: raw URL of cNN.jpg (the branded cover). If Metricool rejects the thumbnail, retry once with `videoCoverMilliseconds`: 1500 instead.
 - Verify with getScheduledPosts.
 
 ## 10. Close the run
-- Commit to main: episodes/NNN-*/ (script.txt, prompt.txt, episode.js, meta.json, sources.md — NOT mp3/mp4/wav), backlog.md rows → `done YYYY-MM-DD`.
+- Commit to main: episodes/NNN-*/ (script.txt, prompt.txt, meta.json, sources.md, words.json, rv/* — NOT mp3/mp4/wav/png/jpg, not prev/), backlog.md rows → `done YYYY-MM-DD`.
 - Message the owner in Russian: 3 titles with times, one line each, anything that needs attention.

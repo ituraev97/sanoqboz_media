@@ -1,7 +1,9 @@
-import numpy as np, sys, subprocess
+import numpy as np, sys, subprocess, json, re
 from scipy.signal import butter, sosfilt, fftconvolve
 from scipy.io import wavfile
-SR = 44100; D = 68.3; N = int(SR * D)
+EP = sys.argv[1]
+SR = 44100; D = float(re.search(r'END = ([\d.]+)', open(f'{EP}/rv/ep.ts').read()).group(1)); N = int(SR * D)
+CFG = json.load(open(f'{EP}/rv/sfx.json'))
 rng = np.random.default_rng(3); t = np.arange(N) / SR
 K = '/home/claude/soundcn/assets/'
 def lp(x, f, o=2): return sosfilt(butter(o, f, 'low', fs=SR, output='sos'), x)
@@ -43,7 +45,7 @@ def tick(L=.04): x = tt(L); return np.sin(2 * np.pi * 2400 * x) * np.exp(-x * 16
 def ping(f=1500, L=.35): x = tt(L); return np.sin(2 * np.pi * f * x) * np.exp(-x * 14) * .5
 def shutter(): x = tt(.12); return hp(rng.standard_normal(len(x)), 2500) * (np.exp(-x * 60) + .6 * np.exp(-np.maximum(x - .06, 0) * 80) * (x > .06)) * .8
 
-TW0, TW1 = 38.6, 40.4
+TW0, TW1 = CFG['twist']   # music drops out here
 mus = Bus(); BPM = 112; b = 60 / BPM
 prog = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]]
 def pad(notes, a, e, g=.07, cut=1400):
@@ -68,52 +70,27 @@ while at < D - 1.4:
         if k % 2 == 0: mus.add(kick(), at, .55 if at < TW0 else .7)
         else: mus.add(clap(), at, .25 if at < TW0 else .32)
         mus.add(hat(), at + b / 2, .25, .4)
-        if at > 47: mus.add(hat(), at + b / 4 * 3, .15, -.4)
+        if at > TW1 + 6: mus.add(hat(), at + b / 4 * 3, .15, -.4)
     at += b; k += 1
-mus.add(riser(1.6), 37.0, .35); mus.add(shimmer(5, mid(88)), 40.0, 1.0)
+mus.add(riser(1.6), TW0 - 1.6, .35); mus.add(shimmer(5, mid(88)), TW1 - .4, 1.0)
 music = reverb(mus.b, 2.0, .22)
 
-fx = Bus(); ui = lambda n: smp('kenney_interface-sounds/' + n)
-fx.add(whoosh(.9), .0, .5)                                   # car passing
-fx.add(shutter(), .79, .9); fx.add(ping(2200, .25), .8, .3)  # chirt
-fx.add(whoosh(.6), 1.9, .35); fx.add(ui('confirmation_002.ogg'), 2.84, .6)   # sms
-fx.add(ui('question_002.ogg'), 5.1, .45)
-fx.add(whoosh(.7), 7.4, .35); fx.add(boom(1.8), 8.08, .5)
-for i in range(14): fx.add(ping(1800 - i * 20, .2), 9.9 + i * .22, .12, (i % 2 - .5) * .4)   # waves out
-for i in range(14): fx.add(ping(1300 + i * 30, .18), 11.1 + i * .17, .1, (i % 2 - .5) * .4)  # waves back
-for i in range(16): fx.add(tick(), 15.6 + i * .07, .3)       # speed count
-fx.add(whoosh(.6), 17.5, .35); fx.add(shutter(), 18.7, 1.0); fx.add(boom(1.2), 18.7, .3)
-for i in range(9): fx.add(ui('tick_002.ogg'), 20.2 + i * .15, .35)   # letters read
-fx.add(ui('maximize_003.ogg'), 22.3, .45)
-for i in range(10): fx.add(tick(), 22.5 + i * .11, .25)
-fx.add(ui('confirmation_004.ogg'), 23.62, .6)
-fx.add(whoosh(.6), 24.5, .35); fx.add(ui('select_002.ogg'), 25.1, .4)
-fx.add(smp('kenney_casino-audio/chip-lay-2.ogg'), 25.8, .5); fx.add(ui('error_004.ogg'), 26.1, .35)
-fx.add(whoosh(.7), 26.9, .35)
-for i in range(24): fx.add(ui('tick_001.ogg'), 28.7 + i * .055, .18, (i % 7 - 3) * .2)
-fx.add(boom(1.6), 28.77, .45)
-fx.add(whoosh(.6), 30.45, .35)
-for i in range(12): fx.add(tick(), 33.6 + i * .08, .3)
-fx.add(ui('error_002.ogg'), 35.5, .35)
-for i in range(18): fx.add(tick(), 36.45 + i * .07, .3)
-fx.add(boom(2.0), 36.45, .55)
-fx.add(boom(3.0), 38.77, 1.0); fx.add(ui('glitch_004.ogg'), 38.8, .35)   # twist
-fx.add(smp('kenney_casino-audio/card-slide-3.ogg'), 40.4, .5)
-fx.add(ui('error_006.ogg'), 41.3, .45); fx.add(boom(1.2), 41.3, .35)
-fx.add(ui('select_004.ogg'), 42.12, .4)
-fx.add(whoosh(.6), 43.2, .35); fx.add(ui('confirmation_001.ogg'), 43.5, .5)
-for i, x in enumerate([44.76, 45.13, 45.43, 45.87]): fx.add(ui('click_002.ogg'), x, .5, (i - 1.5) * .3)
-fx.add(ui('select_001.ogg'), 46.4, .35)
-fx.add(whoosh(.6), 47.1, .35); fx.add(shutter(), 49.1, .6); fx.add(ui('error_003.ogg'), 49.35, .4)
-fx.add(ui('maximize_006.ogg'), 51.2, .4); fx.add(whoosh(.5), 53.0, .4); fx.add(ui('drop_002.ogg'), 53.45, .5)
-fx.add(whoosh(.6), 54.6, .35)
-for i in range(10): fx.add(tick(), 56.3 + i * .08, .25)
-fx.add(ui('confirmation_003.ogg'), 58.16, .6); fx.add(boom(1.4), 58.16, .3)
-for i in range(8): fx.add(tick(), 59.3 + i * .08, .25)
-fx.add(ui('confirmation_002.ogg'), 60.2, .45)
-fx.add(whoosh(.7), 61.1, .35); fx.add(boom(1.6), 62.95, .45); fx.add(ui('confirmation_004.ogg'), 62.95, .5)
-fx.add(whoosh(.7), 64.2, .4); fx.add(ui('select_001.ogg'), 65.35, .5); fx.add(ui('confirmation_003.ogg'), 66.2, .6)
+
+# ---------- SFX from cues: [time, name, gain, pan?]
+#  synth: whoosh boom boomS shutter ping tick riser shimmer | "ticks:N:step" counter | "ui:<file>" kenney interface
+#  "casino:<file>" "digital:<file>" "impact:<file>" (file names without .ogg, see /home/claude/soundcn/assets/kenney_*)
+fx = Bus()
+LIB = {'ui': 'kenney_interface-sounds', 'casino': 'kenney_casino-audio', 'digital': 'kenney_digital-audio', 'impact': 'kenney_impact-sounds', 'scifi': 'kenney_sci-fi-sounds'}
+SYN = {'whoosh': lambda: whoosh(.7), 'boom': lambda: boom(2.5), 'boomS': lambda: boom(1.4), 'shutter': shutter, 'ping': lambda: ping(1600, .3), 'tick': tick, 'riser': lambda: riser(1.5), 'shimmer': lambda: shimmer(2.5)}
+for c in CFG['cues']:
+    at, name, g = c[0], c[1], c[2]; pan = c[3] if len(c) > 3 else 0.0
+    if name.startswith('ticks:'):
+        _, n, st = name.split(':')
+        for i in range(int(n)): fx.add(tick(), at + i * float(st), g)
+    elif ':' in name:
+        lib, f = name.split(':', 1); fx.add(smp(f'{LIB[lib]}/{f}.ogg'), at, g, pan)
+    else: fx.add(SYN[name](), at, g, pan)
 sfx = reverb(fx.b, 1.4, .12)
-wavfile.write(sys.argv[1], SR, (np.clip(music, -1, 1) * .9).astype(np.float32))
-wavfile.write(sys.argv[2], SR, (np.clip(sfx, -1, 1) * .9).astype(np.float32))
-print('ok')
+wavfile.write(f'{EP}/music.wav', SR, (np.clip(music, -1, 1) * .9).astype(np.float32))
+wavfile.write(f'{EP}/sfx.wav', SR, (np.clip(sfx, -1, 1) * .9).astype(np.float32))
+print('audio ok', D)
