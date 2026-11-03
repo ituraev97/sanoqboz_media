@@ -1,0 +1,3 @@
+- Tashkent 2026 wedding budget, 100 guests: banquet 500k so'm/guest = 50 mln; outfits 22 mln; photo+video 14 mln; host/DJ 10 + decor 12 + cake 3 + flowers/transport/etc 6 = 31 mln; subtotal 117 mln; +10% reserve = ~129 mln; 200 guests ~198 mln (≈1.5x cost for 2x guests) (Afisha.uz 24.08.2026): https://www.afisha.uz/uz/weddings/2026/08/24/toy-xarajatlari
+- "Yuksalish" survey "O'zbekistonda to'ylar", 1 247 respondents: 81.24% monthly family income 5–12 mln so'm; 25.1% borrowed or will borrow for a wedding (Afisha.uz 14.07.2025): https://www.afisha.uz/uz/gorod/2025/07/14/toylarmuborak
+- Calculation: 129 mln ÷ 12 mln ≈ 11 months; 129 ÷ 5 ≈ 26 months → "bir-ikki yil" (taxminan).

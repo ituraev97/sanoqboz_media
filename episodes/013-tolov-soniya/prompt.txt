@@ -1,0 +1,13 @@
+[curious] Ilovada «O‘tkazish»ni bosdingiz. Bir necha soniyada pul do‘stingizda. Shu soniyalarda nima bo‘ladi?
+
+[serious] Birinchi qadam: ilova so‘rovni protsessing markaziga yuboradi — Uzcard yoki Humo. Ikkinchi qadam: protsessing sizning bankingizdan so‘raydi: kartada pul bormi? Uchinchi qadam: bank «ha» deydi va summani yechadi. Do‘stingizning banki esa uni kartaga yozadi. To‘rtinchi qadam: ikkalangizga SMS keladi. Hammasi — ko‘z ochib yumguncha.
+
+[intrigued] Bu tizim qanchalik katta? Avgust boshida O‘zbekistonda yetmish besh million yetti yuz ming karta bor edi. Aholi — o‘ttiz to‘qqiz yarim million. Ya’ni har bir odamga taxminan ikkitadan karta.
+
+[dramatic] Har o‘tkazmadan kichik komissiya olinadi. Lekin yig‘ilsa... Paynet, Payme va Click bu yilning birinchi yarmida ikki trillion so‘mdan ortiq daromad qildi.
+
+[serious] Ehtiyot bo‘ling: tasdiqlashdan oldin qabul qiluvchining ismini tekshiring. Bir raqam xato bo‘lsa, pul begona odamga ketadi.
+
+[warm] Dadam esa hali ham har o‘tkazmadan keyin qo‘ng‘iroq qiladi: «Keldimi?»
+
+[curious] Siz kuniga nechta o‘tkazma qilasiz? Izohda yozing. Obuna bo‘ling.

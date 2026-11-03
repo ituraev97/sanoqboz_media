@@ -1,0 +1,4 @@
+- 97.3% of population aged 10+ use the internet (Jan–Aug 2026, National Statistics Committee, via talimxabarlari.uz 14.09.2026): https://talimxabarlari.uz/78984/
+- Mobile internet subscribers 33.3 mln on 01.01.2026 (stat.uz 05.08.2026): https://stat.uz/en/press-center/news-of-committee/69655-zbekistonda-mobil-internet-abonentlari-soni-10-jilda-4-3-barobarga-oshgan-4
+- Terminal (POS) receipts Jan–Jul 2026: 387.4 trln so'm (CBU data, UZA 23.08.2026): https://uza.uz/ar/posts/ozbekistonda-naqdsiz-tolovlar-hajmi-keskin-oshmoqda_898733
+- Calculation (taxminan): 387.4 trln ÷ 212 days × 7 ≈ 12.8 trln ≈ 13 trln so'm per week. Fantasy scenario; no real shutdown discussed.

@@ -1,0 +1,7 @@
+- 75.7 mln bank cards on 01.08.2026; 453.5k POS terminals (CBU data, UZA 23.08.2026): https://uza.uz/ar/posts/ozbekistonda-naqdsiz-tolovlar-hajmi-keskin-oshmoqda_898733
+- Permanent population 39 535 225 on 01.10.2026 (UZA 19.10.2026): https://uza.uz/ar/posts/ozbekiston-aholisi-395-million-kishidan-oshdi_924256
+- Calculation: 75.7 ÷ 39.5 ≈ 1.9 → "taxminan ikkitadan".
+- H1 2026 revenue: Paynet 1.14 trln, Payme 492.7 bln, Click 437.6 bln; combined 2.07 trln so'm (Spot.uz 08.08.2026): https://www.spot.uz/oz/2026/08/08/fintech-h1/
+- Nearly 90% of payment companies' revenue = transaction fees (P2P, bills, acquiring) (Kun.uz 19.05.2026): https://kun.uz/en/news/2026/05/19/how-do-people-in-uzbekistan-pay-and-who-leads-the-market
+- Uzcard and Humo = the two national card payment systems handling P2P transfers (Spot.uz 08.02.2024): https://www.spot.uz/oz/2024/02/08/payment-systems/
+- Transfer flow (app → processing → issuing bank → recipient bank → SMS) is a simplified general explanation, no numbers.
