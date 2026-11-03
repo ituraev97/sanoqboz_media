@@ -1,15 +1,14 @@
 import React from 'react';
+import { Img, staticFile } from 'remotion';
 import { clamp, lerp } from './lib';
 
-/* own channel logo */
+/* sanoqboz brand mark (pipeline/mark.svg), round crop like the daily header */
 export const Logo: React.FC<{ size?: number }> = ({ size = 64 }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" style={{ display: 'block' }}>
-    <defs><linearGradient id="lgA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#FFE08A" /><stop offset="1" stopColor="#E59A1A" /></linearGradient></defs>
-    <circle cx="50" cy="50" r="50" fill="url(#lgA)" />
-    <circle cx="50" cy="50" r="40" fill="none" stroke="#1A1306" strokeWidth="3" opacity=".35" />
-    <text x="50" y="66" textAnchor="middle" fontFamily="Unb, sans-serif" fontWeight={800} fontSize="44" fill="#1A1306">S</text>
-  </svg>
+  <div style={{ width: size, height: size, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 0 0 2px rgba(243,245,248,.15)' }}>
+    <Img src={staticFile('mark.svg')} style={{ width: size, height: size, display: 'block' }} />
+  </div>
 );
+export const Lockup: React.FC<{ h: number }> = ({ h }) => <Img src={staticFile('lockup.svg')} style={{ height: h, display: 'block' }} />;
 
 /* generic smartphone */
 export const Phone: React.FC<{ w: number; children?: React.ReactNode; glow?: number; id?: string }> = ({ w, children, glow = 0, id = 'a' }) => {

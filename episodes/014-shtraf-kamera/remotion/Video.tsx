@@ -2,11 +2,11 @@ import React from 'react';
 import { AbsoluteFill, staticFile, useCurrentFrame } from 'remotion';
 import { loadFont } from '@remotion/fonts';
 import { W, H, FPS, END, CX, SL, SR, Y, YL, WH, GR, BLUE, GRN, RED, ICE, HEAD, SANS, MONO, P, eio, eout, eback, lerp, env, rnd, clamp, shake, CH, T } from './lib';
-import { Logo, Phone, Car, CarFront, Plate, CamPole, Gauge, Packet, Donut, Piyola } from './Art';
+import { Logo, Lockup, Phone, Car, CarFront, Plate, CamPole, Gauge, Packet, Donut, Piyola } from './Art';
 import { CAPS } from './caps';
 
-loadFont({ family: 'Unb', url: staticFile('unbounded-latin-800-normal.woff2'), weight: '800' });
-loadFont({ family: 'Unb', url: staticFile('unbounded-latin-700-normal.woff2'), weight: '700' });
+loadFont({ family: 'Osw', url: staticFile('oswald-latin-700-normal.woff2'), weight: '700' });
+loadFont({ family: 'Osw', url: staticFile('oswald-latin-600-normal.woff2'), weight: '600' });
 loadFont({ family: 'Int', url: staticFile('inter-latin-800-normal.woff2'), weight: '800' });
 loadFont({ family: 'Int', url: staticFile('inter-latin-700-normal.woff2'), weight: '700' });
 loadFont({ family: 'Int', url: staticFile('inter-latin-500-normal.woff2'), weight: '500' });
@@ -24,7 +24,7 @@ const Head: React.FC<{ t: number; t0: number; t1: number; y: number; lines: [str
   const k = eout(P(t, t0, t0 + .45));
   const sc = from === 'slam' ? lerp(1.7, 1, eout(P(t, t0, t0 + .2))) : 1;
   return <div style={{ ...abs(SL, y + (from === 'up' ? (1 - k) * 40 : 0), SR - SL), textAlign: 'center', opacity: a, scale: String(sc) }}>
-    {lines.map(([s, c = 'w'], i) => <div key={i} style={{ fontFamily: HEAD, fontWeight: 800, fontSize: size, lineHeight: 1.06, letterSpacing: -1, textTransform: 'uppercase', ...(c === 'y' ? yel : c === 'r' ? { color: RED, textShadow: '0 0 26px rgba(255,90,95,.5)' } : c === 'g' ? { color: GRN, textShadow: '0 0 26px rgba(61,220,132,.5)' } : { color: WH, textShadow: '0 4px 16px rgba(0,0,0,.9)' }) }}>{s}</div>)}
+    {lines.map(([s, c = 'w'], i) => <div key={i} style={{ fontFamily: HEAD, fontWeight: 700, fontSize: size * 1.12, lineHeight: 1.04, letterSpacing: 0, textTransform: 'uppercase', ...(c === 'y' ? yel : c === 'r' ? { color: RED, textShadow: '0 0 26px rgba(255,90,95,.5)' } : c === 'g' ? { color: GRN, textShadow: '0 0 26px rgba(61,220,132,.5)' } : { color: WH, textShadow: '0 4px 16px rgba(0,0,0,.9)' }) }}>{s}</div>)}
   </div>;
 };
 const Pill: React.FC<{ s: string; x: number; y: number; a: number; dark?: boolean; size?: number; col?: string }> = ({ s, x, y, a, dark, size = 26, col = Y }) =>
@@ -371,7 +371,7 @@ const S9: React.FC<{ t: number }> = ({ t }) => {
         </div>
       </Card>
       <div style={{ ...abs(SL, 1330, SR - SL), display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16, opacity: eout(P(t, T.yub + .3, T.yub + .7)) }}>
-        <Logo size={56} /><span style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 40, color: Y }}>@SANOQBOZ</span>
+        <Lockup h={84} />
       </div>
     </Layer>
   </Layer>;
@@ -386,20 +386,20 @@ const Hud: React.FC<{ t: number }> = ({ t }) => {
   return <>
     <div style={{ position: 'absolute', left: 0, top: 0, width: W, height: 470, background: 'linear-gradient(180deg, rgba(7,8,11,.96) 0%, rgba(7,8,11,.7) 72%, rgba(7,8,11,0) 100%)' }} />
     <div style={{ ...abs(SL, y - 32) }}><Logo size={64} /></div>
-    <div style={{ position: 'absolute', left: SL + 80, top: y - 34, fontFamily: SANS, fontWeight: 800, fontSize: 32, color: WH }}>@sanoqboz</div>
+    <div style={{ position: 'absolute', left: SL + 80, top: y - 40, fontFamily: HEAD, fontWeight: 700, fontSize: 34, color: WH }}>@sanoqboz</div>
     <div style={{ position: 'absolute', left: SL + 80, top: y + 6, fontFamily: MONO, fontWeight: 500, fontSize: 20, color: GR }}>{TOPIC}</div>
-    <div style={{ position: 'absolute', left: SR - 260, top: y - 30, width: 260, textAlign: 'right', fontFamily: MONO, fontSize: 20, color: GR }}>{`bob ${String(ci + 1).padStart(2, '0')}/${String(n).padStart(2, '0')}`}</div>
-    <div style={{ position: 'absolute', left: SR - 260, top: y - 2 + (1 - ca) * 10, width: 260, textAlign: 'right', fontFamily: SANS, fontWeight: 800, fontSize: 30, color: Y, opacity: ca }}>{CH[ci][1]}</div>
+    <div style={{ position: 'absolute', left: SR - 260, top: y - 30, width: 260, textAlign: 'right', fontFamily: MONO, fontSize: 20, color: GR }}>{`BOB ${String(ci + 1).padStart(2, '0')}/${String(n).padStart(2, '0')}`}</div>
+    <div style={{ position: 'absolute', left: SR - 260, top: y - 2 + (1 - ca) * 10, width: 260, textAlign: 'right', fontFamily: HEAD, fontWeight: 700, fontSize: 32, color: RED, opacity: ca, textTransform: 'uppercase' }}>{CH[ci][1]}</div>
     {CH.map(([s], i) => { const en = i < n - 1 ? CH[i + 1][0] : END - .5; const p = clamp((t - s) / (en - s));
-      return <div key={i} style={{ position: 'absolute', left: SL + i * (sw + gap), top: y + 58, width: sw, height: 5, borderRadius: 3, background: 'rgba(244,246,251,.12)' }}><div style={{ width: `${p * 100}%`, height: '100%', borderRadius: 3, background: Y }} /></div>; })}
+      return <div key={i} style={{ position: 'absolute', left: SL + i * (sw + gap), top: y + 58, width: sw, height: 5, borderRadius: 3, background: 'rgba(244,246,251,.12)' }}><div style={{ width: `${p * 100}%`, height: '100%', borderRadius: 3, background: RED }} /></div>; })}
   </>;
 };
 const Captions: React.FC<{ t: number }> = ({ t }) => {
   let cur: typeof CAPS[number] | null = null; for (const p of CAPS) if (t >= p[0].s - .06) cur = p;
   if (!cur) return null; const last = cur[cur.length - 1]; if (t > last.e + .7) return null;
   const pa = eout(P(t, cur[0].s - .06, cur[0].s + .1));
-  const len = cur.map((o) => o.w).join(' ').length; const fs = Math.min(50, Math.floor(880 / (len * .6)));
-  return <div style={{ position: 'absolute', left: SL - 20, top: 360, width: SR - SL + 40, display: 'flex', justifyContent: 'center', gap: 14, opacity: pa, fontFamily: SANS, fontWeight: 800, fontSize: fs, whiteSpace: 'nowrap' }}>
+  const len = cur.map((o) => o.w).join(' ').length; const fs = Math.min(54, Math.floor(880 / (len * .5)));
+  return <div style={{ position: 'absolute', left: SL - 20, top: 360, width: SR - SL + 40, display: 'flex', justifyContent: 'center', gap: 14, opacity: pa, fontFamily: HEAD, fontWeight: 600, fontSize: fs, whiteSpace: 'nowrap' }}>
     {cur.map((o, i) => { const spoken = t >= o.s - .03; const kw = Boolean(o.k) && spoken;
       return <span key={i} style={{ position: 'relative', color: spoken ? WH : 'rgba(244,246,251,.26)', textShadow: '0 3px 14px rgba(0,0,0,.95)', padding: kw ? '0 8px' : 0, outline: kw ? `2px solid ${BLUE}` : 'none', outlineOffset: 2, borderRadius: 4, background: kw ? 'rgba(91,140,255,.14)' : 'transparent' }}>{o.w}</span>; })}
   </div>;
@@ -442,10 +442,11 @@ export const PayCover: React.FC = () => {
     <Background t={t} />
     <Glow x={CX + 60} y={1100} r={560} a={1} />
     <Road t={0} y={1180} />
-    <div style={{ ...abs(620, 760) }}><CamPole h={470} flash={.9} id="cv" /></div>
+    <div style={{ ...abs(640, 850) }}><CamPole h={380} flash={.9} id="cv" /></div>
     <div style={{ ...abs(90, 1210) }}><Car w={440} id="cv" /></div>
-    <div style={{ ...abs(SL, 320, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 34, color: GR }}>radar · kamera · SMS</div>
-    <div style={{ ...abs(SL, 380, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 800, fontSize: 88, lineHeight: 1.04, ...yel }}>KAMERA<br />QANDAY<br />USHLAYDI?</div>
-    <div style={{ ...abs(SL, 1490, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 800, fontSize: 54, lineHeight: 1.1, color: GRN }}>15 KUNDA TO‘LASANGIZ —<br />FAQAT YARMI</div>
+    <div style={{ ...abs(SL, 300, SR - SL + 60), display: 'flex', justifyContent: 'center' }}><Lockup h={70} /></div>
+    <div style={{ ...abs(SL, 400, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 34, color: GR }}>radar · kamera · SMS</div>
+    <div style={{ ...abs(SL, 450, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 104, lineHeight: 1.04, ...yel }}>KAMERA<br />QANDAY<br />USHLAYDI?</div>
+    <div style={{ ...abs(SL, 1490, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 64, lineHeight: 1.1, color: GRN }}>15 KUNDA TO‘LASANGIZ —<br />FAQAT YARMI</div>
   </AbsoluteFill>;
 };

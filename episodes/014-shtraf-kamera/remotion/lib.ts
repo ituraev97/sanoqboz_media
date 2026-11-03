@@ -1,7 +1,7 @@
 export const W = 1080, H = 1920, FPS = 30, END = 68.3;
 export const CX = 500, SL = 70, SR = 930, ST = 470, SB = 1410, CY = (ST + SB) / 2;
-export const Y = '#F6B93B', YL = '#FFD983', WH = '#F4F6FB', GR = '#8A93A6', BLUE = '#5B8CFF', GRN = '#3DDC84', RED = '#FF5A5F', ICE = '#9BE3FF', LIME = '#C6F432';
-export const HEAD = 'Unb, sans-serif', SANS = 'Int, sans-serif', MONO = 'JBM, monospace';
+export const Y = '#FFCF3A', YL = '#FFD983', WH = '#F3F5F8', GR = '#7F8792', BLUE = '#5B8CFF', GRN = '#3DDC84', RED = '#EC3A2C', ICE = '#9BE3FF', LIME = '#C6F432';
+export const HEAD = 'Osw, sans-serif', SANS = 'Int, sans-serif', MONO = 'JBM, monospace';
 export const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 export const P = (t: number, a: number, b: number) => clamp((t - a) / (b - a));
 export const eio = (x: number) => (x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
