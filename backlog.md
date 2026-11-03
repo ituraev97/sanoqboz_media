@@ -29,7 +29,7 @@
 - todo | Taksi narxi qanday hisoblanadi (pik soatlar)
 - todo | Is gazidan qanday himoyalanish
 - todo | Kredit tarixi nima va u sizga qanday ta’sir qiladi
-- todo | Shtraf kameralari qanday ishlaydi
+- done 2026-11-03 | Shtraf kameralari qanday ishlaydi (Remotion, manual)
 - todo | Elektr hisoblagich qanday hisoblaydi
 - todo | OLX’da firibgarni qanday tanish
 ## Done before automation
