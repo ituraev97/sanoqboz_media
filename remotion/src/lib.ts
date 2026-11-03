@@ -1,6 +1,6 @@
 export const W = 1080, H = 1920, FPS = 30;
 export const CX = 500, SL = 70, SR = 930, ST = 470, SB = 1410, CY = (ST + SB) / 2;
-export const Y = '#FFCF3A', YL = '#FFD983', WH = '#F3F5F8', GR = '#7F8792', BLUE = '#5B8CFF', GRN = '#3DDC84', RED = '#EC3A2C', ICE = '#9BE3FF', LIME = '#C6F432';
+export const Y = '#F7C64B', YL = '#FFE09A', WH = '#F3F5F8', GR = '#7F8792', BLUE = '#3FA9B8', TEAL = '#3FA9B8', TEALD = '#2C8290', GRN = '#3DDC84', RED = '#EC3A2C', ICE = '#9BE3FF', LIME = '#C6F432';
 export const HEAD = 'Osw, sans-serif', SANS = 'Int, sans-serif', MONO = 'JBM, monospace';
 export const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 export const P = (t: number, a: number, b: number) => clamp((t - a) / (b - a));

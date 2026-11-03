@@ -1,0 +1,63 @@
+{
+ "title": "Nega buyurtma qo‘shniga ketadi",
+ "speed": 1.1,
+ "pause_at": null,
+ "num_words": [],
+ "caps": {
+  "merge": [
+   [
+    [
+     "plyus",
+     "to‘rt"
+    ],
+    "+4"
+   ],
+   [
+    [
+     "bir",
+     "million",
+     "so‘m"
+    ],
+    "1 000 000 so‘m"
+   ],
+   [
+    [
+     "o‘n",
+     "foiz"
+    ],
+    "10%"
+   ],
+   [
+    [
+     "besh",
+     "soniyada,"
+    ],
+    "5 soniyada,"
+   ],
+   [
+    [
+     "yigirma",
+     "to‘rt",
+     "soat"
+    ],
+    "24 soat"
+   ]
+  ],
+  "kw": [
+   "prioriteti",
+   "Prioritet",
+   "prioritet",
+   "oshadi.",
+   "tushadi.",
+   "omadda",
+   "qaynonaning",
+   "Osgop",
+   "bepul",
+   "Zero",
+   "Taxi'da",
+   "turnirida",
+   "komissiyasiz.",
+   "profilda."
+  ]
+ }
+}

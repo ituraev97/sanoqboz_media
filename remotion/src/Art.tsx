@@ -4,11 +4,9 @@ import { clamp, lerp } from './lib';
 
 /* sanoqboz brand mark (pipeline/mark.svg), round crop like the daily header */
 export const Logo: React.FC<{ size?: number }> = ({ size = 64 }) => (
-  <div style={{ width: size, height: size, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 0 0 2px rgba(243,245,248,.15)' }}>
-    <Img src={staticFile('mark.svg')} style={{ width: size, height: size, display: 'block' }} />
-  </div>
+  <Img src={staticFile('zt_mark.png')} style={{ height: size, display: 'block' }} />
 );
-export const Lockup: React.FC<{ h: number }> = ({ h }) => <Img src={staticFile('lockup.svg')} style={{ height: h, display: 'block' }} />;
+export const Lockup: React.FC<{ h: number }> = ({ h }) => <Img src={staticFile('zt_logo.png')} style={{ height: h, display: 'block' }} />;
 
 /* generic smartphone */
 export const Phone: React.FC<{ w: number; children?: React.ReactNode; glow?: number; id?: string }> = ({ w, children, glow = 0, id = 'a' }) => {
