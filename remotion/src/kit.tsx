@@ -100,12 +100,16 @@ export const ShareEnd: React.FC<{ t: number; t0: number; pick: number; sentAt: n
   </Layer>;
 };
 /* ---------- HUD / captions / background ---------- */
+/* Instagram-safe vertical layout (owner phone check 2026-11-04: header must sit below the app's back/+ icons).
+   HUD centre y 305 (logo 273-337, progress bar ~363), captions from y 425, all scene content shifted down 45 px
+   (scene headlines at y 490 land at 535; scene art 470-1410 lands at 515-1455). */
+export const HUD_Y = 305, CAP_Y = 425, SCENE_DY = 45;
 export const Hud: React.FC<{ t: number }> = ({ t }) => {
   let ci = 0; CH.forEach(([s], i) => { if (t >= s) ci = i; });
-  const y = 225, n = CH.length, gap = 8, sw = (SR - SL - gap * (n - 1)) / n;
+  const y = HUD_Y, n = CH.length, gap = 8, sw = (SR - SL - gap * (n - 1)) / n;
   const ca = eout(P(t, CH[ci][0], CH[ci][0] + .35));
   return <>
-    <div style={{ position: 'absolute', left: 0, top: 0, width: W, height: 470, background: 'linear-gradient(180deg, rgba(7,8,11,.96) 0%, rgba(7,8,11,.7) 72%, rgba(7,8,11,0) 100%)' }} />
+    <div style={{ position: 'absolute', left: 0, top: 0, width: W, height: 540, background: 'linear-gradient(180deg, rgba(7,8,11,.96) 0%, rgba(7,8,11,.75) 74%, rgba(7,8,11,0) 100%)' }} />
     <div style={{ ...abs(SL, y - 32) }}><Logo size={64} /></div>
     <div style={{ position: 'absolute', left: SL + 80, top: y - 40, fontFamily: HEAD, fontWeight: 700, fontSize: 34, color: WH }}>@sanoqboz</div>
     <div style={{ position: 'absolute', left: SL + 80, top: y + 6, fontFamily: MONO, fontWeight: 500, fontSize: 20, color: GR }}>{TOPIC}</div>
@@ -120,7 +124,7 @@ export const Captions: React.FC<{ t: number }> = ({ t }) => {
   if (!cur) return null; const last = cur[cur.length - 1]; if (t > last.e + .7) return null;
   const pa = eout(P(t, cur[0].s - .06, cur[0].s + .1));
   const len = cur.map((o) => o.w).join(' ').length; const fs = Math.min(54, Math.floor(880 / (len * .5)));
-  return <div style={{ position: 'absolute', left: SL - 20, top: 360, width: SR - SL + 40, display: 'flex', justifyContent: 'center', gap: 14, opacity: pa, fontFamily: HEAD, fontWeight: 600, fontSize: fs, whiteSpace: 'nowrap' }}>
+  return <div style={{ position: 'absolute', left: SL - 20, top: CAP_Y, width: SR - SL + 40, display: 'flex', justifyContent: 'center', gap: 14, opacity: pa, fontFamily: HEAD, fontWeight: 600, fontSize: fs, whiteSpace: 'nowrap' }}>
     {cur.map((o, i) => { const spoken = t >= o.s - .03; const kw = Boolean(o.k) && spoken;
       return <span key={i} style={{ position: 'relative', color: spoken ? WH : 'rgba(244,246,251,.26)', textShadow: '0 3px 14px rgba(0,0,0,.95)', padding: kw ? '0 8px' : 0, outline: kw ? `2px solid ${BLUE}` : 'none', outlineOffset: 2, borderRadius: 4, background: kw ? 'rgba(91,140,255,.14)' : 'transparent' }}>{o.w}</span>; })}
   </div>;
@@ -147,7 +151,7 @@ export const Reel: React.FC<{ scenes: React.FC<{ t: number }>[]; hits: [number, 
   return (
     <AbsoluteFill style={{ backgroundColor: '#06070a', overflow: 'hidden' }}>
       <Background t={t} />
-      <div style={{ position: 'absolute', inset: 0, translate: `${sx}px ${sy}px` }}>{scenes.map((S, i) => <S key={i} t={t} />)}</div>
+      <div style={{ position: 'absolute', inset: 0, translate: `${sx}px ${sy + SCENE_DY}px` }}>{scenes.map((S, i) => <S key={i} t={t} />)}</div>
       <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 50% 46%, rgba(0,0,0,0) 58%, rgba(0,0,0,.55) 100%)' }} />
       <Hud t={t} /><Captions t={t} />
       <AbsoluteFill style={{ backgroundColor: '#000', opacity: P(t, END - .5, END) }} />

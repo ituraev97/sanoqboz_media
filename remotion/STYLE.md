@@ -29,7 +29,9 @@ SVG/HTML). No stock footage, no AI video, no cuts — smooth transitions only. O
 ## Hard rules
 - No real brand logos/app icons/car makes/product designs; brand NAMES only as plain text. Fictional number plates.
 - Every number has a source (Src line). Illustrative numbers are labelled "misol". Can't confirm → cut it.
-- Instagram safe zone: text and key art inside x 70–930, y 470–1410 (top 0–190, bottom >1500 and right x>930 for
-  y 1000–1700 are covered by the app UI). First frame already shows the hook headline.
+- Instagram safe zone: in scene coordinates keep text and key art inside x 70–930, y 470–1410. The kit draws the
+  HUD at y 270–370 and captions at y 425 and shifts every scene down 45 px (so on screen scenes occupy 515–1455) —
+  owner rule 2026-11-04: nothing above y≈260 (Instagram back/+ icons cover it on the phone). Never move the HUD up.
+  Right x>930 for y 1000–1700 and bottom >1500 are covered by the app UI. First frame already shows the hook headline.
 - Code rules: pure function of time; seeded `rnd` only; SVG blur only via `<filter><feGaussianBlur>`; SVG ids unique
   and without spaces (pass an `id` prop to art used twice); `Boolean(x) &&` in JSX; zooms in log space (`logZ`).
