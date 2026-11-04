@@ -48,6 +48,7 @@ python3 $R/tools/mkcaps.py $EP      # -> EP/rv/caps.ts (≤4 words/line, numbers
 - The ending is always `ShareEnd` (share sheet → "Yuborildi ✓" → sanoqboz lockup).
 
 ## 7. Check, audio, render
+**YUZ promo (owner rule 2026-11-04):** `render.sh` automatically appends `pipeline/assets/yuz_promo.mp4` (7 s, YUZ course ad with voice, -14 LUFS) after the ShareEnd ending of every reel. Do not remove or re-voice it; `NO_PROMO=1` only if the owner asks. Final length = reel + 7 s.
 ```bash
 bash $R/tools/use.sh $EP                              # copies rv/* into the template, typechecks, bundles
 bash $R/tools/stills.sh $EP/prev 0.3 2 4 ... (every ~2 s, 30+ stills)   # -> $EP/prev/sheet1.jpg, sheet2.jpg
@@ -59,7 +60,7 @@ Look at every sheet yourself (Read the jpg). Fix overlaps, cut-off text, empty f
 python3 $R/tools/audio.py $EP && bash $R/tools/mix.sh $EP      # music.wav + sfx.wav -> mix.wav (-14 LUFS)
 nohup bash $R/tools/render.sh $EP > $EP/render.log 2>&1 &      # ~25 min per reel on 2 cores -> EP/final.mp4, cover.jpg, final_sheet.jpg
 ```
-Wait for "RENDER DONE" in render.log (Monitor / background until-loop; never sleep in the foreground). Renders one at a time — use the waiting time to write the next episode. QA: 55–70 s, ≈ −14 LUFS, Read final_sheet.jpg.
+Wait for "RENDER DONE" in render.log (Monitor / background until-loop; never sleep in the foreground). Renders one at a time — use the waiting time to write the next episode. QA: 62–77 s (reel 55–70 s + 7 s YUZ promo at the end), ≈ −14 LUFS, Read final_sheet.jpg.
 
 ## 8. Upload (public raw URLs for Metricool)
 Branch = weekday of the Tashkent publish date: drop-mon … drop-sun. Orphan commit with only that day’s 3 files, force-push. **Commit/stash main changes (backlog, pipeline) first** — `git rm -rqf .` wipes uncommitted edits of tracked files:

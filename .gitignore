@@ -14,3 +14,4 @@ pipeline/clips/
 episodes/**/prev/
 episodes/**/noaudio.mp4
 remotion/build2/
+!pipeline/assets/yuz_promo.mp4
