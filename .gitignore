@@ -13,3 +13,4 @@ pipeline/clips/
 *.jpg
 episodes/**/prev/
 episodes/**/noaudio.mp4
+remotion/build2/

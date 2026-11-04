@@ -1,0 +1,15 @@
+[curious] Nega yomg‘ir yog‘sa, taksi birdan qimmatlashadi? Keling, narx qanday hisoblanishini ko‘ramiz.
+
+[serious] Narx uch qismdan iborat. Birinchi — minimal narx: «Start» tarifida to‘rt ming olti yuz so‘mgacha. Ikkinchi — har kilometr uchun ming ellik so‘mgacha. Uchinchi — har daqiqa uchun besh yuz so‘mgacha.
+
+[serious] Shuning uchun tirbandlikda turib qolsangiz ham, hisob davom etadi. Ikki daqiqa kutish bepul, keyin har daqiqa — olti yuz ellik so‘mgacha.
+
+[intrigued] Endi qiziq joyi...
+
+[dramatic] Ilova har lahzada ikki narsani solishtiradi: buyurtmalar soni va atrofdagi bo‘sh mashinalar. Hamma birdan taksi chaqirsa — koeffitsiyent yoqiladi va narx oshadi. Yuqori narx boshqa haydovchilarni shu hududga chaqiradi. Mashinalar yetarli bo‘lganda, narx yana tushadi.
+
+[serious] Yomg‘irda Toshkentda narx uch, ba’zan to‘rt barobar oshgani qayd etilgan.
+
+[warm] Qanday tejash mumkin? Ilovadagi rang to‘q sariq yoki qizil bo‘lsa, bir necha daqiqa kuting. Soat boshidan biroz oldin yoki keyin buyurtma bering. Tariflarni solishtiring.
+
+[warm] Qaynona bilan to‘yga kechikmaslik uchun esa — taksini oldinroq chaqiring. Buni har kuni taksida yuradigan do‘stingizga yuboring.

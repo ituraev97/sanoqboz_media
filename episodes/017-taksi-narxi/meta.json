@@ -1,0 +1,78 @@
+{
+ "title": "Taksi narxi qanday hisoblanadi",
+ "speed": 1.08,
+ "pause_at": null,
+ "num_words": [],
+ "caps": {
+  "merge": [
+   [
+    [
+     "to‘rt",
+     "ming",
+     "olti",
+     "yuz",
+     "so‘mgacha."
+    ],
+    "4 600 so‘mgacha."
+   ],
+   [
+    [
+     "ming",
+     "ellik",
+     "so‘mgacha."
+    ],
+    "1 050 so‘mgacha."
+   ],
+   [
+    [
+     "besh",
+     "yuz",
+     "so‘mgacha."
+    ],
+    "500 so‘mgacha."
+   ],
+   [
+    [
+     "olti",
+     "yuz",
+     "ellik",
+     "so‘mgacha."
+    ],
+    "650 so‘mgacha."
+   ],
+   [
+    [
+     "Ikki",
+     "daqiqa"
+    ],
+    "2 daqiqa"
+   ],
+   [
+    [
+     "uch,"
+    ],
+    "3,"
+   ],
+   [
+    [
+     "to‘rt",
+     "barobar"
+    ],
+    "4 barobar"
+   ]
+  ],
+  "kw": [
+   "«Start»",
+   "kilometr",
+   "daqiqa",
+   "tirbandlikda",
+   "koeffitsiyent",
+   "bepul,",
+   "Qaynona",
+   "do‘stingizga",
+   "yomg‘ir",
+   "buyurtmalar",
+   "mashinalar."
+  ]
+ }
+}

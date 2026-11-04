@@ -4,7 +4,7 @@
 - done 2026-11-01 | Toshkentda kvartira — necha yillik o‘rtacha oylik
 - done 2026-11-03 | «0% nasiya» aslida qancha turadi
 - done 2026-11-04 | To‘y narxi raqamlarda
-- todo | iPhone necha oylik turadi: O‘zbekiston, Rossiya, Koreya
+- done 2026-11-05 | iPhone necha oylik turadi: O‘zbekiston, Rossiya, Koreya
 - todo | Metan vs benzin: Cobalt bir yilda qancha yeydi
 - todo | Pensiya qanday hisoblanadi
 - todo | Koreyaga ishga: qancha topadi, qancha sarflaydi
@@ -15,7 +15,7 @@
 - done 2026-11-01 | Agar Toshkent metrosi Samarqandgacha bo‘lsa
 - done 2026-11-03 | Agar butun O‘zbekiston uchun bitta qozonda osh pishirilsa
 - done 2026-11-04 | Agar internet bir hafta o‘chsa
-- todo | Agar O‘zbekiston dengizga chiqsa
+- done 2026-11-05 | Agar O‘zbekiston dengizga chiqsa
 - todo | Agar barcha migrantlar bir kunda qaytsa
 - todo | Agar Toshkentda bir metr qor yog‘sa
 - todo | Agar hamma choy o‘rniga kofe ichsa
@@ -26,7 +26,7 @@
 - done 2026-11-01 | «Uzumdan sovg‘a» — soxta yutuqlardan qanday saqlanish
 - done 2026-11-03 | SMS-kodni nega hech kimga aytmaslik kerak
 - done 2026-11-04 | Click/Payme: pulingiz 1 soniyada qayerga boradi
-- todo | Taksi narxi qanday hisoblanadi (pik soatlar)
+- done 2026-11-05 | Taksi narxi qanday hisoblanadi (pik soatlar)
 - todo | Is gazidan qanday himoyalanish
 - todo | Kredit tarixi nima va u sizga qanday ta’sir qiladi
 - done 2026-11-03 | Shtraf kameralari qanday ishlaydi (Remotion, manual)
