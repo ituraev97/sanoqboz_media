@@ -27,7 +27,7 @@
 - done 2026-11-03 | SMS-kodni nega hech kimga aytmaslik kerak
 - done 2026-11-04 | Click/Payme: pulingiz 1 soniyada qayerga boradi
 - done 2026-11-05 | Taksi narxi qanday hisoblanadi (pik soatlar)
-- todo | Is gazidan qanday himoyalanish
+- done 2026-11-04 | Is gazidan qanday himoyalanish (manual, owner request)
 - todo | Kredit tarixi nima va u sizga qanday ta’sir qiladi
 - done 2026-11-03 | Shtraf kameralari qanday ishlaydi (Remotion, manual)
 - todo | Elektr hisoblagich qanday hisoblaydi
