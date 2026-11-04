@@ -13,3 +13,7 @@ pipeline/clips/
 *.jpg
 episodes/**/prev/
 episodes/**/noaudio.mp4
+episodes/*/T
+episodes/*/env.json
+episodes/*/sil.txt
+remotion/package-lock.json
