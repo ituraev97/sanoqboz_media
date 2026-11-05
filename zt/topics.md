@@ -6,7 +6,7 @@ Topic of a run = row # = day index (by date, so it works even if nothing can be 
 | # | Hook (Uzbek) | What it explains | Status |
 |---|---|---|---|
 | 1 | Reyting qanday hisoblanadi? | what lowers/raises driver rating in Yandex Pro | done 2026-11-04 |
-| 2 | Yo‘lovchi telefonini mashinada unutdi | step-by-step what to do with a lost item | todo |
+| 2 | Yo‘lovchi telefonini mashinada unutdi | step-by-step what to do with a lost item | done 2026-11-05 |
 | 3 | Kunlik maqsadlar: 5 ta buyurtma — +32 000 | Yandex daily goals ladder (5→32 000, 10→65 000, 15→98 000, 20→130 000; vary per driver, label as example) | todo |
 | 4 | Yo‘lovchi to‘lamay qochdi | what to do when a cash passenger runs off | todo |
 | 5 | Surge — nega narx oshadi? | demand coefficient, how to catch peak demand | todo |
