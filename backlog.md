@@ -5,7 +5,7 @@
 - done 2026-11-03 | «0% nasiya» aslida qancha turadi
 - done 2026-11-04 | To‘y narxi raqamlarda
 - done 2026-11-05 | iPhone necha oylik turadi: O‘zbekiston, Rossiya, Koreya
-- todo | Metan vs benzin: Cobalt bir yilda qancha yeydi
+- done 2026-11-06 | Metan vs benzin: Cobalt bir yilda qancha yeydi
 - todo | Pensiya qanday hisoblanadi
 - todo | Koreyaga ishga: qancha topadi, qancha sarflaydi
 - todo | Oltin narxi nega oshyapti
@@ -16,7 +16,7 @@
 - done 2026-11-03 | Agar butun O‘zbekiston uchun bitta qozonda osh pishirilsa
 - done 2026-11-04 | Agar internet bir hafta o‘chsa
 - done 2026-11-05 | Agar O‘zbekiston dengizga chiqsa
-- todo | Agar barcha migrantlar bir kunda qaytsa
+- done 2026-11-06 | Agar barcha migrantlar bir kunda qaytsa
 - todo | Agar Toshkentda bir metr qor yog‘sa
 - todo | Agar hamma choy o‘rniga kofe ichsa
 - todo | Agar Chorsu bozori to‘liq onlayn bo‘lsa
@@ -28,7 +28,7 @@
 - done 2026-11-04 | Click/Payme: pulingiz 1 soniyada qayerga boradi
 - done 2026-11-05 | Taksi narxi qanday hisoblanadi (pik soatlar)
 - done 2026-11-04 | Is gazidan qanday himoyalanish (manual, owner request)
-- todo | Kredit tarixi nima va u sizga qanday ta’sir qiladi
+- done 2026-11-06 | Kredit tarixi nima va u sizga qanday ta’sir qiladi
 - done 2026-11-03 | Shtraf kameralari qanday ishlaydi (Remotion, manual)
 - todo | Elektr hisoblagich qanday hisoblaydi
 - todo | OLX’da firibgarni qanday tanish
