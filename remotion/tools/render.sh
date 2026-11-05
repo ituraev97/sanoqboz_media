@@ -8,7 +8,9 @@ ffmpeg -y -v error -i $EP/noaudio.mp4 -i $EP/mix.wav -map 0:v -map 1:a -c:v copy
 PROMO=$R/../pipeline/assets/yuz_promo.mp4
 if [ -f "$PROMO" ] && [ -z "$NO_PROMO" ]; then
   mv $EP/final.mp4 $EP/final_main.mp4
-  ffmpeg -y -v error -i $EP/final_main.mp4 -i $PROMO -filter_complex "[0:v]fps=30,format=yuv420p,setsar=1[v0];[1:v]fps=30,format=yuv420p,setsar=1[v1];[0:a]aresample=44100,aformat=channel_layouts=stereo[a0];[1:a]aresample=44100,aformat=channel_layouts=stereo[a1];[v0][a0][v1][a1]concat=n=2:v=1:a=1[v][a]" -map "[v]" -map "[a]" -c:v libx264 -preset medium -crf 17 -pix_fmt yuv420p -c:a aac -b:a 256k -movflags +faststart $EP/final.mp4
+  # smooth hand-off (owner rule 2026-11-05): 0.6 s slide-up cross-fade video + audio cross-fade, no black frame
+  DM=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $EP/final_main.mp4); XF=0.6; OFF=$(python3 -c "print(round($DM-$XF,3))")
+  ffmpeg -y -v error -i $EP/final_main.mp4 -i $PROMO -filter_complex "[0:v]fps=30,format=yuv420p,setsar=1,settb=AVTB[v0];[1:v]fps=30,format=yuv420p,setsar=1,settb=AVTB[v1];[v0][v1]xfade=transition=slideup:duration=$XF:offset=$OFF[v];[0:a]aresample=44100,aformat=channel_layouts=stereo[a0];[1:a]aresample=44100,aformat=channel_layouts=stereo[a1];[a0][a1]acrossfade=d=$XF:c1=tri:c2=tri[a]" -map "[v]" -map "[a]" -c:v libx264 -preset medium -crf 17 -pix_fmt yuv420p -c:a aac -b:a 256k -movflags +faststart $EP/final.mp4
 fi
 D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $EP/final.mp4)
 ffmpeg -y -v error -i $EP/final.mp4 -vf "fps=24/$D,scale=240:-1,tile=8x3" -frames:v 1 $EP/final_sheet.jpg

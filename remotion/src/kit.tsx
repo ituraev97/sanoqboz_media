@@ -81,6 +81,10 @@ export const Avatar: React.FC<{ n: string; c: string; sel: number; dim?: number;
 );
 
 /* standard ending: share sheet + lockup. t0 = word "Buni…", sentAt = last word end */
+/* the YUZ promo follows every reel (render.sh cross-fades into it): no fade-to-black, and a bridge pill
+   in the last ~1.3 s announces it so viewers don't swipe away thinking the video is over (owner rule 2026-11-05). */
+export const PROMO_NEXT = true;
+export const PROMO_LIME = '#D4FF3F';
 export const ShareEnd: React.FC<{ t: number; t0: number; pick: number; sentAt: number; lines?: [string, ('w' | 'y' | 'r' | 'g')?][] }> = ({ t, t0, pick, sentAt, lines = [['do‘stga'], ['yuboring', 'y']] }) => {
   const aB = eout(P(t, t0 - .2, t0 + .3)); if (aB <= 0) return null;
   const sel = eout(P(t, pick, pick + .3)), sent = t > sentAt + .25;
@@ -97,6 +101,7 @@ export const ShareEnd: React.FC<{ t: number; t0: number; pick: number; sentAt: n
       </div>
     </Card>
     <div style={{ ...abs(SL, 1330, SR - SL), display: 'flex', justifyContent: 'center', opacity: eout(P(t, sentAt + .3, sentAt + .7)) }}><Lockup h={84} /></div>
+    {PROMO_NEXT && <div style={{ position: 'absolute', left: CX, top: 772, translate: '-50% -50%', opacity: eout(P(t, END - 1.5, END - 1.2)), scale: String(lerp(.7, 1, eback(P(t, END - 1.5, END - 1.1)))), padding: '10px 26px', borderRadius: 30, background: PROMO_LIME, color: '#0b0d10', fontFamily: HEAD, fontWeight: 700, fontSize: 30, whiteSpace: 'nowrap', boxShadow: '0 0 30px rgba(212,255,63,.45)' }}>KUTING · YUZ DAN TAKLIF</div>}
   </Layer>;
 };
 /* ---------- HUD / captions / background ---------- */
@@ -154,7 +159,7 @@ export const Reel: React.FC<{ scenes: React.FC<{ t: number }>[]; hits: [number, 
       <div style={{ position: 'absolute', inset: 0, translate: `${sx}px ${sy + SCENE_DY}px` }}>{scenes.map((S, i) => <S key={i} t={t} />)}</div>
       <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 50% 46%, rgba(0,0,0,0) 58%, rgba(0,0,0,.55) 100%)' }} />
       <Hud t={t} /><Captions t={t} />
-      <AbsoluteFill style={{ backgroundColor: '#000', opacity: P(t, END - .5, END) }} />
+      {!PROMO_NEXT && <AbsoluteFill style={{ backgroundColor: '#000', opacity: P(t, END - .5, END) }} />}
     </AbsoluteFill>
   );
 };

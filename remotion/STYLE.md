@@ -23,7 +23,9 @@ SVG/HTML). No stock footage, no AI video, no cuts — smooth transitions only. O
   "no", green ('g') for "yes". `from="slam"` on hits.
 - Pills (`Pill`) for labels, `Num` for counting numbers, `Stamp` with screen shake (HITS) for verdicts,
   `Card` for tables/forms, `Src` grey mono source line under every statistic.
-- Ending: `ShareEnd` (share sheet with Uzbek names → "Yuborildi ✓" → lockup).
+- Ending: `ShareEnd` (share sheet with Uzbek names → "Yuborildi ✓" → lockup → lime pill "KUTING · YUZ DAN TAKLIF" in the last
+  ~1.3 s). No fade to black: render.sh slides straight into the YUZ promo with a 0.6 s cross-fade (owner rule 2026-11-05 —
+  the promo must not look like the video ended). Keep END = last word end + ~2 s.
 - On-screen text in Uzbek Latin with o‘ g‘ (U+2018).
 
 ## Hard rules
