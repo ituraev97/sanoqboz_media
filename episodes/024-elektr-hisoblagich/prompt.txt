@@ -1,0 +1,17 @@
+[curious] Elektr hisoblagich aslida nimani sanaydi? Vattni emas, soatni ham emas — ikkalasini birga.
+
+[serious] Bir kilovatt quvvatli asbob bir soat ishlasa — bir kilovatt-soat. Hisoblagich aynan shuni sanaydi. Siz to‘laydigan pul ham shu sondan chiqadi.
+
+[serious] Elektron hisoblagichda kichkina chiroq bor. Har miltillash — energiyaning kichik bir ulushi. Masalan, uch ming ikki yuz miltillash — bir kilovatt-soat.
+
+[warm] Ikki kilovattli choynak olti daqiqa qaynasa — nol butun ikki kilovatt-soat. Ya’ni bir yuz o‘ttiz so‘m.
+
+[intrigued] Endi qiziq joyi...
+
+[dramatic] Narx zinapoyaga o‘xshaydi. Oyiga ikki yuz kilovatt-soatgacha — olti yuz ellik so‘m. Ikki yuz birinchidan boshlab — to‘qqiz yuz so‘m. Besh yuzdan oshsa — bir ming bir yuz so‘m.
+
+[warm] Qaynonaning ikki kilovattli isitgichi kuniga sakkiz soat ishlasa, oyiga to‘rt yuz sakson kilovatt-soat. Shuning o‘zi sizni ikkinchi zinaga olib chiqadi. Faqat isitgich uchun — oyiga uch yuz sakson ikki ming so‘m.
+
+[serious] Shuning uchun oy boshida va oxirida hisoblagichni rasmga oling, farqini hisoblang va ilovadagi raqam bilan solishtiring.
+
+[warm] Buni isitgichni o‘chirmaydigan do‘stingizga yuboring.
