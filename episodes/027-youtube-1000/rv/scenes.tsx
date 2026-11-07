@@ -195,7 +195,7 @@ export const Cover: React.FC = () => {
     <Background t={t} />
     <Glow x={CX + 40} y={1060} r={580} a={1} col="61,220,132" />
     <div style={{ ...abs(CX + 40 - 270, 780) }}><Player w={540} views={1000} t={3} id="pc" /></div>
-    <div style={{ ...abs(CX + 40 + 150, 1080) }}><Coin s={150} /></div>
+    <div style={{ ...abs(SL + 20, 1150) }}><Coin s={130} /></div>
     <div style={{ ...abs(SL, 300, SR - SL + 60), display: 'flex', justifyContent: 'center' }}><Lockup h={70} /></div>
     <div style={{ ...abs(SL, 400, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 34, color: GR }}>youtube · 1 000 ko‘rish</div>
     <div style={{ ...abs(SL, 450, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 112, lineHeight: 1.02, ...yel }}>NECHA PUL<br />TO‘LAYDI?</div>
