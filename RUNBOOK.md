@@ -48,7 +48,7 @@ python3 $R/tools/mkcaps.py $EP      # -> EP/rv/caps.ts (≤4 words/line, numbers
 - The ending is always `ShareEnd` (share sheet → "Yuborildi ✓" → sanoqboz lockup).
 
 ## 7. Check, audio, render
-**YUZ promo (owner rule 2026-11-04):** `render.sh` automatically appends `pipeline/assets/yuz_promo.mp4` (7 s, YUZ course ad with voice, -14 LUFS) after the ShareEnd ending of every reel. Do not remove or re-voice it; `NO_PROMO=1` only if the owner asks. Final length = reel + 7 s.
+**YUZ promo (owner rule 2026-11-04):** `render.sh` automatically appends `pipeline/assets/yuz_promo.mp4` (7 s, YUZ course ad with voice, -14 LUFS; v4 2026-11-07: money hook "$180 000 / oy" — vidIQ estimate, not views) after the ShareEnd ending of every reel. Do not remove or re-voice it; `NO_PROMO=1` only if the owner asks. Final length = reel + 7 s.
 ```bash
 bash $R/tools/use.sh $EP                              # copies rv/* into the template, typechecks, bundles
 bash $R/tools/stills.sh $EP/prev 0.3 2 4 ... (every ~2 s, 30+ stills)   # -> $EP/prev/sheet1.jpg, sheet2.jpg
