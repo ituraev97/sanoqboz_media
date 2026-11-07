@@ -1,6 +1,6 @@
 # SANOQBOZ — daily production runbook
 
-One run = **3 vertical reels (~60 s each, Uzbek Latin)** for ONE Tashkent day, published at **08:00, 13:00, 20:00 Asia/Tashkent** to Instagram (Reel), YouTube (Short) and TikTok. No Facebook.
+One run = **3 vertical reels (35–45 s each + YUZ promo, Uzbek Latin)** for ONE Tashkent day, published at **08:00, 13:00, 20:00 Asia/Tashkent** to Instagram (Reel), YouTube (Short) and TikTok. No Facebook.
 Owner talks Russian. Channel: @sanoqboz, slogan «Raqamlar gapiradi». Animated infographic explainers in the sanoqboz brand (Remotion, style in remotion/STYLE.md).
 
 ## 0. Setup (fresh container)
@@ -15,7 +15,7 @@ Chromium headless shell + ffmpeg are preinstalled. Network allowlist (owner set 
 
 ## 1. What to make
 - Target date = tomorrow (Asia/Tashkent), or today if the run starts before 05:00 Tashkent and today's daily slots are empty. Metricool `getScheduledPosts` blogId **7755543** (brand "Sanoqboz", tz Asia/Tashkent) for that date: count ONLY daily posts in the 08:00 / 13:00 / 20:00 slots (instagram+youtube+tiktok). Instagram-only trial posts of old videos at other times (10:30, 15:30, 22:15…) do NOT count. All 3 slots taken → stop and report; some taken → make only the missing ones. A slot less than 30 min away → use the nearest time 30+ min ahead.
-- Take the first `todo` row of each rubric in `backlog.md`: 08:00 **Pul hisobi**, 13:00 **Agar…**, 20:00 **Qanday ishlaydi / Ehtiyot bo‘ling**. Episode folder `episodes/NNN-slug/` (NNN = next number).
+- Owner rule 2026-11-07 (goal of the channel = bring clients to yuzeconomy.uz; data: curiosity/fun topics get 5 000–160 000 views and 30–60 s watch time, dry money/tariff/fraud topics 50–260 views and 9–24 s): take the first `todo` row of each rubric in `backlog.md`: 08:00 **Nega / Qanday — qiziq** (curiosity, regions, everyday science/tech), 13:00 **Agar…** (fun fantasy on real numbers), 20:00 **Internetda pul** (YUZ-adjacent: YouTube/Shorts income, faceless channels, AI tools, freelance — after it the YUZ promo is a natural next step). The «Zaxira» rubric (dry money / fraud topics) is used only if a main rubric runs out, and only with a surprising angle. Episode folder `episodes/NNN-slug/` (NNN = next number).
 
 ## 2. Facts (decide everything)
 - Every number in the script must come from a page you opened (stat.uz, gov.uz, kun.uz, gazeta.uz, spot.uz, official reports; Wikipedia only as a map). Write `sources.md` (claim → URL).
@@ -24,7 +24,7 @@ Chromium headless shell + ffmpeg are preinstalled. Network allowlist (owner set 
 - Safety/scam episodes: explain how to protect yourself, never a step-by-step of the scam.
 
 ## 3. Script → `script.txt` (plain, for alignment) + `prompt.txt` (same text with ElevenLabs v4 tags)
-- 140–165 words → 55–70 s after speed 1.06–1.12. Uzbek Latin with correct o‘ g‘ (U+2018) and ’.
+- **90–110 words → 35–45 s** after speed 1.06–1.12 (owner rule 2026-11-07: shorter reels so more viewers reach the YUZ promo). Hook in the first 1.5 s, twist by ~50 %, 5–7 chapters. Uzbek Latin with correct o‘ g‘ (U+2018) and ’.
 - Numbers written as words (ElevenLabs reads them right). Short sentences. Hook question in the first sentence (no intro). One light, kind joke about everyday life (ona, xotin, qaynona, Damas, to‘y, osh…). Pause «...» before the twist. Structure: hook → mechanism step by step → twist around 55 % («Endi qiziq joyi...») → payoff → last line «Buni … do‘stingizga yuboring.» (the ending scene is the share sheet). Abbreviations spelled for TTS in prompt.txt only (BHM → be-ha-em, SMS → es-em-es).
 - Tags allowed: [curious] [serious] [warm] [intrigued] [dramatic] [softly] [whispers].
 
@@ -39,7 +39,7 @@ EP=/home/claude/sanoqboz_media/episodes/NNN-slug
 python3 $P/prep.py $EP              # raw.mp3 -> nar_f.wav (silence trim + speed), words.json; prints DURATION
 python3 $R/tools/mkcaps.py $EP      # -> EP/rv/caps.ts (≤4 words/line, numbers shown as digits via "merge", keywords boxed via "kw"); prints word times
 ```
-- Pick `speed` 1.06–1.12 so the reel is 55–70 s. `merge` turns spelled-out numbers into digits on screen; every number on screen = what the voice says.
+- Pick `speed` 1.06–1.12 so the reel is 35–45 s. `merge` turns spelled-out numbers into digits on screen; every number on screen = what the voice says.
 
 ## 6. Scenes (Remotion, new style — NO stock clips, NO old canvas pipeline)
 - `EP/rv/ep.ts`: `TOPIC` (lowercase Uzbek topic line for the HUD), `TINT` ([start,end] red background pulse around the twist, or null), `END` (= last word end + ~2 s), `CH` (7–9 chapters `[start, 'name']`, first at 0, short lowercase Uzbek names), `T` (word start times you need).
@@ -60,7 +60,7 @@ Look at every sheet yourself (Read the jpg). Fix overlaps, cut-off text, empty f
 python3 $R/tools/audio.py $EP && bash $R/tools/mix.sh $EP      # music.wav + sfx.wav -> mix.wav (-14 LUFS)
 nohup bash $R/tools/render.sh $EP > $EP/render.log 2>&1 &      # ~25 min per reel on 2 cores -> EP/final.mp4, cover.jpg, final_sheet.jpg
 ```
-Wait for "RENDER DONE" in render.log (Monitor / background until-loop; never sleep in the foreground). Renders one at a time — use the waiting time to write the next episode. QA: 62–77 s (reel 55–70 s + 7 s YUZ promo at the end), ≈ −14 LUFS, Read final_sheet.jpg.
+Wait for "RENDER DONE" in render.log (Monitor / background until-loop; never sleep in the foreground). Renders one at a time — use the waiting time to write the next episode. QA: 41–52 s (reel 35–45 s + ~6.4 s YUZ promo after the 0.6 s cross-fade), ≈ −14 LUFS, Read final_sheet.jpg.
 
 ## 8. Upload (public raw URLs for Metricool)
 Branch = weekday of the Tashkent publish date: drop-mon … drop-sun. Orphan commit with only that day’s 3 files, force-push. **Commit/stash main changes (backlog, pipeline) first** — `git rm -rqf .` wipes uncommitted edits of tracked files:

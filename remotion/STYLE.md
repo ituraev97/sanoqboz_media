@@ -1,6 +1,6 @@
 # sanoqboz reel style (owner's playbook, 2026-11-03) — read before writing scenes
 
-Animated infographic explainer, 9:16 1080×1920, 30 fps, 55–70 s. One everyday question → the hidden mechanism
+Animated infographic explainer, 9:16 1080×1920, 30 fps, 35–45 s (+ YUZ promo), 5–7 chapters, fast pace. One everyday question → the hidden mechanism
 step by step → a twist in the middle → payoff → "do‘stingizga yuboring". Everything drawn in code (Remotion,
 SVG/HTML). No stock footage, no AI video, no cuts — smooth transitions only. Owner checks small details.
 
