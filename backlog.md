@@ -1,7 +1,7 @@
 # Backlog — one row per reel. Status: todo / done YYYY-MM-DD / skip (reason)
 # Owner rule 2026-11-07: daily slots = 08:00 «Nega / Qanday — qiziq», 13:00 «Agar…», 20:00 «Internetda pul». Zaxira rubrics only as fallback.
 ## 08:00 Nega / Qanday — qiziq (curiosity, regions, everyday science & tech)
-- todo | Nega qishda telefon batareyasi tez tugaydi
+- done 2026-11-08 | Nega qishda telefon batareyasi tez tugaydi
 - todo | Muz nega sirpanchiq
 - todo | QR-kod qanday ishlaydi: kvadratchalar ichida nima bor
 - todo | Nega samolyot 10 km balandda uchadi
@@ -10,7 +10,7 @@
 - todo | Lift qanday qilib uzilmaydi
 - todo | Nega qovun yozda shirin, qishda esa yo‘q
 ## 20:00 Internetda pul (YUZ-adjacent: YouTube, Shorts, AI, freelance)
-- todo | YouTube 1000 ta ko‘rish uchun qancha to‘laydi: AQSh va O‘zbekiston
+- done 2026-11-08 | YouTube 1000 ta ko‘rish uchun qancha to‘laydi: AQSh va O‘zbekiston
 - todo | «Yuzsiz» YouTube kanal nima va qanday pul topadi
 - todo | Shorts yoki uzun video: qaysi biri ko‘proq to‘laydi
 - todo | YouTube monetizatsiyasi shartlari: 1000 obunachi va 4000 soat
@@ -37,7 +37,7 @@
 - done 2026-11-05 | Agar O‘zbekiston dengizga chiqsa
 - done 2026-11-06 | Agar barcha migrantlar bir kunda qaytsa
 - done 2026-11-07 | Agar Toshkentda bir metr qor yog‘sa
-- todo | Agar hamma choy o‘rniga kofe ichsa
+- done 2026-11-08 | Agar hamma choy o‘rniga kofe ichsa
 - todo | Agar Chorsu bozori to‘liq onlayn bo‘lsa
 - todo | Agar maktablarda haftada 3 kun dam olish bo‘lsa
 ## Zaxira B — Qanday ishlaydi / Ehtiyot bo‘ling (reserve)
