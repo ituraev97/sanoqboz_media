@@ -1,0 +1,4 @@
+# 029 Agar maktablarda haftada 3 kun dam olish bo‘lsa — sources (fantasy on real numbers)
+- 11 118 general schools, 6.87 million pupils at the start of 2025/2026 (Milliy statistika qo‘mitasi) → https://anhor.uz/uzl/news/ozbekistonda-maktab-oquvchilari-soni-qariyb-7-millionga-yetdi/
+- USA: about 1 600 districts in 24 states use a four-day week (Oregon State Univ. Hallie E. Ford Center); Missouri study (SAS Institute for Missouri State Board of Education, Feb 2024): no statistically significant difference in achievement; districts that cut total instructional hours saw a negative effect → https://www.k12dive.com/news/4-day-school-week-impact-student-learning/707340
+- Note: backlog topic «Agar Chorsu bozori to‘liq onlayn bo‘lsa» skipped this run — no verifiable figures on Chorsu traders/visitors found (gazeta.uz, afisha.uz, Wikipedia checked).

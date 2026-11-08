@@ -2,7 +2,7 @@
 # Owner rule 2026-11-07: daily slots = 08:00 «Nega / Qanday — qiziq», 13:00 «Agar…», 20:00 «Internetda pul». Zaxira rubrics only as fallback.
 ## 08:00 Nega / Qanday — qiziq (curiosity, regions, everyday science & tech)
 - done 2026-11-08 | Nega qishda telefon batareyasi tez tugaydi
-- todo | Muz nega sirpanchiq
+- done 2026-11-09 | Muz nega sirpanchiq
 - todo | QR-kod qanday ishlaydi: kvadratchalar ichida nima bor
 - todo | Nega samolyot 10 km balandda uchadi
 - todo | Wi-Fi devor orqali qanday o‘tadi
@@ -11,7 +11,7 @@
 - todo | Nega qovun yozda shirin, qishda esa yo‘q
 ## 20:00 Internetda pul (YUZ-adjacent: YouTube, Shorts, AI, freelance)
 - done 2026-11-08 | YouTube 1000 ta ko‘rish uchun qancha to‘laydi: AQSh va O‘zbekiston
-- todo | «Yuzsiz» YouTube kanal nima va qanday pul topadi
+- done 2026-11-09 | «Yuzsiz» YouTube kanal nima va qanday pul topadi
 - todo | Shorts yoki uzun video: qaysi biri ko‘proq to‘laydi
 - todo | YouTube monetizatsiyasi shartlari: 1000 obunachi va 4000 soat
 - todo | MrBeast bitta videoga qancha sarflaydi va qancha topadi
@@ -38,8 +38,12 @@
 - done 2026-11-06 | Agar barcha migrantlar bir kunda qaytsa
 - done 2026-11-07 | Agar Toshkentda bir metr qor yog‘sa
 - done 2026-11-08 | Agar hamma choy o‘rniga kofe ichsa
-- todo | Agar Chorsu bozori to‘liq onlayn bo‘lsa
-- todo | Agar maktablarda haftada 3 kun dam olish bo‘lsa
+- skip (2026-11-08: no verifiable figures on Chorsu traders/visitors; retry if a source appears) | Agar Chorsu bozori to‘liq onlayn bo‘lsa
+- done 2026-11-09 | Agar maktablarda haftada 3 kun dam olish bo‘lsa
+- todo | Agar butun O‘zbekiston bir vaqtda choynak qaynatsa (elektr tarmog‘i) — added 2026-11-08 by bot
+- todo | Agar hamma Toshkentliklar bir kunda metroga tushsa — added 2026-11-08 by bot
+- todo | Agar O‘zbekistondagi barcha non bir kunda bitta tandirda yopilsa — added 2026-11-08 by bot
+- todo | Agar telefonlar bir oy zaryadsiz ishlasa — added 2026-11-08 by bot
 ## Zaxira B — Qanday ishlaydi / Ehtiyot bo‘ling (reserve)
 - done 2026-10-31 | Telegram akkaunt qanday o‘g‘irlanadi va qanday himoyalanish
 - done 2026-11-01 | «Uzumdan sovg‘a» — soxta yutuqlardan qanday saqlanish
