@@ -1,0 +1,10 @@
+Nega yomg‘ir yog‘sa, taksi narxi birdan oshib ketadi?
+Bu — yuqori talab. Bir hududda taksi chaqirayotganlar bo‘sh mashinalardan ko‘p bo‘lsa, narx oshadi. Buni dispetcher emas, tizimning o‘zi avtomatik hisoblaydi.
+Ko‘pincha uch sabab bor: yomon ob-havo, tirbandlik soatlari va katta tadbirlar.
+Yomg‘ir yog‘sa, hamma taksi chaqiradi. Hatto qaynonangiz ham — bozor ikki qadam bo‘lsa ham.
+Yandeks Pro xaritasida bunday hududlar binafsha rangda ko‘rinadi. Buyurtmada «plyus besh ming» yozuvi bo‘lsa — narxga besh ming so‘m qo‘shilgan. Yo‘lovchi ham yangi narxni ilovada ko‘radi.
+Endi qiziq joyi...
+Binafsha zonaga kirishning o‘zi yetmaydi. Buyurtma eng yaqin mos mashinaga ketadi. Ikki mashina bir xil masofada bo‘lsa — prioriteti yuqorisi oladi.
+Zonaga hamma yetib kelsa, bo‘sh mashina ko‘payadi — yuqori talab ham tugaydi. Shuning uchun yomg‘irni kutmang: xaritani oldindan kuzating va zonaga yaqinroq turing.
+Zero Taxi'da Osgop polisi bepul — u prioritetga plyus to‘rt beradi. Yordam kecha-kunduz ishlaydi, pulni besh soniyada yechasiz.
+Zero Taxi'ga ulaning — havola profilda.
