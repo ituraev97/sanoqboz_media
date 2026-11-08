@@ -440,15 +440,15 @@ export const Cover: React.FC = () =>
   <AbsoluteFill style={{ backgroundColor: '#06070a', overflow: 'hidden' }}>
     <Background t={1} />
     <Glow x={CX} y={1100} r={600} a={1} col={PURRGB} />
-    <div style={{ position: 'absolute', left: SL + 30, top: 730 }}>
+    <div style={{ position: 'absolute', left: SL + 30, top: 800 }}>
       <MapView w={SR - SL - 60} t={0} zone={1} id="mc">
         <MapAt x={250} y={210}><TopCar s={36} rot={20} /></MapAt>
-        <MapAt x={540} y={430}><TopCar s={36} rot={-70} /></MapAt>
+        <MapAt x={600} y={200}><TopCar s={36} rot={-70} /></MapAt>
         <MapAt x={460} y={300}><TopCar s={44} col="#FFE09A" rot={-90} /></MapAt>
         <MapAt x={340} y={330}><Pin s={70} /></MapAt>
       </MapView>
     </div>
-    <div style={{ position: 'absolute', left: CX + 140, top: 1240, translate: '-50% -50%', padding: '10px 22px', borderRadius: 18, background: `rgba(${PURRGB},.3)`, border: `3px solid ${PUR}`, fontFamily: HEAD, fontWeight: 700, fontSize: 64, color: WH }}>+5 000</div>
+    <div style={{ position: 'absolute', left: CX + 170, top: 1330, translate: '-50% -50%', padding: '10px 22px', borderRadius: 18, background: `rgba(${PURRGB},.3)`, border: `3px solid ${PUR}`, fontFamily: HEAD, fontWeight: 700, fontSize: 64, color: WH }}>+5 000</div>
     <div style={{ ...abs(SL, 290, SR - SL), display: 'flex', justifyContent: 'center' }}><Lockup h={96} /></div>
     <div style={{ ...abs(SL, 430, SR - SL), textAlign: 'center', fontFamily: MONO, fontSize: 32, color: GR }}>yandex go · yuqori talab · haydovchi</div>
     <div style={{ ...abs(SL, 500, SR - SL), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 118, lineHeight: 1.04, ...yel }}>NARX NEGA<br />OSHADI?</div>
