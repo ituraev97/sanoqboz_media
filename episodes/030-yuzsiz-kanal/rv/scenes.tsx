@@ -207,7 +207,7 @@ export const Cover: React.FC = () => {
     <div style={{ ...abs(SL, 300, SR - SL + 60), display: 'flex', justifyContent: 'center' }}><Lockup h={70} /></div>
     <div style={{ ...abs(SL, 400, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 34, color: GR }}>internetda pul · youtube</div>
     <div style={{ ...abs(SL, 450, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 112, lineHeight: 1.02, ...yel }}>YUZSIZ KANAL<br />PUL TOPADIMI?</div>
-    <div style={{ ...abs(SL, 1330, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 58, lineHeight: 1.15, color: GRN }}>YUZ — SHART EMAS<br /><span style={{ color: RED }}>BIR XILLIK — TAQIQ</span></div>
+    <div style={{ ...abs(SL, 1330, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 58, lineHeight: 1.15, color: GRN }}>YUZ — SHART EMAS<br /><span style={{ color: RED }}>BIR XILLIK — REKLAMASIZ</span></div>
     <div style={{ ...abs(SL, 1490, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 26, color: GR }}>YouTube qoidalari · 2025</div>
   </AbsoluteFill>;
 };
