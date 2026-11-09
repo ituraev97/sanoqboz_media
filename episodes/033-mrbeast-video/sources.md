@@ -1,0 +1,6 @@
+# 033 MrBeast bitta videoga qancha sarflaydi — sources
+- Average main-channel video costs $3–4 mln (people familiar with company financials); 2024: Feastables ≈ $250 mln sales, > $20 mln profit; media business (YouTube + Amazon show) similar sales, loss of almost $80 mln — Bloomberg via Fortune, figures from investor documents (Q1–Q3 actual + Q4 estimate) → https://fortune.com/2025/03/11/youtube-biggest-star-mrbeast-makes-more-money-chocolate-videos
+- "Train Vs Giant Pit" (July 2023): cost $3 mln, $167 000+ in ad revenue in the first ~6 days, shared by MrBeast via his X subscription (relayed by @mws) → https://www.creatorhandbook.net/mrbeast-reveals-ad-revenue-in-his-latest-high-budget-video/ ; https://ladbible.com/entertainment/celebrity/celebrity-news/mrbeast-youtube-video-earnings-twitter-subscription-339586-20230714
+- 167 000 / 3 000 000 = 5.6 % → "olti foizga ham yetmaydi" (own calculation, shown).
+- No income promise: "Daromad kafolat emas" said and shown. Feastables named as plain text only, no logo.
+- Note: two phrases («Bir misol:» and «Ya’ni video — do‘kon vitrinasi.») were cut from the generated audio to keep the reel ≤45 s; script.txt/prompt.txt reflect the final audio (raw_full.mp3 = original take).

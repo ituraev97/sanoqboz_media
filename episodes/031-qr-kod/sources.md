@@ -1,0 +1,5 @@
+# 031 QR-kod qanday ishlaydi — sources
+- Invented 1994 by Masahiro Hara's team at Denso (later Denso Wave, Toyota group) to track car parts; three corner squares = finder/position patterns for orientation from any angle; Reed–Solomon error correction levels L 7 %, M 15 %, Q 25 %, H 30 %; versions 1 (21×21) … 40 (177×177) → https://maketecheasier.com/mte-standard-qr-codes-hide-three-larger-squares-in-their-corners-so-scanners-can-orient-them-from-any-angle-while-their-strongest-reed-solomon-setting-can-restore-roughly-30-per-cent-of-damaged-codew/ ; https://maketecheasier.com/mte-masahiro-hara-and-denso-engineers-built-the-qr-code-in-1994-to-help-toyota-suppliers-scan-car-parts-from-any-angle-then-kept-the-patent-open-until-phone-cameras-and-a-2020-pandemic-turned-the-fac/
+- Max capacity (version 40): 7 089 numeric digits, 4 296 alphanumeric; "QR Code is a registered trademark of Denso Wave" → https://qrplanet.com/help/article/what-storage-capacity-does-a-qr-code-have
+- Dark module = binary 1, light = 0 (data modules; simplified on screen).
+- "Mom understands the messy house" — joke, no figures.
