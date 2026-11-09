@@ -10,7 +10,7 @@ Topic of a run = row # = day index (by date, so it works even if nothing can be 
 | 3 | Kunlik maqsadlar: 5 ta buyurtma — +32 000 | Yandex daily goals ladder (5→32 000, 10→65 000, 15→98 000, 20→130 000; vary per driver, label as example) | done 2026-11-06 |
 | 4 | Yo‘lovchi to‘lamay qochdi | what to do when a cash passenger runs off | done 2026-11-07 |
 | 5 | Surge — nega narx oshadi? | demand coefficient, how to catch peak demand | done 2026-11-08 |
-| 6 | «Aka, shu yerda to‘xtating» | where stopping is forbidden, fine (official source) | todo |
+| 6 | «Aka, shu yerda to‘xtating» | where stopping is forbidden, fine (official source) | done 2026-11-09 |
 | 7 | Buyurtmani o‘tkazib yuborish qancha turadi? | skip vs cancel vs priority points | todo |
 | 8 | Haydovchining birinchi haftasi | from connecting to first money | todo |
 | 9 | Akkaunt nega bloklanadi? | common block reasons and how to avoid | todo |
