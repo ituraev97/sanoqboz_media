@@ -4,7 +4,7 @@
 - done 2026-11-08 | Nega qishda telefon batareyasi tez tugaydi
 - done 2026-11-09 | Muz nega sirpanchiq
 - done 2026-11-10 | QR-kod qanday ishlaydi: kvadratchalar ichida nima bor
-- todo | Nega samolyot 10 km balandda uchadi
+- done 2026-11-11 | Nega samolyot 10 km balandda uchadi
 - todo | Wi-Fi devor orqali qanday o‘tadi
 - todo | Nega Samarqandga turistlar ko‘paydi: raqamlarda
 - todo | Lift qanday qilib uzilmaydi
@@ -15,7 +15,7 @@
 - skip (2026-11-09: already covered by 027 — Shorts vs long pay per 1000 views) | Shorts yoki uzun video: qaysi biri ko‘proq to‘laydi
 - skip (2026-11-09: already covered by 030 — YPP thresholds) | YouTube monetizatsiyasi shartlari: 1000 obunachi va 4000 soat
 - done 2026-11-10 | MrBeast bitta videoga qancha sarflaydi va qancha topadi
-- todo | AI bilan bitta video tayyorlash qancha turadi
+- done 2026-11-11 | AI bilan bitta video tayyorlash qancha turadi
 - todo | Frilanserlar Upwork’da qancha topadi
 - todo | Telegram kanalda bitta reklama necha pul
 ## Zaxira A — Pul hisobi (reserve: dry money topics, only with a surprising angle)
@@ -41,7 +41,7 @@
 - skip (2026-11-08: no verifiable figures on Chorsu traders/visitors; retry if a source appears) | Agar Chorsu bozori to‘liq onlayn bo‘lsa
 - done 2026-11-09 | Agar maktablarda haftada 3 kun dam olish bo‘lsa
 - done 2026-11-10 | Agar butun O‘zbekiston bir vaqtda choynak qaynatsa (elektr tarmog‘i) — added 2026-11-08 by bot
-- todo | Agar hamma Toshkentliklar bir kunda metroga tushsa — added 2026-11-08 by bot
+- done 2026-11-11 | Agar hamma Toshkentliklar bir kunda metroga tushsa — added 2026-11-08 by bot
 - todo | Agar O‘zbekistondagi barcha non bir kunda bitta tandirda yopilsa — added 2026-11-08 by bot
 - todo | Agar telefonlar bir oy zaryadsiz ishlasa — added 2026-11-08 by bot
 ## Zaxira B — Qanday ishlaydi / Ehtiyot bo‘ling (reserve)
