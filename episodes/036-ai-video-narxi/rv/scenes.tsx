@@ -74,9 +74,9 @@ const S3: React.FC<{ t: number }> = ({ t }) => {
     <Num v="$42" y={760} a={tot} size={110} col={WH} />
     <Num v={`≈ ${fmt(500000 * som)} so‘m`} y={885} a={eout(P(t, T.s500 - .5, T.s500 - .2))} size={70} />
     <Pill s="÷ 30 ta video" x={CX} y={1010} a={div} size={34} col={ICE} dark />
-    <Card x={SL + 90} y={1070} w={SR - SL - 180} a={eout(P(t, T.bittasi - .3, T.bittasi + .1))} style={{ padding: 20, textAlign: 'center', border: `2px solid ${GRN}` }}>
+    <Card x={SL + 90} y={1070} w={SR - SL - 180} a={eout(P(t, T.s17 - .45, T.s17 - .2))} style={{ padding: 20, textAlign: 'center', border: `2px solid ${GRN}` }}>
       <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 26, color: GR }}>bitta video · taxminan</div>
-      <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 84, color: GRN }}>≈ {fmt(17000 * one)} so‘m</div>
+      <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 84, color: GRN }}><span style={{ display: 'inline-block', scale: String(lerp(.8, 1, eback(one))) }}>≈ 17 000 so‘m</span></div>
     </Card>
     <Src s="1 $ = 11 974 so‘m (MB, 11.11.2026) · hisob · montaj va vaqt hisobga olinmagan" y={1330} a={eout(P(t, T.s500, T.s500 + .4))} />
     <Head t={t} t0={9.3} t1={16.45} y={490} lines={[['jami'], ['oyiga qancha?', 'y']]} size={96} />
@@ -132,10 +132,11 @@ const S6: React.FC<{ t: number }> = ({ t }) => {
 
 const S7: React.FC<{ t: number }> = ({ t }) => {
   const a = env(t, 31.4, 37.0, .3, .3);
-  const ok = eout(P(t, T.taqiq - .2, T.taqiq + .3));
+  const ok = eout(P(t, T.sun - .2, T.sun + .3));
   const tg = eio(P(t, T.belgilash - .3, T.belgilash + .3));
   return <Layer a={a} z={logZ(P(t, 31.4, 37.0), 1, 1.03)}>
     <Glow x={CX} y={980} r={540} a={.85} col="61,220,132" />
+    <div style={{ ...abs(CX - 200, 860), opacity: 1 - eout(P(t, T.lekin - .3, T.lekin + .1)) }}><Screen w={400} t={t} id="s7" /></div>
     <Pill s="AI ishlatish taqiqlanmagan ✓" x={CX} y={760} a={ok} size={36} col={GRN} />
     <Card x={SL + 40} y={860} w={SR - SL - 80} a={eout(P(t, T.lekin - .2, T.lekin + .3))} style={{ padding: '24px 30px' }}>
       <div style={{ fontFamily: MONO, fontSize: 22, color: GR }}>video yuklash · sozlamalar</div>
