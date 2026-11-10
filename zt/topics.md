@@ -11,7 +11,7 @@ Topic of a run = row # = day index (by date, so it works even if nothing can be 
 | 4 | Yo‘lovchi to‘lamay qochdi | what to do when a cash passenger runs off | done 2026-11-07 |
 | 5 | Surge — nega narx oshadi? | demand coefficient, how to catch peak demand | done 2026-11-08 |
 | 6 | «Aka, shu yerda to‘xtating» | where stopping is forbidden, fine (official source) | done 2026-11-09 |
-| 7 | Buyurtmani o‘tkazib yuborish qancha turadi? | skip vs cancel vs priority points | todo |
+| 7 | Buyurtmani o‘tkazib yuborish qancha turadi? | skip vs cancel vs priority points | done 2026-11-10 |
 | 8 | Haydovchining birinchi haftasi | from connecting to first money | todo |
 | 9 | Akkaunt nega bloklanadi? | common block reasons and how to avoid | todo |
 | 10 | Salon ifloslandi — kim to‘laydi? | same-day report, photo with tech passport, promo codes; Business/Elite receipt "may" be covered | todo |

@@ -1,0 +1,19 @@
+[curious] Buyurtmani o‘tkazib yuborish qanchaga tushadi? Pul bilan emas — ball bilan to‘laysiz.
+
+[serious] Yandex Pro'da tizim buyurtmalarni avtomatik taqsimlaydi. Har bir haydovchining prioriteti bor: noldan yuz ballgacha. Prioritet yuqori bo‘lsa — buyurtma tezroq keladi, hatto sal uzoqroq tursangiz ham.
+
+[serious] Buyurtmani qabul qilib, bajarsangiz — ball oshadi. O‘tkazib yuborsangiz — tushadi.
+
+[warm] Ko‘p haydovchi o‘ylaydi: «Bittasini o‘tkazdim-ku, nima bo‘pti?»
+
+[warm] Lekin ball har kuni qaytadan boshlanmaydi. Bugungi xato ertaga ham siz bilan. Xuddi qaynona oshidan bosh tortganingizni eslab qolgandek.
+
+[intrigued] Endi qiziq joyi...
+
+[dramatic] Qabul qilib, keyin bekor qilish — o‘tkazib yuborishdan ham qimmat. Yo‘lovchidan «bekor qiling» deb so‘rash ham ballni tushiradi. Ball nolga tushsa — buyurtmalar vaqtincha kelmay qoladi. Brending yoki reyting uchun berilgan boshqa ballar bu yerda yordam bermaydi.
+
+[warm] Nima qilish kerak? Ishlay olmasangiz — «Band» statusini yoqing. Buyurtma kelmaydi, prioritet ham tushmaydi. Ball tushgan bo‘lsa — buyurtmalarni ketma-ket, o‘tkazmasdan oling.
+
+[warm] Zero Taxi'da Osgop polisi bepul — u plyus to‘rt prioritet beradi. Savol tug‘ilsa, yordam kecha-kunduz ishlaydi.
+
+[warm] Zero Taxi'ga ulaning — havola profilda.
