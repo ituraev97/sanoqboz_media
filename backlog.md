@@ -16,7 +16,7 @@
 - skip (2026-11-09: already covered by 030 — YPP thresholds) | YouTube monetizatsiyasi shartlari: 1000 obunachi va 4000 soat
 - done 2026-11-10 | MrBeast bitta videoga qancha sarflaydi va qancha topadi
 - done 2026-11-11 | AI bilan bitta video tayyorlash qancha turadi
-- todo | Frilanserlar Upwork’da qancha topadi
+- done 2026-11-12 | Frilanserlar Upwork’da qancha topadi
 - todo | Telegram kanalda bitta reklama necha pul
 ## Zaxira A — Pul hisobi (reserve: dry money topics, only with a surprising angle)
 - done 2026-10-31 | Dollar kursi: 10 yilda so‘m bilan nima bo‘ldi
