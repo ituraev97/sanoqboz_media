@@ -13,7 +13,7 @@ Topic of a run = row # = day index (by date, so it works even if nothing can be 
 | 6 | «Aka, shu yerda to‘xtating» | where stopping is forbidden, fine (official source) | done 2026-11-09 |
 | 7 | Buyurtmani o‘tkazib yuborish qancha turadi? | skip vs cancel vs priority points | done 2026-11-10 |
 | 8 | Haydovchining birinchi haftasi | from connecting to first money | done 2026-11-11 |
-| 9 | Akkaunt nega bloklanadi? | common block reasons and how to avoid | todo |
+| 9 | Akkaunt nega bloklanadi? | common block reasons and how to avoid | done 2026-11-12 |
 | 10 | Salon ifloslandi — kim to‘laydi? | same-day report, photo with tech passport, promo codes; Business/Elite receipt "may" be covered | todo |
 | 11 | Selfi fotokontrol nima uchun kerak? | why and how to pass it first time | todo |
 | 12 | Oluvchi telefonni ko‘tarmayapti | delivery order: call via app, chat, wait, photo proof, support | todo |
