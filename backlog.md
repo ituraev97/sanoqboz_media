@@ -5,7 +5,7 @@
 - done 2026-11-09 | Muz nega sirpanchiq
 - done 2026-11-10 | QR-kod qanday ishlaydi: kvadratchalar ichida nima bor
 - done 2026-11-11 | Nega samolyot 10 km balandda uchadi
-- todo | Wi-Fi devor orqali qanday o‘tadi
+- done 2026-11-13 | Wi-Fi devor orqali qanday o‘tadi
 - todo | Nega Samarqandga turistlar ko‘paydi: raqamlarda
 - todo | Lift qanday qilib uzilmaydi
 - todo | Nega qovun yozda shirin, qishda esa yo‘q

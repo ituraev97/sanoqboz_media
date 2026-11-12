@@ -1,0 +1,15 @@
+[curious] Vay-fay qanday qilib devor orqali o‘tadi? Yorug‘lik o‘tmaydi-ku!
+
+[serious] Vay-fay — bu radio to‘lqin. Uning bitta to‘lqini taxminan o‘n ikki santimetr. U g‘isht va gips ichidan o‘tib ketadi, lekin har devorda kuch yo‘qotadi.
+
+G‘isht devordan keyin signal olti barobar kuchsizlanadi. Beton devordan keyin — o‘n olti barobar.
+
+[warm] Hatto odam ham to‘sadi: tanamiz asosan suv.
+
+[intrigued] Endi qiziq joyi...
+
+[dramatic] Mikroto‘lqinli pech ham deyarli shu chastotada ishlaydi: Vay-fay ikki butun to‘rt, pech ikki butun qirq besh gigagers. Pech kamida sakkiz yuz vatt, router esa ko‘pi bilan yuz millivatt. Sakkiz ming barobar farq!
+
+[serious] Pechning temir qutisi bu kuchni ushlaydi, lekin ozgina chiqib ketadi. [warm] Shuning uchun onangiz ovqat isitsa, serial qotib qoladi.
+
+[warm] Buni routerni shkafga yashirgan do‘stingizga yuboring.
