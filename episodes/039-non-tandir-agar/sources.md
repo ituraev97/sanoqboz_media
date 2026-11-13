@@ -1,0 +1,11 @@
+# 039 Agar O‘zbekistondagi barcha non bir kunda bitta tandirda yopilsa — sources
+- O‘zbekiston doimiy aholisi 38 236 704 kishi (1.01.2026, Milliy statistika qo‘mitasi) → https://yuz.uz/uz/news/ozbekiston-aholisi-382-mlndan-oshdi
+- Non mahsulotlari iste’moli bir kishiga yiliga ~171 kg (un ekvivalentida, FAO, so‘nggi 10 yil o‘rtacha) — Markaziy bank sharhi → https://cbu.uz/upload/iblock/f7a/onnzpxhmzoni7z3cy2z35ja9leatkwi2/non-mahsulotlari.pdf
+- Diametri 1,2 m tandirga 14–18 ta Samarqand noni sig‘adi; 50 kg undan 103–110 ta non; bir non 700–800 g → https://uz.kursiv.media/uz/2025-08-12/samarqand-noni-biznes-va-milliylik-uygunligi/
+- Tandirda non 10–15 daqiqada pishadi (400–500 °C) → https://non.uz/non-pishirish
+- Own calculations (shown as "taxminan"/chips):
+  - 171 kg ÷ 365 ≈ 0,47 kg un/kun; 50 kg ÷ ~106 non ≈ 0,47 kg un/non → "kuniga taxminan bitta non".
+  - 38 236 704 ÷ 16 ≈ 2 389 800 yopish ("qariyb 2,4 mln").
+  - 2 389 800 × 15 daq = 35,8 mln daqiqa ≈ 68 yil (to‘xtovsiz).
+  - Bir yopishda hammasi: 2,39 mln × maydon → diametr 1,2 m × √2 389 800 ≈ 1 855 m ("qariyb 2 km").
+- Fantasy scenario, clearly labelled "Agar…".
