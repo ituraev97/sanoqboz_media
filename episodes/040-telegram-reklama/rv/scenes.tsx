@@ -218,11 +218,11 @@ export const Cover: React.FC = () => {
   return <AbsoluteFill style={{ backgroundColor: '#06070a', overflow: 'hidden' }}>
     <Background t={t} />
     <Glow x={CX + 40} y={1040} r={600} a={1} />
-    <div style={{ ...abs(CX + 40 - 175, 720) }}><Phone w={350} id="cv"><Feed w={330} hl={1} views="12.4K" /></Phone></div>
+    <div style={{ ...abs(CX + 40 - 165, 740) }}><Phone w={330} id="cv"><Feed w={330} hl={1} views="12.4K" /></Phone></div>
     <div style={{ ...abs(CX + 150, 1080), rotate: '-12deg' }}><Mega w={280} id="mc" pulse={.9} /></div>
     <div style={{ ...abs(SL, 300, SR - SL + 60), display: 'flex', justifyContent: 'center' }}><Lockup h={70} /></div>
     <div style={{ ...abs(SL, 400, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 34, color: GR }}>internetda pul · telegram</div>
-    <div style={{ ...abs(SL, 450, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 112, lineHeight: 1.02, ...yel }}>TELEGRAMDA 1 POST<br />NECHA PUL?</div>
+    <div style={{ ...abs(SL, 450, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 100, lineHeight: 1.04, whiteSpace: 'nowrap', ...yel }}>TELEGRAMDA 1 POST<br />NECHA PUL?</div>
     <div style={{ ...abs(SL, 1440, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 58, lineHeight: 1.15, color: GRN }}>300 MINGDAN 23 MLN GACHA<br /><span style={{ color: RED }}>OBUNACHI ≠ NARX</span></div>
     <div style={{ ...abs(SL, 1600, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 26, color: GR }}>manba: spot.uz · 2025</div>
   </AbsoluteFill>;
