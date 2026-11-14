@@ -17,7 +17,7 @@
 - done 2026-11-10 | MrBeast bitta videoga qancha sarflaydi va qancha topadi
 - done 2026-11-11 | AI bilan bitta video tayyorlash qancha turadi
 - done 2026-11-12 | Frilanserlar Upwork’da qancha topadi
-- todo | Telegram kanalda bitta reklama necha pul
+- done 2026-11-15 | Telegram kanalda bitta reklama necha pul
 ## Zaxira A — Pul hisobi (reserve: dry money topics, only with a surprising angle)
 - done 2026-10-31 | Dollar kursi: 10 yilda so‘m bilan nima bo‘ldi
 - done 2026-11-01 | Toshkentda kvartira — necha yillik o‘rtacha oylik
