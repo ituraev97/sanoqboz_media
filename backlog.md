@@ -6,7 +6,7 @@
 - done 2026-11-10 | QR-kod qanday ishlaydi: kvadratchalar ichida nima bor
 - done 2026-11-11 | Nega samolyot 10 km balandda uchadi
 - done 2026-11-13 | Wi-Fi devor orqali qanday o‘tadi
-- todo | Nega Samarqandga turistlar ko‘paydi: raqamlarda
+- done 2026-11-16 | Nega Samarqandga turistlar ko‘paydi: raqamlarda
 - todo | Lift qanday qilib uzilmaydi
 - todo | Nega qovun yozda shirin, qishda esa yo‘q
 ## 20:00 Internetda pul (YUZ-adjacent: YouTube, Shorts, AI, freelance)
