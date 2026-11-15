@@ -245,7 +245,7 @@ export const Cover: React.FC = () => {
     <div style={{ ...abs(CX + 40 - 230, 760) }}><Portal w={460} id="cv" lit={1} /></div>
     <div style={{ ...abs(SL, 300, SR - SL + 60), display: 'flex', justifyContent: 'center' }}><Lockup h={70} /></div>
     <div style={{ ...abs(SL, 400, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 34, color: GR }}>nega? · samarqand turizmi</div>
-    <div style={{ ...abs(SL, 450, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 104, lineHeight: 1.04, whiteSpace: 'nowrap', ...yel }}>SAMARQANDGA TURIST<br />NEGA ×12?</div>
+    <div style={{ ...abs(SL, 450, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 92, lineHeight: 1.06, whiteSpace: 'nowrap', ...yel }}>SAMARQANDGA TURIST<br />NEGA ×12?</div>
     <div style={{ ...abs(SL, 1440, SR - SL + 60), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 58, lineHeight: 1.15, color: GRN }}>239 MING → 3 MLN+<br /><span style={{ color: RED }}>MAMLAKATGA: 4 DAN 3 TASI QO‘SHNI</span></div>
     <div style={{ ...abs(SL, 1600, SR - SL + 60), textAlign: 'center', fontFamily: MONO, fontSize: 26, color: GR }}>manba: xs.uz · spot.uz · 2025</div>
   </AbsoluteFill>;
