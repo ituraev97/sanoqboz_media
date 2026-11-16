@@ -256,3 +256,34 @@ export const BigNum: React.FC<{ v: string; sub?: string; x?: number; y: number; 
     <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: size, lineHeight: 1, color: col, textShadow: '0 6px 30px rgba(0,0,0,.55)' }}>{v}</div>
     {sub && <div style={{ marginTop: 8, fontFamily: SANS, fontWeight: 800, fontSize: 30, color: WH, letterSpacing: 1, textTransform: 'uppercase', textShadow: '0 3px 12px rgba(0,0,0,.8)' }}>{sub}</div>}
   </div>;
+
+/* ---------- real glTF models (public/models/*.glb) ---------- */
+import { delayRender, continueRender, staticFile } from 'remotion';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+const GLB: Record<string, Promise<THREE.Group>> = {};
+const loadGlb = (f: string) => (GLB[f] ??= new GLTFLoader().loadAsync(staticFile(`models/${f}`)).then((g) => g.scene));
+export const useGlb = (f: string) => {
+  const [g, setG] = React.useState<THREE.Group | null>(null);
+  const [h] = React.useState(() => delayRender(`glb ${f}`));
+  React.useEffect(() => { loadGlb(f).then((s) => setG(s)).catch((e) => { console.error('glb', f, e); continueRender(h); }); }, [f, h]);
+  const advance = useThree((s) => s.advance);
+  React.useEffect(() => { if (g) { const id = requestAnimationFrame(() => { advance(performance.now()); requestAnimationFrame(() => { advance(performance.now()); continueRender(h); }); }); return () => cancelAnimationFrame(id); } }, [g, h, advance]);
+  return g;
+};
+/* CarConcept (Khronos glTF sample, CC BY 4.0, Eric Chadwick / Darmstadt Graphics Group). Fit to length L along +x. */
+export const GlbCar: React.FC<{ file?: string; L?: number; x?: number; z?: number; ry?: number; yaw?: number; xray?: number; plate?: [string, string] }> = ({ file = 'carconcept.glb', L = 4.6, x = 0, z = 0, ry = 0, yaw = 0, xray = 0, plate = ['01', 'A 777 AA'] }) => {
+  const src = useGlb(file);
+  const obj = useMemo(() => {
+    if (!src) return null;
+    const o = src.clone(true); o.updateMatrixWorld(true); const box = new THREE.Box3().setFromObject(o); const sz = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3());
+    const k = L / Math.max(sz.x, sz.z); o.position.set(-c.x * k, -box.min.y * k, -c.z * k); o.scale.setScalar(k);
+    const wrap = new THREE.Group(); wrap.add(o);
+    const ptex = plateTex(plate[0], plate[1]);
+    o.traverse((m: any) => { if (m.isMesh) { m.material = m.material.clone(); if (/plate/i.test(m.name)) { m.material.map = ptex; m.material.color = new THREE.Color('#fff'); } } });
+    return wrap;
+  }, [src, L, plate[0], plate[1]]);
+  if (!obj) return null;
+  obj.traverse((m: any) => { if (m.isMesh) { const body = /^Body|Paint|Glass/i.test(m.name) || /Paint|Glass/i.test(m.material.name ?? ''); const op = body ? 1 - xray * .88 : 1;
+    m.material.transparent = op < 1 || m.material.transparent; m.material.opacity = op; m.material.depthWrite = op > .5; } });
+  return <group position={[x, 0, z]} rotation={[0, ry, 0]}><primitive object={obj} rotation={[0, yaw, 0]} /></group>;
+};
