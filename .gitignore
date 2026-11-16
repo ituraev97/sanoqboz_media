@@ -18,3 +18,4 @@ remotion/build2/
 remotion/build3/
 episodes/**/prev2/
 remotion/public/models/*.glb
+remotion/build_*/
