@@ -1,3 +1,18 @@
+## Vau / Che? (3D, asosiy — owner rule 2026-11-17)
+| status | mavzu | 3D model | ilgak |
+|---|---|---|---|
+| done 2026-11-17 | Maybaxda sakrashni o‘rganamiz (E-Active Body Control, Free Driving Assist) | Maybach GLS 600 | mashina joyida sakraydi |
+| todo | Nega poyezd g‘ildiraklari konus shaklida? (differensialsiz burilish) | poyezd / vagon g‘ildirak juftligi | g‘ildirak relsdan tushmaydi — sababi shakl |
+| todo | Formula 1 mashinasi tunnel shiftida teskari yura oladimi? (prijim kuchi > vazn) | F1 bolid | teskari haydash |
+| todo | Nega samolyot illyuminatorlari dumaloq? (Comet halokatlari) | yo‘lovchi samolyoti | kvadrat oyna samolyotni yorgan |
+| todo | Mashina oynasidagi qora nuqtalar nima uchun? (frit) | sedan oynasi | hamma ko‘radi, hech kim bilmaydi |
+| todo | Nega kemalarning tagi qizil? (antifouling bo‘yoq) | yuk kemasi | qizil — tasodif emas |
+| todo | Nega samolyot qanoti uchi yuqoriga qayrilgan? (vinglet, yoqilg‘i tejash) | samolyot | kichik «qayrilma» — millionlab litr |
+| todo | Rolls-Royce eshigida soyabon yashiringan | Rolls-Royce | eshikdan soyabon chiqadi |
+| todo | Nega samolyot shinalari qo‘nishda yorilmaydi? (azot, bosim) | samolyot shassisi | 250 km/soat da yerga tegadi |
+| todo | Cybertruck nega bunchalik burchakli? (zanglamas po‘lat shtamplanmaydi) | Cybertruck | dizayn emas — fizika |
+| todo | Nega Boeing 747 tepasida «do‘ngcha» bor? | Boeing 747 | ikkinchi qavat sababi |
+
 # Backlog — one row per reel. Status: todo / done YYYY-MM-DD / skip (reason)
 # Owner rule 2026-11-07: daily slots = 08:00 «Nega / Qanday — qiziq», 13:00 «Agar…», 20:00 «Internetda pul». Zaxira rubrics only as fallback.
 ## 08:00 Nega / Qanday — qiziq (curiosity, regions, everyday science & tech)

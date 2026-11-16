@@ -64,11 +64,11 @@ export const plateTex = (region: string, main: string) => canvasTex(1040, 224, (
 const TUBES: [number, number, number][] = [[-7, -16, 7], [-3.4, -19, 8], [-.6, -15, 6], [3.0, -18, 7.5], [6.2, -15.5, 6.5], [10, -19, 8], [-11, -18, 8], [13.5, -16, 7]];
 export const Tubes: React.FC = () => <>{TUBES.map(([x, z, h], i) => (
   <mesh key={i} position={[x, 3.2 + h / 2, z]}><boxGeometry args={[.26, h, .26]} /><meshBasicMaterial color="#ffffff" toneMapped={false} /></mesh>))}</>;
-export const Floor: React.FC<{ op?: number }> = ({ op = .92 }) => {
+export const Floor: React.FC<{ op?: number; col?: string }> = ({ op = .92, col = '#26292e' }) => {
   const alpha = useMemo(() => radial('#ffffff', '#000000'), []);
   return <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} renderOrder={1}>
     <circleGeometry args={[26, 64]} />
-    <meshStandardMaterial color="#26292e" roughness={.3} metalness={.3} transparent opacity={op} alphaMap={alpha} depthWrite={false} />
+    <meshStandardMaterial color={col} roughness={.3} metalness={.3} transparent opacity={op} alphaMap={alpha} depthWrite={false} />
   </mesh>;
 };
 export const Shadow: React.FC<{ x?: number; z?: number; rot?: number; len?: number; a?: number }> = ({ x = 0, z = 0, rot = 0, len = 5.6, a = .75 }) => {
@@ -76,14 +76,19 @@ export const Shadow: React.FC<{ x?: number; z?: number; rot?: number; len?: numb
   return <mesh rotation={[-Math.PI / 2, 0, rot]} position={[x, .004, z]} renderOrder={2}><planeGeometry args={[len, 2.7]} /><meshBasicMaterial map={tex} transparent opacity={a} depthWrite={false} /></mesh>;
 };
 /* the whole set: real objects + a mirrored copy under a semi-transparent floor = glossy reflection */
-export const Studio: React.FC<{ children: (mirror: boolean) => React.ReactNode; exp?: number }> = ({ children, exp = 1 }) => <>
+/* theme 'dark' = grey studio with light tubes (reference look); 'light' = warm cream studio (owner 2026-11-17: "фон приятный") */
+export const BG = {
+  dark: 'radial-gradient(ellipse 90% 60% at 50% 38%, #6a7079 0%, #474c54 38%, #2a2d33 70%, #1b1d21 100%)',
+  light: 'radial-gradient(ellipse 95% 62% at 50% 40%, #fbf7f1 0%, #efe8dd 40%, #ddd3c4 72%, #c9bfae 100%)',
+};
+export const Studio: React.FC<{ children: (mirror: boolean) => React.ReactNode; exp?: number; theme?: 'dark' | 'light' }> = ({ children, exp = 1, theme = 'dark' }) => <>
   <Env exp={exp} />
-  <ambientLight intensity={.25} />
-  <directionalLight position={[3, 8, 5]} intensity={1.3} />
-  <directionalLight position={[-6, 4, -3]} intensity={.5} color="#cfe0ff" />
-  <Tubes />
+  <ambientLight intensity={theme === 'light' ? .55 : .25} />
+  <directionalLight position={[3, 8, 5]} intensity={theme === 'light' ? 1.6 : 1.3} color={theme === 'light' ? '#fff4e6' : '#ffffff'} />
+  <directionalLight position={[-6, 4, -3]} intensity={.5} color={theme === 'light' ? '#e8eeff' : '#cfe0ff'} />
+  {theme === 'dark' && <Tubes />}
   <group scale={[1, -1, 1]}>{children(true)}</group>
-  <Floor />
+  <Floor col={theme === 'light' ? '#d9d0c2' : '#26292e'} op={theme === 'light' ? .9 : .92} />
   {children(false)}
 </>;
 
@@ -242,9 +247,9 @@ export const Barrier: React.FC<{ x: number; a?: number }> = ({ x, a = 1 }) => <g
 export const TopPill: React.FC<{ s: string; a: number; y?: number }> = ({ s, a, y = 350 }) => a <= 0 ? null :
   <div style={{ position: 'absolute', left: W / 2, top: y, translate: '-50% -50%', opacity: a, padding: '14px 30px', borderRadius: 40, background: 'rgba(20,22,26,.42)', backdropFilter: 'blur(6px)', border: '1px solid rgba(255,255,255,.12)', color: '#fff', fontFamily: SANS, fontWeight: 800, fontSize: 32, letterSpacing: 1.5, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>{s}</div>;
 /* dot callout at a projected 3D point, label above with a thin leader */
-export const Callout: React.FC<{ at: [number, number]; s: string; a: number; col?: string; up?: number; side?: number }> = ({ at, s, a, col = Y, up = 120, side = 0 }) => a <= 0 ? null : <>
+export const Callout: React.FC<{ at: [number, number]; s: string; a: number; col?: string; up?: number; side?: number; ink?: string }> = ({ at, s, a, col = Y, up = 120, side = 0, ink = 'rgba(255,255,255,.75)' }) => a <= 0 ? null : <>
   <svg width={W} height={H} style={{ position: 'absolute', left: 0, top: 0, opacity: a }}>
-    <line x1={at[0]} y1={at[1]} x2={at[0] + side} y2={at[1] - up * a} stroke="rgba(255,255,255,.75)" strokeWidth={2} />
+    <line x1={at[0]} y1={at[1]} x2={at[0] + side} y2={at[1] - up * a} stroke={ink} strokeWidth={2} />
     <circle cx={at[0]} cy={at[1]} r={7} fill={col} stroke="#fff" strokeWidth={2} />
   </svg>
   <div style={{ position: 'absolute', left: at[0] + side, top: at[1] - up * a, translate: '-50% -100%', opacity: a, display: 'flex', alignItems: 'center', gap: 10, padding: '10px 20px', borderRadius: 30, background: 'rgba(16,18,22,.62)', border: '1px solid rgba(255,255,255,.14)', color: '#fff', fontFamily: SANS, fontWeight: 800, fontSize: 26, letterSpacing: 1, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
@@ -253,7 +258,7 @@ export const Callout: React.FC<{ at: [number, number]; s: string; a: number; col
 </>;
 export const BigNum: React.FC<{ v: string; sub?: string; x?: number; y: number; a: number; col?: string; size?: number }> = ({ v, sub, x = W / 2, y, a, col = Y, size = 170 }) => a <= 0 ? null :
   <div style={{ position: 'absolute', left: x, top: y, translate: '-50% -50%', opacity: a, scale: String(.85 + .15 * a), textAlign: 'center' }}>
-    <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: size, lineHeight: 1, color: col, textShadow: '0 6px 30px rgba(0,0,0,.55)' }}>{v}</div>
+    <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: size, lineHeight: 1, whiteSpace: 'nowrap', color: col, textShadow: '0 6px 30px rgba(0,0,0,.55)' }}>{v}</div>
     {sub && <div style={{ marginTop: 8, fontFamily: SANS, fontWeight: 800, fontSize: 30, color: WH, letterSpacing: 1, textTransform: 'uppercase', textShadow: '0 3px 12px rgba(0,0,0,.8)' }}>{sub}</div>}
   </div>;
 
@@ -270,20 +275,65 @@ export const useGlb = (f: string) => {
   React.useEffect(() => { if (g) { const id = requestAnimationFrame(() => { advance(performance.now()); requestAnimationFrame(() => { advance(performance.now()); continueRender(h); }); }); return () => cancelAnimationFrame(id); } }, [g, h, advance]);
   return g;
 };
-/* CarConcept (Khronos glTF sample, CC BY 4.0, Eric Chadwick / Darmstadt Graphics Group). Fit to length L along +x. */
-export const GlbCar: React.FC<{ file?: string; L?: number; x?: number; z?: number; ry?: number; yaw?: number; xray?: number; plate?: [string, string] }> = ({ file = 'carconcept.glb', L = 4.6, x = 0, z = 0, ry = 0, yaw = 0, xray = 0, plate = ['01', 'A 777 AA'] }) => {
+/* GlbCar: any car .glb, fitted to length L, front turned to +x (found from headlight / front-wheel nodes), body split from wheels
+   so the body can lift / pitch / roll on its suspension (bounce). Wheel parts: names with Wheel|Tire|Tyre|Rim|Brake|Disc|Axle.
+   CarConcept = Khronos glTF sample, CC BY 4.0, Eric Chadwick / Darmstadt Graphics Group. */
+const WHEEL_RE = /(^|[^g])wheel|tire|tyre|(^|_)rim|brake|disc|axle|caliper/i;
+const isWheel = (o: THREE.Object3D) => { const mn = ((o as any).material?.name ?? '') as string; if (WHEEL_RE.test(mn) && !/steering/i.test(mn)) return true; for (let p: THREE.Object3D | null = o; p; p = p.parent) if (/(^|[^g])wheel|tire|tyre|(^|_)rim|brake|disc|axle|caliper/i.test(p.name) && !/steering/i.test(p.name)) return true; return false; };
+export type Rigged = { wrap: THREE.Group; body: THREE.Group; wheels: THREE.Vector3[]; size: THREE.Vector3; mats: THREE.Material[] };
+export type PaintMap = [RegExp, string, number, number, Record<string, unknown>?][];
+export const useRig = (file: string, L: number, plate: [string, string], paintMap?: PaintMap) => {
   const src = useGlb(file);
-  const obj = useMemo(() => {
+  return useMemo<Rigged | null>(() => {
     if (!src) return null;
-    const o = src.clone(true); o.updateMatrixWorld(true); const box = new THREE.Box3().setFromObject(o); const sz = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3());
-    const k = L / Math.max(sz.x, sz.z); o.position.set(-c.x * k, -box.min.y * k, -c.z * k); o.scale.setScalar(k);
-    const wrap = new THREE.Group(); wrap.add(o);
-    const ptex = plateTex(plate[0], plate[1]);
-    o.traverse((m: any) => { if (m.isMesh) { m.material = m.material.clone(); if (/plate/i.test(m.name)) { m.material.map = ptex; m.material.color = new THREE.Color('#fff'); } } });
-    return wrap;
-  }, [src, L, plate[0], plate[1]]);
-  if (!obj) return null;
-  obj.traverse((m: any) => { if (m.isMesh) { const body = /^Body|Paint|Glass/i.test(m.name) || /Paint|Glass/i.test(m.material.name ?? ''); const op = body ? 1 - xray * .88 : 1;
-    m.material.transparent = op < 1 || m.material.transparent; m.material.opacity = op; m.material.depthWrite = op > .5; } });
-  return <group position={[x, 0, z]} rotation={[0, ry, 0]}><primitive object={obj} rotation={[0, yaw, 0]} /></group>;
+    const o = src.clone(true); o.updateMatrixWorld(true);
+    const box = new THREE.Box3().setFromObject(o); const sz = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3());
+    const k = L / Math.max(sz.x, sz.z);
+    const wrap = new THREE.Group(), inner = new THREE.Group(); wrap.add(inner); inner.add(o);
+    o.position.set(-c.x * k, -box.min.y * k, -c.z * k); o.scale.setScalar(k);
+    // turn so the long axis is x and the front (headlights / front wheels) points +x
+    if (sz.z > sz.x) inner.rotation.y = Math.PI / 2;
+    inner.updateMatrixWorld(true);
+    let front: THREE.Vector3 | null = null;
+    o.traverse((m: any) => { if (!front && (/headlight|wheelfront|front/i.test(m.name) || (m.isMesh && /headlight|front_?light/i.test(m.material?.name ?? '')))) front = new THREE.Box3().setFromObject(m).getCenter(new THREE.Vector3()); });
+    if (front && (front as THREE.Vector3).x < 0) inner.rotation.y += Math.PI;
+    wrap.updateMatrixWorld(true);
+    const fb = new THREE.Box3().setFromObject(wrap), fsz = fb.getSize(new THREE.Vector3());
+    const body = new THREE.Group(); body.position.set(0, fsz.y * .45, 0); wrap.add(body); body.updateMatrixWorld(true);
+    const ptex = plateTex(plate[0], plate[1]); const meshes: THREE.Mesh[] = []; const mats: THREE.Material[] = [];
+    wrap.traverse((m: any) => { if (m.isMesh) meshes.push(m); });
+    const wheelPts: THREE.Vector3[] = [];
+    for (const m of meshes) {
+      m.material = (m.material as THREE.Material).clone(); mats.push(m.material as THREE.Material);
+      if (paintMap) { const nm = (m.material as any).name ?? ''; const hit = paintMap.find(([re]) => re.test(nm)); if (hit) { const [, col, met, rou, extra] = hit; const mm = m.material as any;
+        const nmat = new THREE.MeshPhysicalMaterial({ color: col, metalness: met, roughness: rou, ...(extra ?? {}) }); nmat.name = nm; m.material = nmat; } }
+      if (/plate/i.test(m.name) || /plate/i.test(m.parent?.name ?? '')) { (m.material as any).map = ptex; (m.material as any).color = new THREE.Color('#fff'); }
+      if (isWheel(m)) { // sample vertices: wheel meshes may be merged across all four wheels
+        const pos = m.geometry.attributes.position as THREE.BufferAttribute; const v = new THREE.Vector3(); const st = Math.max(1, Math.floor(pos.count / 400));
+        for (let i = 0; i < pos.count; i += st) wheelPts.push(v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld).clone());
+      } else body.attach(m);
+    }
+    // 4 wheel centres = mean of wheel parts per quadrant
+    const q = [[1, 1], [1, -1], [-1, 1], [-1, -1]].map(([sx, sz2]) => { const pts = wheelPts.filter((p) => Math.sign(p.x || 1) === sx && Math.sign(p.z || 1) === sz2);
+      const v = new THREE.Vector3(); pts.forEach((p) => v.add(p)); return pts.length ? v.multiplyScalar(1 / pts.length) : new THREE.Vector3(sx * fsz.x * .3, fsz.y * .2, sz2 * fsz.z * .4); });
+    return { wrap, body, wheels: q, size: fsz, mats };
+  }, [src, L, plate[0], plate[1], paintMap]);
+};
+export const Coil: React.FC<{ from: V3; h: number; a: number; hot?: number }> = ({ from, h, a, hot = 0 }) => {
+  const geo = useMemo(() => { const pts: THREE.Vector3[] = []; for (let i = 0; i <= 160; i++) { const u = i / 160, ang = u * Math.PI * 2 * 7; pts.push(new THREE.Vector3(Math.cos(ang) * .1, u, Math.sin(ang) * .1)); }
+    return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 320, .018, 6, false); }, []);
+  return <mesh geometry={geo} position={from} scale={[1, Math.max(.05, h), 1]}><meshBasicMaterial color={hot > .5 ? '#7CF7FF' : '#2F8CFF'} transparent opacity={a} toneMapped={false} depthTest={false} /></mesh>;
+};
+export const GlbCar: React.FC<{ file?: string; L?: number; x?: number; z?: number; ry?: number; xray?: number; plate?: [string, string]; lift?: number; pitch?: number; roll?: number; springs?: number; hotWheel?: number; tint?: string; paint?: PaintMap }> = ({ file = 'carconcept.glb', L = 4.6, x = 0, z = 0, ry = 0, xray = 0, plate = ['01', 'A 777 AA'], lift = 0, pitch = 0, roll = 0, springs = 0, hotWheel = -1, tint, paint }) => {
+  const r = useRig(file, L, plate, paint);
+  if (!r) return null;
+  r.body.position.y = r.size.y * .45 + lift; r.body.rotation.set(roll, 0, pitch);
+  r.wrap.traverse((m: any) => { if (m.isMesh) { const nm = `${m.name} ${m.parent?.name ?? ''} ${m.material.name ?? ''}`; const shell = !isWheel(m) && /^Body|Body\.|Paint|Glass|Window|Door|Hood|Roof|Panel|Pillar|primary|secondary|light/i.test(nm);
+    const op = shell ? 1 - xray * .86 : 1; m.material.transparent = op < 1 || /glass|window/i.test(nm); m.material.opacity = /glass|window/i.test(nm) ? Math.min(op, m.material.opacity ?? 1) : op; m.material.depthWrite = op > .5;
+    if (tint && /paint/i.test(m.material.name ?? '')) m.material.color = new THREE.Color(tint); } });
+  return <group position={[x, 0, z]} rotation={[0, ry, 0]}>
+    <primitive object={r.wrap} />
+    {springs > .01 && r.wheels.map((w, i) => { const top = r.size.y * .5 + lift + (i < 2 ? -pitch : pitch) * r.size.x * .3 + (w.z > 0 ? roll : -roll) * r.size.z * .4;
+      return <Coil key={i} from={[w.x, w.y, w.z * .82]} h={Math.max(.1, top - w.y)} a={springs} hot={hotWheel === i ? 1 : 0} />; })}
+  </group>;
 };
