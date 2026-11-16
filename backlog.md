@@ -43,7 +43,7 @@
 - done 2026-11-10 | Agar butun O‘zbekiston bir vaqtda choynak qaynatsa (elektr tarmog‘i) — added 2026-11-08 by bot
 - done 2026-11-11 | Agar hamma Toshkentliklar bir kunda metroga tushsa — added 2026-11-08 by bot
 - done 2026-11-14 | Agar O‘zbekistondagi barcha non bir kunda bitta tandirda yopilsa — added 2026-11-08 by bot
-- todo | Agar telefonlar bir oy zaryadsiz ishlasa — added 2026-11-08 by bot
+- done 2026-11-17 | Agar telefonlar bir oy zaryadsiz ishlasa — added 2026-11-08 by bot
 ## Zaxira B — Qanday ishlaydi / Ehtiyot bo‘ling (reserve)
 - done 2026-10-31 | Telegram akkaunt qanday o‘g‘irlanadi va qanday himoyalanish
 - done 2026-11-01 | «Uzumdan sovg‘a» — soxta yutuqlardan qanday saqlanish

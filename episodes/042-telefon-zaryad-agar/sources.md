@@ -1,0 +1,11 @@
+# 042 Agar telefonlar bir oy zaryadsiz ishlasa — sources
+- Smartfonlarning o‘rtacha batareya sig‘imi dunyoda 5 291 mAh (2026-yil yanvar, Counterpoint Research) → https://www.phonearena.com/news/counterpoint-research-on-average-global-smartphone-battery-capacity_id179174 (Counterpoint: https://counterpointresearch.com/en/reports/Smartphone%20Battery%20Capacity-Baselines-Toward-6000mAh-and-Above%20-After-5000mAh-Becomes-Standard-Feature)
+- Telefonlardagi litiy-kobalt (LCO) batareyaning solishtirma energiyasi 150–200 Wh/kg (maxsus elementlar 240 gacha) → https://batteryuniversity.com/article/types-of-lithium-ion
+- Mobil internet abonentlari 33,3 mln (1.01.2026, Milliy statistika qo‘mitasi) → https://stat.uz/en/press-center/news-of-committee/69655-zbekistonda-mobil-internet-abonentlari-soni-10-jilda-4-3-barobarga-oshgan-4
+- Aholi uchun elektr tarifi: oyiga 200 kVt·soatgacha 650 so‘m/kVt·soat (1.06.2026 dan, VMQ-243) → https://www.spot.uz/oz/2026/06/01/energy-tariffs/
+- Own calculations (shown as "taxminan"/"hisob" chips; assumption: 1 to‘liq zaryad kuniga, nominal 3,85 V):
+  - 5 000 mAh × 3,85 V ≈ 19,25 Wh = 1 kunlik zaryad.
+  - 30 kun × 19,25 Wh = 577,5 Wh → 577,5 ÷ 200 Wh/kg ≈ 2,9 kg ("qariyb 3 kg"); bugungi batareya 19,25 ÷ 200 ≈ 96 g.
+  - 0,5775 kVt·soat × 650 so‘m ≈ 375 so‘m / oy.
+  - 33,3 mln × 0,5775 kVt·soat ≈ 19,2 mln kVt·soat / oy (taxminan, har abonent = 1 telefon deb).
+- Fantasy scenario, clearly labelled "Agar…".
