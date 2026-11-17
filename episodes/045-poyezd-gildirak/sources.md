@@ -1,0 +1,5 @@
+- Practical Engineering (Grady Hillhouse), "Why Are Rails Shaped Like That?" — wheels are conical and self-center; solid axle = both wheels turn at the same rate; on curves outer wheel rides on the larger diameter near the flange; US standard taper 1:20; hunting: https://practical.engineering/blog/2023/10/3/why-are-rails-shaped-like-that
+- RailwayNews wiki, "Railway Wheelsets Explained" — wheels press-fitted to the axle (turn together); tread conicity 1:20–1:40; S1002 profile 1:20; flange = safety backstop, conical tread does most steering on curves: https://railwaynews.net/wiki/the-foundation-of-movement-railway-wheelsets-explained
+- Lesics, "Why are the train wheels coned shaped" — self-centering force; differential action without a differential; flanges as extra safety: https://www.lesics.com/why-are-the-train-wheel-coned-shaped.html
+- 3D model: "Bogie | Type Y25" by Víctor Hernández (Sketchfab, CC BY): https://sketchfab.com/3d-models/59b720c2616748729910d341d916d6ad
+- Wheelset close-ups (cone, axle, rails) are a schematic 3D drawing with the taper exaggerated for visibility (shown on screen as "sxema, nishab kattalashtirilgan").

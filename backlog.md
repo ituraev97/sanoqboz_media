@@ -2,7 +2,7 @@
 | status | mavzu | 3D model | ilgak |
 |---|---|---|---|
 | done 2026-11-17 | Maybaxda sakrashni o‘rganamiz (E-Active Body Control, Free Driving Assist) | Maybach GLS 600 | mashina joyida sakraydi |
-| todo | Nega poyezd g‘ildiraklari konus shaklida? (differensialsiz burilish) | poyezd / vagon g‘ildirak juftligi | g‘ildirak relsdan tushmaydi — sababi shakl |
+| done 2026-11-18 | Nega poyezd g‘ildiraklari konus shaklida? (differensialsiz burilish) | poyezd / vagon g‘ildirak juftligi | g‘ildirak relsdan tushmaydi — sababi shakl |
 | todo | Formula 1 mashinasi tunnel shiftida teskari yura oladimi? (prijim kuchi > vazn) | F1 bolid | teskari haydash |
 | todo | Nega samolyot illyuminatorlari dumaloq? (Comet halokatlari) | yo‘lovchi samolyoti | kvadrat oyna samolyotni yorgan |
 | todo | Mashina oynasidagi qora nuqtalar nima uchun? (frit) | sedan oynasi | hamma ko‘radi, hech kim bilmaydi |
