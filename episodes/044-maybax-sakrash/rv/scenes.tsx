@@ -21,7 +21,7 @@ const PAINT: PaintMap = [
   [/^Resh/i, '#dadde1', 1, .1], [/^Seats|^RearDoor|^Interior\.1[0-9]/i, '#7a4a2e', 0, .6], [/^Interior|^interior/i, '#1c1d20', 0, .6], [/./, '#1e1f22', .3, .5],
 ];
 const ease = (t: number, a: number, b: number) => eio(P(t, a, b));
-const CUTS = [5.2, 8.35, 13.38, 21.65, 30.8, 33.75, 37.75];
+const CUTS = [6.557, 10.617, 16.272, 26.384, 36.978, 39.962, 44.044];
 /* body bounce on the active suspension: up/down at f Hz inside [a,b] */
 const bounce = (t: number, a: number, b: number, amp = .16, f = 1.6) => t < a || t > b ? 0 : amp * Math.sin((t - a) * Math.PI * 2 * f) * Math.min(1, (t - a) / .25, (b - t) / .25);
 

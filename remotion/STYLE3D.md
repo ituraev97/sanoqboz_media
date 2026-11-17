@@ -23,9 +23,12 @@ which with a debug still that colours each material group (044 history), then ma
 `GlbCar` splits wheels (material/node names wheel|tire|rim|brake…) from the body so the body can `lift/pitch/roll` (bounce) and shows coil springs.
 Other free CC0 sources reachable: Poly Haven (api.polyhaven.com), Smithsonian 3D (3d-api.si.edu), Kenney (kenney.nl), Khronos samples on GitHub.
 
-## Voice — Edge TTS (free, no ElevenLabs credits)
-`python3 pipeline/tts_edge.py EP [voice] [rate]` — default `uz-UZ-SardorNeural`, `+12%`; script.txt → raw.mp3, nar_f.wav (pauses capped 0.42 s), words.json
-(word timings from the service). Numbers as words in script.txt; `meta.json caps.merge` turns them into digits; `python3 pipeline/caps3d.py EP` → rv/caps.ts.
+## Voice — ElevenLabs only (owner rule 2026-11-17)
+ElevenLabs connector: `creative_generate_speech`, model `eleven_v4`, voice mirzaev `RaNVfTYq3HYeFPLng6XN`, generations_count 1 (one take, never retry).
+Prompt = script with numbers as words and brand words spelled for TTS (GLS → «Ji-El-Es», Free Driving Assist → «Fri Drayving Assist»).
+Download content_url → EP/raw.mp3, meta.json `"speed": 1.12`, `python3 pipeline/prep.py EP` (trim + speed + alignment → nar_f.wav, words.json),
+then `python3 pipeline/caps3d.py EP` → rv/caps.ts (numbers back to digits via meta.json caps.merge). ~700 credits per 45 s reel.
+`pipeline/tts_edge.py` (free Edge TTS) stays only as a fallback the owner must ask for.
 
 ## Render
 `GL=swangle` is required on CPU-only containers: `GL=swangle bash remotion/tools/stills.sh …`, `GL=swangle bash remotion/tools/render.sh EP`

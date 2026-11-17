@@ -1,5 +1,58 @@
-{"title": "Maybaxda sakrashni o‘rganamiz", "tts": "edge uz-UZ-SardorNeural +12%", "caps": {"merge": [
-[["besh","yuz","ellik","ot","kuchi."],"550 ot kuchi"],
-[["Qirq","sakkiz","voltli"],"48 voltli"],
-[["o‘n","besh","kilometrdan"],"15 km dan"]],
-"kw": ["Maybaxda","sakrashni","yashirin","sakray","osmada.","g‘ildirakni","qumda","qorda","tebranadi,","Off-Road","«Free","Driving","Assist»","«Start».","o‘chadi.","Ehtiyot","Monakoda","politsiyadan","yuboring!"]}}
+{
+"title": "Maybaxda sakrashni o‘rganamiz",
+"tts": "elevenlabs mirzaev eleven_v4, 1 take",
+"caps": {
+"merge": [
+[
+[
+"besh",
+"yuz",
+"ellik",
+"ot",
+"kuchi."
+],
+"550 ot kuchi"
+],
+[
+[
+"Qirq",
+"sakkiz",
+"voltli"
+],
+"48 voltli"
+],
+[
+[
+"o‘n",
+"besh",
+"kilometrdan"
+],
+"15 km dan"
+]
+],
+"kw": [
+"Maybaxda",
+"sakrashni",
+"yashirin",
+"sakray",
+"osmada.",
+"g‘ildirakni",
+"qumda",
+"qorda",
+"tebranadi,",
+"Off-Road",
+"«Free",
+"Driving",
+"Assist»",
+"«Start».",
+"o‘chadi.",
+"Ehtiyot",
+"Monakoda",
+"politsiyadan",
+"yuboring!"
+]
+},
+"speed": 1.12,
+"pause_at": null,
+"num_words": []
+}
