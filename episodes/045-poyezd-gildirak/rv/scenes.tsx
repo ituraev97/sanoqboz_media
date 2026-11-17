@@ -201,7 +201,7 @@ export const Frame: React.FC<{ t: number; cover?: boolean }> = ({ t, cover }) =>
   const cut = CUTS.reduce((m, c) => Math.max(m, Math.exp(-Math.pow((t - c) / .09, 2))), 0);
   const blur = Math.max(cut * 18, (sh.blur ?? 0) * 10);
   return <AbsoluteFill style={{ overflow: 'hidden' }}>
-    <AbsoluteFill style={{ background: BG.light }} />
+    {!cover && <AbsoluteFill style={{ background: BG.light }} />}
     <AbsoluteFill style={{ filter: blur > .3 ? `blur(${blur.toFixed(1)}px)` : undefined }}>
       <ThreeCanvas width={W} height={H} gl={{ antialias: true, preserveDrawingBuffer: true }}>
         <Rig cam={sh.cam} />
@@ -220,7 +220,7 @@ export const Frame: React.FC<{ t: number; cover?: boolean }> = ({ t, cover }) =>
 export const Video: React.FC = () => { const f = useCurrentFrame(); return <Frame t={f / FPS} />; };
 export const Cover: React.FC = () => <AbsoluteFill>
   <AbsoluteFill style={{ background: BG.light }} />
-  <div style={{ position: 'absolute', inset: 0, translate: '0 260px' }}><Frame t={20.6} cover /></div>
+  <div style={{ position: 'absolute', inset: 0, translate: '0 200px' }}><Frame t={20.6} cover /></div>
   <div style={{ position: 'absolute', left: 70, top: 262, display: 'flex', alignItems: 'center', gap: 14 }}><Logo size={50} /><span style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 30, color: INK }}>@sanoqboz</span></div>
   <div style={{ position: 'absolute', left: 60, width: W - 120, top: 340, textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 96, lineHeight: 1.12, color: INK, textTransform: 'uppercase' }}>
     Poyezd nega<br />relsdan<br /><span style={{ background: Y, padding: '0 22px', borderRadius: 18, display: 'inline-block', lineHeight: 1.05 }}>tushmaydi?</span>
