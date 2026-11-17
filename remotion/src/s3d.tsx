@@ -256,10 +256,10 @@ export const Callout: React.FC<{ at: [number, number]; s: string; a: number; col
     <span style={{ width: 12, height: 12, borderRadius: 6, background: col, boxShadow: `0 0 12px ${col}` }} />{s}
   </div>
 </>;
-export const BigNum: React.FC<{ v: string; sub?: string; x?: number; y: number; a: number; col?: string; size?: number }> = ({ v, sub, x = W / 2, y, a, col = Y, size = 170 }) => a <= 0 ? null :
+export const BigNum: React.FC<{ v: string; sub?: string; x?: number; y: number; a: number; col?: string; size?: number; subCol?: string }> = ({ v, sub, x = W / 2, y, a, col = Y, size = 170, subCol = WH }) => a <= 0 ? null :
   <div style={{ position: 'absolute', left: x, top: y, translate: '-50% -50%', opacity: a, scale: String(.85 + .15 * a), textAlign: 'center' }}>
     <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: size, lineHeight: 1, whiteSpace: 'nowrap', color: col, textShadow: '0 6px 30px rgba(0,0,0,.55)' }}>{v}</div>
-    {sub && <div style={{ marginTop: 8, fontFamily: SANS, fontWeight: 800, fontSize: 30, color: WH, letterSpacing: 1, textTransform: 'uppercase', textShadow: '0 3px 12px rgba(0,0,0,.8)' }}>{sub}</div>}
+    {sub && <div style={{ marginTop: 8, fontFamily: SANS, fontWeight: 800, fontSize: 30, color: subCol, letterSpacing: 1, textTransform: 'uppercase', textShadow: subCol === WH ? '0 3px 12px rgba(0,0,0,.8)' : 'none' }}>{sub}</div>}
   </div>;
 
 /* ---------- real glTF models (public/models/*.glb) ---------- */
@@ -305,10 +305,11 @@ export const useRig = (file: string, L: number, plate: [string, string], paintMa
     const wheelPts: THREE.Vector3[] = [];
     for (const m of meshes) {
       m.material = (m.material as THREE.Material).clone(); mats.push(m.material as THREE.Material);
-      if (paintMap) { const nm = (m.material as any).name ?? ''; const hit = paintMap.find(([re]) => re.test(nm)); if (hit) { const [, col, met, rou, extra] = hit; const mm = m.material as any;
-        const nmat = new THREE.MeshPhysicalMaterial({ color: col, metalness: met, roughness: rou, ...(extra ?? {}) }); nmat.name = nm; m.material = nmat; } }
+      let forceBody = false;
+      if (paintMap) { const nm = (m.material as any).name ?? ''; const hit = paintMap.find(([re]) => re.test(nm)); if (hit) { const [, col, met, rou, extra] = hit; const { _body, ...rest } = (extra ?? {}) as any; forceBody = Boolean(_body);
+        const nmat = new THREE.MeshPhysicalMaterial({ color: col, metalness: met, roughness: rou, ...rest }); nmat.name = nm; m.material = nmat; } }
       if (/plate/i.test(m.name) || /plate/i.test(m.parent?.name ?? '')) { (m.material as any).map = ptex; (m.material as any).color = new THREE.Color('#fff'); }
-      if (isWheel(m)) { // sample vertices: wheel meshes may be merged across all four wheels
+      if (!forceBody && isWheel(m)) { // sample vertices: wheel meshes may be merged across all four wheels
         const pos = m.geometry.attributes.position as THREE.BufferAttribute; const v = new THREE.Vector3(); const st = Math.max(1, Math.floor(pos.count / 400));
         for (let i = 0; i < pos.count; i += st) wheelPts.push(v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld).clone());
       } else body.attach(m);
@@ -329,7 +330,7 @@ export const GlbCar: React.FC<{ file?: string; L?: number; x?: number; z?: numbe
   if (!r) return null;
   r.body.position.y = r.size.y * .45 + lift; r.body.rotation.set(roll, 0, pitch);
   r.wrap.traverse((m: any) => { if (m.isMesh) { const nm = `${m.name} ${m.parent?.name ?? ''} ${m.material.name ?? ''}`; const shell = !isWheel(m) && /^Body|Body\.|Paint|Glass|Window|Door|Hood|Roof|Panel|Pillar|primary|secondary|light/i.test(nm);
-    const op = shell ? 1 - xray * .86 : 1; m.material.transparent = op < 1 || /glass|window/i.test(nm); m.material.opacity = /glass|window/i.test(nm) ? Math.min(op, m.material.opacity ?? 1) : op; m.material.depthWrite = op > .5;
+    const op = shell ? 1 - xray * .86 : 1; if (m.userData.body === undefined) m.userData.body = shell; m.material.transparent = op < 1 || /glass|window/i.test(nm); m.material.opacity = /glass|window/i.test(nm) ? Math.min(op, m.material.opacity ?? 1) : op; m.material.depthWrite = op > .5;
     if (tint && /paint/i.test(m.material.name ?? '')) m.material.color = new THREE.Color(tint); } });
   return <group position={[x, 0, z]} rotation={[0, ry, 0]}>
     <primitive object={r.wrap} />

@@ -14,7 +14,7 @@ const INK = '#1c1e23', F = 'maybach_gls.glb';
 const CC = { clearcoat: 1, clearcoatRoughness: .05 };
 const PAINT: PaintMap = [
   [/^secondary/i, '#0e0f11', .6, .22, CC], [/^primary/i, '#b9bcc2', .9, .26, CC],
-  [/^wheel\.0/i, '#d6d9dd', 1, .16], [/^wheel\.1/i, '#9e1b1b', .3, .4], [/^wheel\.2/i, '#151515', 0, .88], [/^wheel\.3/i, '#c3c6ca', 1, .2], [/^wheel\.4/i, '#e4e6e9', 1, .08],
+  [/^wheel\.0/i, '#d6d9dd', 1, .16], [/^wheel\.1/i, '#9e1b1b', .3, .4], [/^wheel\.2/i, '#151515', 0, .88], [/^wheel\.3/i, '#c3c6ca', 1, .2], [/^wheel\.4/i, '#e4e6e9', 1, .08, { _body: true }],
   [/^Body\.(4|5)/i, '#d2d5d9', 1, .1], [/^Body\.7/i, '#0b0b0c', 0, .9], [/^Body\.8/i, '#cbcdd0', 1, .2], [/^Body/i, '#0c0d0e', .2, .35],
   [/^glass/i, '#0a0c10', .2, .04, { transparent: true, opacity: .62, clearcoat: 1 }],
   [/taillight|RearLights/i, '#ff2a2a', 0, .3, { emissive: '#ff1a1a', emissiveIntensity: 1.6 }], [/light|led/i, '#ffffff', 0, .1, { emissive: '#ffffff', emissiveIntensity: 1.4 }],
@@ -29,9 +29,9 @@ const bounce = (t: number, a: number, b: number, amp = .16, f = 1.6) => t < a ||
 const Sand: React.FC<{ a: number }> = ({ a }) => {
   const geo = useMemo(() => { const g = new THREE.PlaneGeometry(9, 6.5, 110, 80); g.rotateX(-Math.PI / 2); const p = g.attributes.position as THREE.BufferAttribute;
     for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i); const r = Math.hypot(x / 4.4, z / 3.1);
-      p.setY(i, Math.max(0, (1 - r * r)) * .38 + Math.sin(x * 1.7 + z * .9) * .035 + Math.sin(x * 4.1 - z * 3.3) * .015 - .02); }
+      p.setY(i, Math.max(0, (1 - r * r)) * .4 + (Math.sin(x * 2.3 + z * 1.1) * .06 + Math.sin(x * 5.3 - z * 4.1) * .03 + Math.sin(x * 11 + z * 7) * .012) * Math.min(1, r * 1.5) - .02); }
     g.computeVertexNormals(); return g; }, []);
-  return <mesh geometry={geo} renderOrder={3}><meshStandardMaterial color="#b47a34" roughness={1} envMapIntensity={.35} transparent={a < 1} opacity={a} /></mesh>;
+  return <mesh geometry={geo} renderOrder={3}><meshStandardMaterial color="#9c6a2e" roughness={1} envMapIntensity={.25} flatShading transparent={a < 1} opacity={a} /></mesh>;
 };
 const Ring: React.FC<{ a: number; t: number }> = ({ a, t }) => <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .01, 0]}>
   <ringGeometry args={[3.1, 3.3 + .08 * Math.sin(t * 8), 96]} /><meshBasicMaterial color="#ff2d2d" transparent opacity={a * (.65 + .3 * Math.sin(t * 8))} toneMapped={false} /></mesh>;
@@ -50,7 +50,7 @@ function shot(t: number): Shot {
   }
   /* B the hidden skill: one big jump on "sakray" (5.2–8.35) */
   if (t < CUTS[1]) {
-    const j = t > T.sakray - .1 ? .32 * Math.sin(P(t, T.sakray - .1, T.sakray + .55) * Math.PI) : 0;
+    const j = t > T.sakray - .1 ? .24 * Math.sin(P(t, T.sakray - .1, T.sakray + .55) * Math.PI) : 0;
     return { cam: mixCam({ pos: [-1.0, 1.1, 9.6], look: [0, .9, 0], fov: 32 }, { pos: [-3.4, 1.3, 8.4], look: [0, .9, 0], fov: 32 }, ease(t, CUTS[0], CUTS[1])),
       world: hero({ lift: j + bounce(t, T.sakray + .55, CUTS[1], .05, 2.4), pitch: j * .1 }), marks: [] };
   }
@@ -147,10 +147,10 @@ export const Frame: React.FC<{ t: number; cover?: boolean }> = ({ t, cover }) =>
     </AbsoluteFill>
     {police > 0 && <AbsoluteFill style={{ opacity: police, background: pr ? 'radial-gradient(circle at 0% 30%, rgba(255,40,40,.9) 0%, rgba(255,40,40,0) 45%)' : 'radial-gradient(circle at 100% 30%, rgba(40,110,255,.9) 0%, rgba(40,110,255,0) 45%)' }} />}
     {!cover && <>
-      <BigNum v={`${Math.round(550 * eout(P(t, T.hp - .1, T.hp + .7)))}`} sub="ot kuchi" y={650} a={env(t, T.hp - .1, CUTS[0] - .05, .25, .2)} col={INK} />
-      <BigNum v="48 V" sub="har g‘ildirak alohida" y={650} a={env(t, T.v48, T.gildirak - .2, .25, .2)} col="#2F8CFF" />
+      <BigNum subCol={INK} v={`${Math.round(550 * eout(P(t, T.hp - .1, T.hp + .7)))}`} sub="ot kuchi" y={650} a={env(t, T.hp - .1, CUTS[0] - .05, .25, .2)} col={INK} />
+      <BigNum subCol={INK} v="48 V" sub="har g‘ildirak alohida" y={650} a={env(t, T.v48, T.gildirak - .2, .25, .2)} col="#2F8CFF" />
       <Screen t={t} />
-      <BigNum v={`${Math.round(15 * eout(P(t, T.km15 - .1, T.km15 + .5)))} km/soat`} sub={t > T.ochadi ? 'rejim o‘chadi' : 'dan tez'} y={600} a={env(t, T.km15 - .1, CUTS[4] - .05, .25, .2)} col={t > T.ochadi ? RED : INK} size={112} />
+      <BigNum subCol={INK} v={`${Math.round(15 * eout(P(t, T.km15 - .1, T.km15 + .5)))} km/soat`} sub={t > T.ochadi ? 'rejim o‘chadi' : 'dan tez'} y={600} a={env(t, T.km15 - .1, CUTS[4] - .05, .25, .2)} col={t > T.ochadi ? RED : INK} size={112} />
       <Brand t={t} /><Src t={t} /><Caps t={t} />
       {t > CUTS[6] - .3 && <ShareEnd t={t} t0={T.dost - .9} pick={T.dost + .1} sentAt={T.yub + .3} lines={[['maybaxi bor'], ['do‘stingizga', 'y'], ['yuboring']]} />}
     </>}
@@ -159,9 +159,9 @@ export const Frame: React.FC<{ t: number; cover?: boolean }> = ({ t, cover }) =>
 export const Video: React.FC = () => { const f = useCurrentFrame(); return <Frame t={f / FPS} />; };
 export const Cover: React.FC = () => <AbsoluteFill>
   <AbsoluteFill style={{ background: BG.light }} />
-  <div style={{ position: 'absolute', inset: 0, translate: '0 160px' }}><Frame t={7.45} cover /></div>
+  <Frame t={1.15} cover />
   <div style={{ position: 'absolute', left: 70, top: 262, display: 'flex', alignItems: 'center', gap: 14 }}><Logo size={50} /><span style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 30, color: INK }}>@sanoqboz</span></div>
-  <div style={{ position: 'absolute', left: 60, width: W - 120, top: 380, textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 112, lineHeight: 1.0, color: INK, textTransform: 'uppercase' }}>
-    Maybaxda<br /><span style={{ background: Y, padding: '0 18px', borderRadius: 18 }}>sakrash</span><br />sirlari
+  <div style={{ position: 'absolute', left: 60, width: W - 120, top: 330, textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 100, lineHeight: 1.12, color: INK, textTransform: 'uppercase' }}>
+    Maybaxda<br /><span style={{ background: Y, padding: '0 22px', borderRadius: 18, display: 'inline-block', lineHeight: 1.05 }}>sakrash</span><br />sirlari
   </div>
 </AbsoluteFill>;
