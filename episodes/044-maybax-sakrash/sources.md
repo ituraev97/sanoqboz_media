@@ -1,0 +1,5 @@
+- SlashGear — Mercedes-Benz Bounce Mode / Free Driving Assist: how to switch on, off above ~9 mph (≈15 km/h): https://www.slashgear.com/1765207/mercedes-benz-bounce-mode-is-real-here-how-works
+- Motor1 — GLS rocks itself out of sand, 48-volt E-Active Body Control: https://www.motor1.com/news/354303/mercedes-gls-bounce-out-sand/
+- Carscoops (2023) — Maybach GLS 600 bouncing in Monaco traffic, police told the driver to stop; 550 hp V8: https://www.carscoops.com/2023/10/bouncing-through-monaco-in-a-mercedes-maybach-gls-600-is-a-unique-way-to-flex-and-annoy-the-police/
+- 3D model: "Mercedes- Maybach GLS 600 (X167)" by Hita (Sketchfab, CC BY 4.0): https://sketchfab.com/3d-models/mercedes-maybach-gls-600-x167-95573faa4c5f45f9bc51c16fe668c66f
+- Infotainment screen in the reel is schematic (not the real Mercedes UI).
