@@ -89,7 +89,7 @@ const Fans: React.FC<{ t: number; a: number; y?: number }> = ({ t, a, y = 0 }) =
 </>;
 /* oil drops leaving the inverted engine (twist) */
 const Drops: React.FC<{ t: number; t0: number; ceil: number; a: number }> = ({ t, t0, ceil, a }) => a <= 0 ? null : <>
-  {Array.from({ length: 9 }, (_, i) => { const tt = t - t0 - i * .18; if (tt < 0) return null; const ph = tt % 1.3; const y = ceil - .8 - 2.6 * ph * ph; if (y < 0) return null;
+  {Array.from({ length: 9 }, (_, i) => { const tt = t - t0 - i * .18; if (tt < 0) return null; const ph = tt % 1.3; const y = ceil - .8 - 2.6 * ph * ph; if (y < 1.4) return null;
     return <mesh key={i} position={[-.8 + (i % 3) * .3, y, ((i * 5) % 7) / 7 * .6 - .3]}><sphereGeometry args={[.07, 16, 12]} /><meshStandardMaterial color="#3a2a10" roughness={.15} metalness={.3} transparent opacity={a} /></mesh>; })}
 </>;
 
@@ -111,12 +111,12 @@ function shot(t: number): Shot {
     const k = ease(t, T.bosadi - .2, T.bosadi + .5);
     return { cam: mixCam({ pos: [5.2, 2.4, 6.2], look: [0, .5, 0], fov: 32 }, { pos: [3.4, 2.8, 6.8], look: [.2, .5, 0], fov: 32 }, ease(t, CUTS[0], CUTS[1])),
       world: (m) => <><F1 />{!m && <><Shadow a={.4} len={5.8} /><Air t={t} a={env(t, CUTS[0] + .2, CUTS[1] + .3)} /><Arrow p={[2.75, 1.5, 0]} len={1.1 * k} col={RED} a={k} /><Arrow p={[-2.55, 2.2, 0]} len={1.2 * k} col={RED} a={k} /></>}</>,
-      marks: [{ p: [2.75, .25, .8], s: 'old qanot', a: env(t, T.qanot, CUTS[1] + .2, .3, .2), col: Y, up: 140, side: -170 }, { p: [-2.55, 1.15, 0], s: 'orqa qanot', a: env(t, T.qanot + .4, CUTS[1] + .2, .3, .2), col: Y, up: 120, side: 150 }] };
+      marks: [{ p: [2.75, .25, .8], s: 'old qanot', a: env(t, T.qanot, CUTS[1] + .2, .3, .2), col: Y, up: 120, side: -260 }] };
   }
   /* C downforce = weight at ~200 km/h: weight arrow vs downforce arrow */
   if (t < CUTS[2]) {
     const k = ease(t, T.ikkiyuz - .2, T.vazn + .3);
-    return { cam: mixCam({ pos: [.4, 2.0, 8.2], look: [0, .9, 0], fov: 32 }, { pos: [-1.0, 2.2, 8.0], look: [0, .9, 0], fov: 32 }, ease(t, CUTS[1], CUTS[2])),
+    return { cam: mixCam({ pos: [.4, 2.0, 9.4], look: [0, 1.0, 0], fov: 32 }, { pos: [-1.0, 2.2, 9.2], look: [0, 1.0, 0], fov: 32 }, ease(t, CUTS[1], CUTS[2])),
       world: (m) => <><F1 />{!m && <><Shadow a={.4} len={5.8} /><Lanes off={speed(t)} a={1} /><Arrow p={[-.6, 2.1, .2]} len={.9} col={INK} a={env(t, CUTS[1] + .3, CUTS[2] + .3)} /><Arrow p={[.6, 1.2 + .9 * k, .2]} len={.9 * k} col={RED} a={k} /></>}</>,
       marks: [] };
   }
@@ -226,7 +226,7 @@ export const Frame: React.FC<{ t: number; cover?: boolean }> = ({ t, cover }) =>
       <BigNum subCol={INK} v="hali yo‘q" sub="haqiqiy F1 sinalmagan" y={600} a={env(t, T.haqiqiy - .1, T.moy - .1, .25, .2)} col={RED} size={130} />
       {stopA > 0 && <div style={{ position: 'absolute', left: W / 2, top: 620, translate: '-50% -50%', opacity: stopA, scale: String(lerp(1.4, 1, eout(P(t, T.motor - .1, T.motor + .25)))), padding: '16px 40px', border: `8px solid ${RED}`, borderRadius: 24, color: RED, fontFamily: HEAD, fontWeight: 700, fontSize: 96, rotate: '-6deg', background: 'rgba(255,255,255,.7)' }}>MOTOR STOP</div>}
       <BigNum subCol={INK} v="2025" sub="McMurtry Spéirling" y={590} a={env(t, T.yil - .1, T.ventil - .1, .25, .2)} col={INK} size={150} />
-      <BigNum subCol={INK} v={`${(2 * eout(P(t, T.tonna - .1, T.tonna + .5))).toFixed(1).replace('.0', '')} tonna`} sub={t > T.joyida - .1 ? 'joyida turganda ham' : 'bosim'} y={600} a={env(t, T.tonna - .1, CUTS[6] - .05, .25, .2)} col={BLUE} size={130} />
+      <BigNum subCol={INK} v={`${(2 * eout(P(t, T.tonna - .1, T.tonna + .5))).toFixed(1).replace('.0', '')} tonna`} sub={t > T.joyida - .1 ? 'joyida turganda ham' : 'bosim'} y={540} a={env(t, T.tonna - .1, CUTS[6] - .05, .25, .2)} col={BLUE} size={130} />
       <BigNum subCol={INK} v="keyinroq!" sub="tushlik" y={1120} a={env(t, T.tushlik - .2, CUTS[7] - .05, .25, .2)} col={Y} size={110} />
       <Brand t={t} /><Src t={t} /><Caps t={t} />
       {t > CUTS[7] - .3 && <ShareEnd t={t} t0={T.dost - .9} pick={T.dost + .1} sentAt={T.yub + .3} lines={[['poyga ishqiboz'], ['do‘stingizga', 'y'], ['yuboring']]} />}
