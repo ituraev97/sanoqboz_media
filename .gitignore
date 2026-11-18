@@ -20,3 +20,4 @@ episodes/**/prev2/
 remotion/public/models/*.glb
 remotion/build_*/
 episodes/*/edge/
+episodes/*/prev*/
