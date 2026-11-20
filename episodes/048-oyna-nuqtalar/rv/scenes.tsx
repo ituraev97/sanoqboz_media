@@ -244,9 +244,10 @@ export const Frame: React.FC<{ t: number; cover?: boolean }> = ({ t, cover }) =>
 export const Video: React.FC = () => { const f = useCurrentFrame(); return <Frame t={f / FPS} />; };
 export const Cover: React.FC = () => <AbsoluteFill>
   <AbsoluteFill style={{ background: BG.light }} />
-  <Frame t={4.2} cover />
+  <AbsoluteFill style={{ translate: '0 760px' }}><Frame t={4.2} cover /></AbsoluteFill>
+  <div style={{ position: 'absolute', left: 0, width: W, top: 1520, textAlign: 'center' }}><span style={{ fontFamily: SANS, fontWeight: 800, fontSize: 48, color: '#fff', background: '#1a8f4e', padding: '10px 28px', borderRadius: 18 }}>bo‘yoq emas — sirli frit</span></div>
   <div style={{ position: 'absolute', left: 70, top: 262, display: 'flex', alignItems: 'center', gap: 14 }}><Logo size={50} /><span style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 30, color: INK }}>@sanoqboz</span></div>
-  <div style={{ position: 'absolute', left: 60, width: W - 120, top: 330, textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 100, lineHeight: 1.12, color: INK, textTransform: 'uppercase' }}>
+  <div style={{ position: 'absolute', left: 60, width: W - 120, top: 360, textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 104, lineHeight: 1.12, color: INK, textTransform: 'uppercase' }}>
     Oynadagi<br /><span style={{ background: Y, padding: '0 22px', borderRadius: 18, display: 'inline-block', lineHeight: 1.05 }}>qora nuqtalar</span><br />nima uchun?
   </div>
 </AbsoluteFill>;
