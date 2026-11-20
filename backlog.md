@@ -5,7 +5,7 @@
 | done 2026-11-18 | Nega poyezd g‘ildiraklari konus shaklida? (differensialsiz burilish) | poyezd / vagon g‘ildirak juftligi | g‘ildirak relsdan tushmaydi — sababi shakl |
 | done 2026-11-19 | Formula 1 mashinasi tunnel shiftida teskari yura oladimi? (prijim kuchi > vazn) | F1 bolid | teskari haydash |
 | done 2026-11-20 | Nega samolyot illyuminatorlari dumaloq? (Comet halokatlari) | yo‘lovchi samolyoti | kvadrat oyna samolyotni yorgan |
-| todo | Mashina oynasidagi qora nuqtalar nima uchun? (frit) | sedan oynasi | hamma ko‘radi, hech kim bilmaydi |
+| done 2026-11-21 | Mashina oynasidagi qora nuqtalar nima uchun? (frit) | sedan oynasi | hamma ko‘radi, hech kim bilmaydi |
 | todo | Nega kemalarning tagi qizil? (antifouling bo‘yoq) | yuk kemasi | qizil — tasodif emas |
 | todo | Nega samolyot qanoti uchi yuqoriga qayrilgan? (vinglet, yoqilg‘i tejash) | samolyot | kichik «qayrilma» — millionlab litr |
 | todo | Rolls-Royce eshigida soyabon yashiringan | Rolls-Royce | eshikdan soyabon chiqadi |
