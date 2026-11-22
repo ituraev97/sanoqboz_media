@@ -117,9 +117,10 @@ type Mark = { p: V3; s: string; a: number; col?: string; up?: number; side?: num
 type Shot = { cam: Cam; world: (m: boolean) => React.ReactNode; marks: Mark[] };
 const TIP = (z = WZ + WH_): V3 => M(17.8, 6.0, z);
 
-function shot(t: number): Shot {
+function shot(t: number, cover = false): Shot {
   const one = (o: Partial<React.ComponentProps<typeof Plane>> = {}, extra?: (m: boolean) => React.ReactNode) => (m: boolean) => <><Plane m={m} {...o} />{!m && <Shadow a={.28} len={5.5} />}{extra?.(m)}</>;
   const vort = (s: number, a: number, grow: number) => (m: boolean) => m ? null : <>{([1, -1] as const).map((sd) => <Vortex key={sd} side={sd} t={t} a={a} s={s} tipZ={lerp(5.6, WZ + WH_, grow)} />)}</>;
+  if (cover) return { cam: { pos: [2.7, 1.45, 1.3], look: [1.45, 1.0, -.7], fov: 32 }, world: (m) => <>{one({ hi: 1 })(m)}{vort(.38, 1, 1)(m)}</>, marks: [] };
   /* A hook: whole plane -> the winglet */
   if (t < CUTS[0]) {
     return { cam: mixCam({ pos: [2.9, 1.7, 3.3], look: [.2, .95, 0], fov: 34 }, { pos: [2.35, 1.4, .75], look: [1.75, 1.15, -.6], fov: 30 }, ease(t, .4, CUTS[0])),
@@ -205,7 +206,7 @@ const Chip: React.FC<{ s: string; a: number; col: string; y: number }> = ({ s, a
   <div style={{ position: 'absolute', left: W / 2, top: y, translate: '-50% -50%', opacity: a, scale: String(.8 + .2 * eback(a)), padding: '14px 34px', borderRadius: 24, background: col, color: '#fff', fontFamily: HEAD, fontWeight: 700, fontSize: 64, letterSpacing: 1, textTransform: 'uppercase', whiteSpace: 'nowrap', boxShadow: '0 14px 40px rgba(0,0,0,.18)' }}>{s}</div>;
 
 export const Frame: React.FC<{ t: number; cover?: boolean }> = ({ t, cover }) => {
-  const sh = shot(t);
+  const sh = shot(t, !!cover);
   const cut = CUTS.reduce((m, c) => Math.max(m, Math.exp(-Math.pow((t - c) / .09, 2))), 0);
   const blur = cut * 18;
   const tint = env(t, T.endi - .1, T.qiziq + .9, .15, .5) * .22;
