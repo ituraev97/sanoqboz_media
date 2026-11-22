@@ -7,7 +7,7 @@
 | done 2026-11-20 | Nega samolyot illyuminatorlari dumaloq? (Comet halokatlari) | yo‘lovchi samolyoti | kvadrat oyna samolyotni yorgan |
 | done 2026-11-21 | Mashina oynasidagi qora nuqtalar nima uchun? (frit) | sedan oynasi | hamma ko‘radi, hech kim bilmaydi |
 | done 2026-11-22 | Nega kemalarning tagi qizil? (antifouling bo‘yoq) | yuk kemasi | qizil — tasodif emas |
-| todo | Nega samolyot qanoti uchi yuqoriga qayrilgan? (vinglet, yoqilg‘i tejash) | samolyot | kichik «qayrilma» — millionlab litr |
+| done 2026-11-23 | Nega samolyot qanoti uchi yuqoriga qayrilgan? (vinglet, yoqilg‘i tejash) | samolyot | kichik «qayrilma» — millionlab litr |
 | todo | Rolls-Royce eshigida soyabon yashiringan | Rolls-Royce | eshikdan soyabon chiqadi |
 | todo | Nega samolyot shinalari qo‘nishda yorilmaydi? (azot, bosim) | samolyot shassisi | 250 km/soat da yerga tegadi |
 | todo | Cybertruck nega bunchalik burchakli? (zanglamas po‘lat shtamplanmaydi) | Cybertruck | dizayn emas — fizika |
