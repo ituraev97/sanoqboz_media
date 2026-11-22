@@ -5,6 +5,29 @@ One run = **1 vertical reel (35–45 s + YUZ promo, Uzbek Latin)** for ONE Tashk
 > **Owner rule 2026-11-11 — ONE reel per day (ElevenLabs credits are running low).** Only the 20:00 slot (+ its Instagram Trial Reel at 21:00). Wherever below this runbook still mentions 3 reels, 08:00/13:00 slots, s08/s13/c08/c13 or EP08/EP13 — ignore those parts: make one episode, upload only s20.mp4 + c20.jpg, schedule only the 20:00 post and the 21:00 trial. A day is "taken" if its 20:00 daily post exists. **Rubric rotation:** take the rubric (Nega / Qanday — qiziq · Agar… · Internetda pul) whose most recent `done` date in backlog.md is the oldest (tie → Internetda pul, then Nega / Qanday, then Agar…), and its first `todo` row. Exactly ONE ElevenLabs generation per run (generations_count 1, never retry a generation that started).
 > **Owner rule 2026-11-17 — NEW METHOD, overrides sections 1, 3, 4, 5, 6 below.** (1) Topics: rubric **«Vau / Che?»** in backlog.md — new, hype things that make the viewer say "what?!" or "wow": hidden tricks of real objects, explained in 3D. Take its first `todo` row (other rubrics only if it is empty). (2) Style: `remotion/STYLE3D.md` — a real 3D model downloaded from Sketchfab (token in the task prompt, never commit/print it) in the light studio; copy `episodes/044-maybax-sakrash/rv/*`. (3) Voice: **ElevenLabs only** (owner rule 2026-11-17 08:26 — Edge TTS is NOT used): `creative_generate_speech`, model eleven_v4, voice mirzaev `RaNVfTYq3HYeFPLng6XN`, generations_count 1, never retry a started generation; download content_url → EP/raw.mp3; meta.json speed 1.12; `python3 pipeline/prep.py EP` → nar_f.wav + words.json. Script 90–110 words, numbers as words, hook in the first sentence, last line «… do‘stingizga yuboring!». (4) Captions: `python3 pipeline/caps3d.py EP`. (5) Render with `GL=swangle`. Facts, sources, safe zone, YUZ promo, upload and Metricool steps stay as below. Credit CC-BY model authors in the caption.
 
+## Shorts: cadence + hook rules — owner decision 2026-11-23
+Full text: yt-pilot HOOK_RULES (30 days of Metricool data, 10 channels: Shorts opening with a hard NUMBER, a FAMOUS NAME/BRAND or a "why…?" PARADOX won 5–50x;
+channels posting 3–6 look-alike Shorts a day decayed). Applies to the YouTube Short; Instagram/TikTok and everything else in this runbook unchanged.
+- CADENCE: max 2 YouTube Shorts per Tashkent day, ≥ 6 h apart. Sanoqboz already posts 1 a day (20:00) — keep exactly that, do not add more.
+- SCORECARD before scheduling (target ≥ 7/10): Hook 0–4 (first sentence + cover/first frame has a hard number in so‘m/%, a famous name/brand
+  (Payme, Click, MrBeast, Cobalt, Maybach…) or a paradox question — on screen AND spoken); Payoff 0–3 (the hook's promise is paid in the last 2–3 s
+  before ShareEnd); Freshness 0–2 (new topic/angle, not yesterday's hero object/look); Clarity 0–1 (understandable with sound off). If < 7, fix the
+  free parts first (YouTube title, cover words, first-frame headline — never re-run the voice generation); if still < 7, schedule the post without the
+  `youtube` provider (Instagram + TikTok as usual) and tell the owner why.
+- WHAT WINS HERE: everyday money topics with a number — "Payme, Click o‘tkazma qanday ishlaydi? 4 qadam" 685, "MrBeast bitta videoga qancha sarflaydi
+  va qancha topadi" 270, "Metan yoki benzin: Cobalt 1 yilda qancha yeydi?" 248, "Internet bir hafta o‘chsa nima bo‘ladi?" 247, "Elektr hisoblagich
+  qanday hisoblaydi? 650 va 900 so‘m" 239. Lowest: abstract physics/tech "Nega…?" without money or a name (samolyot oynalari 17, Formula 1 30, poyezd 45).
+  Keep the rubric rotation/«Vau / Che?» topic choice above, but give every topic a money/number or famous-brand angle in the hook and title where the
+  facts allow (e.g. "… qancha turadi?", "… so‘m").
+- TITLE (youtubeData.title): [number] + [stakes], [famous name/brand] + [unexpected fact], or "Nega/Qanday…?" + paradox; key query first, ≤ 60 characters.
+  Banned: "Bilasizmi…?" (did you know), "Mana nima bo‘ldi…" (here's what happened), quizzes "3 soniyada top", plain recaps without a number or name.
+- HOOK: frame 0 = the most surprising sentence, no logo/title card, no slow start; on-screen hook ≤ 7 words, large, upper part of the safe zone.
+  End on the payoff. Reel length, ShareEnd and the YUZ promo stay as in the owner rules below (the hook-rules 20–40 s / 1 s-outro limits do not override them).
+- VARIETY: one 3D style, so vary the hero object type and the shot language (x-ray / callouts / big counter) — never the same kind of hero object two days running.
+- Dead-hook check: a Short with average view duration < 5 s after 48 h (Metricool) = that hook style is dead, don't repeat it.
+- WEEKLY (Monday run): read the last 7 days of YouTube Shorts (views + avg view duration), list top 3 / bottom 3 and add one line "what won" under this
+  section — repeat the winners' hook pattern, drop the losers'.
+
 Owner talks Russian. Channel: @sanoqboz, slogan «Raqamlar gapiradi». Animated infographic explainers in the sanoqboz brand (Remotion, style in remotion/STYLE.md).
 
 ## 0. Setup (fresh container)
