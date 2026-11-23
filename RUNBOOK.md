@@ -112,3 +112,7 @@ One `createScheduledPost` per reel with providers instagram + youtube + tiktok (
 ## 10. Close the run
 - Commit to main: episodes/NNN-*/ (script.txt, prompt.txt, meta.json, sources.md, words.json, rv/* — NOT mp3/mp4/wav/png/jpg, not prev/), backlog.md rows → `done YYYY-MM-DD`.
 - Message the owner in Russian: 3 titles with times, one line each, anything that needs attention.
+
+## Promise rule (owner decision 2026-11-24)
+- The title/hook promise is delivered fast and fully: long videos show the promised thing within the first 60 s and spend >= 25% of the runtime on it; Shorts pay the hook in the last 3 s. Never a title that sells one moment the video barely shows.
+- Against the "AI slop" impression: real material first (real photos, pages, footage), clear opinions, no filler or repeated recaps.
