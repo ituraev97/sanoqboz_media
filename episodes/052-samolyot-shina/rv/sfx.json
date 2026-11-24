@@ -1,0 +1,4 @@
+{"twist": [22.9, 24.1], "cues": [[0, "riser", 0.25], [0, "boomS", 0.3], [4.8, "whoosh", 0.35], [17.4, "whoosh", 0.35], [22.9, "whoosh", 0.35], [29.9, "whoosh", 0.35], [34.8, "whoosh", 0.35], [39.85, "whoosh", 0.3],
+ [2.87, "impact:impactMetal_heavy_002", 0.45], [6.65, "ui:select_002", 0.3], [8.7, "ui:select_001", 0.3], [10.0, "ticks:4:0.12", 0.25], [12.1, "boom", 0.4], [15.2, "ui:confirmation_001", 0.4],
+ [19.95, "ui:confirmation_003", 0.4], [21.0, "ui:error_004", 0.35], [22.95, "boomS", 0.5], [27.2, "impact:impactMetal_heavy_002", 0.55], [27.9, "ticks:6:0.12", 0.3], [29.4, "boom", 0.6],
+ [30.8, "riser", 0.25], [33.1, "ui:drop_002", 0.45], [35.5, "ui:select_001", 0.35], [38.75, "ui:confirmation_001", 0.5], [39.6, "boom", 0.5], [40.4, "ui:select_001", 0.5], [41.1, "ui:confirmation_003", 0.6]]}

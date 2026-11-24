@@ -9,7 +9,7 @@
 | done 2026-11-22 | Nega kemalarning tagi qizil? (antifouling bo‘yoq) | yuk kemasi | qizil — tasodif emas |
 | done 2026-11-23 | Nega samolyot qanoti uchi yuqoriga qayrilgan? (vinglet, yoqilg‘i tejash) | samolyot | kichik «qayrilma» — millionlab litr |
 | done 2026-11-24 | Rolls-Royce eshigida soyabon yashiringan (051) | Rolls-Royce | eshikdan soyabon chiqadi |
-| todo | Nega samolyot shinalari qo‘nishda yorilmaydi? (azot, bosim) | samolyot shassisi | 250 km/soat da yerga tegadi |
+| done 2026-11-25 | Nega samolyot shinalari qo‘nishda yorilmaydi? (azot, bosim) (052) | samolyot shassisi | 250 km/soat da yerga tegadi |
 | todo | Cybertruck nega bunchalik burchakli? (zanglamas po‘lat shtamplanmaydi) | Cybertruck | dizayn emas — fizika |
 | todo | Nega Boeing 747 tepasida «do‘ngcha» bor? | Boeing 747 | ikkinchi qavat sababi |
 
