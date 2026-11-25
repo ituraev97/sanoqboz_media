@@ -1,0 +1,7 @@
+# 053 — Cybertruck nega burchakli
+- Electrek, 24 Nov 2019 (Jameson Dow): "30X cold-rolled steel"; Musk: "you can't stamp ultra-hard 30X steel, because it breaks the stamping press"; "Even bending it requires a deep score on inside of bend"; stainless steel exoskeleton: https://electrek.co/2019/11/24/teslas-cybertruck-looks-weird-because-otherwise-it-would-break-the-machines-to-make-it/
+- Equipment World, 25 Nov 2019: same Musk quotes; Musk: Starship will be built from the same 30X stainless steel: https://www.equipmentworld.com/trucks/pickups/article/15051756/cybertrucks-flat-panel-design-necessary-musk-says-as-pre-orders-climb-to-250k-while-stock-falls
+- The Autopian, 18 Dec 2023 (Zoe Skyforest): doors 1.8 mm thick, other panels 1.4 mm; blanks cut by lasers; panels bent (airbending, Trumpf press): https://www.theautopian.com/exclusive-tesla-cybertruck-factory-tour-shows-how-the-engineers-made-it-buildable/
+- World Auto Steel: "Sandy Munro... estimates Tesla will save $60 million by eliminating blanking and stamping dies... calculated for a 50,000 unit-a-year run" (estimate, shown on screen as "taxminiy hisob"); "laser cut", "simple break press to crease and fold": https://www.worldautosteel.org/?p=639871
+- Press, ram, laser plate, rocket = our own schematic 3D drawings (labelled "sxematik").
+- 3D model: "Tesla Cybertruck" by vasyl.yarmola (Sketchfab, CC BY): https://sketchfab.com/3d-models/tesla-cybertruck-936a6e7c4e6f46e1a3b270c93c8ea2ee
