@@ -54,8 +54,8 @@ const Goals: React.FC<{ t: number; t0: number; fill?: number; big?: number; bigC
       <div style={{ fontSize: 52, fontWeight: 800, marginTop: 22, letterSpacing: -.5 }}>Maqsadlarim</div>
       <div style={{ marginTop: 26, borderRadius: 34, background: '#1f1f1f', padding: '26px 28px', opacity: c1, translate: `0 ${(1 - c1) * 30}px` }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div><div style={{ fontSize: 28, fontWeight: 700, whiteSpace: 'nowrap' }}>40 ta buyurtma</div><div style={{ fontSize: 21, color: '#bbb', marginTop: 4 }}>haftalik</div></div>
-          <div style={{ fontFamily: HEAD, fontStyle: 'italic', fontSize: 40, fontWeight: 700, color: '#AFC2FF', whiteSpace: 'nowrap', textAlign: 'right', lineHeight: 1 }}>+200 000<br /><span style={{ fontSize: 26 }}>so‘m</span></div>
+          <div><div style={{ fontSize: 26, fontWeight: 700, whiteSpace: 'nowrap' }}>40 ta buyurtma</div><div style={{ fontSize: 21, color: '#bbb', marginTop: 4 }}>haftalik</div></div>
+          <div style={{ fontFamily: HEAD, fontStyle: 'italic', fontSize: 36, fontWeight: 700, color: '#AFC2FF', whiteSpace: 'nowrap', textAlign: 'right', lineHeight: 1 }}>+1 000 000<br /><span style={{ fontSize: 26 }}>so‘m</span></div>
         </div>
         <div style={{ marginTop: 26, height: 14, borderRadius: 7, background: '#3b3b3b', overflow: 'hidden' }}><div style={{ width: `${fill * 100}%`, height: '100%', borderRadius: 7, background: fill >= 1 ? GRN : '#AFC2FF' }} /></div>
         <div style={{ marginTop: 12, fontSize: 22, color: fill >= 1 ? GRN : '#999' }}>{Math.round(fill * 40)} / 40</div>
