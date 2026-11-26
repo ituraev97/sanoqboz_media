@@ -133,7 +133,7 @@ const S1: React.FC<{ t: number }> = ({ t }) => {
     {cut > 0 && cut < 1 && <div style={{ position: 'absolute', left: lerp(CX + 150, SR - 30, cut), top: lerp(840, 900, cut) - Math.sin(cut * Math.PI) * 60, translate: '-50% -50%', rotate: `${cut * 20}deg`, padding: '12px 24px', borderRadius: 16, background: RED, color: '#fff', fontFamily: HEAD, fontWeight: 700, fontSize: 56, boxShadow: '0 12px 40px rgba(236,58,44,.5)' }}>−3%</div>}
     <Pill s="parkka" x={SR - 30} y={980} a={eout(P(t, 3.1, 3.4))} size={28} col={RED} />
     <Pill s="misol" x={SL + 50} y={980} a={eout(P(t, 3.1, 3.4))} size={22} dark col={GR} />
-    <Head t={t} t0={-1} t1={2.4} y={470} lines={[['yandex beradi'], ['1 000 000 so‘mgacha', 'y']]} size={64} />
+    <Head t={t} t0={-1} t1={2.4} y={385} lines={[['yandex haftasiga'], ['1 000 000 so‘m', 'y'], ['bonus beradi']]} size={64} />
     <Head t={t} t0={2.4} t1={4.6} y={470} lines={[['parkka foiz berib'], ['charchadingizmi?', 'r']]} size={64} from="slam" />
   </Layer>;
 };
