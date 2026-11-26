@@ -46,7 +46,7 @@ const Tap: React.FC<{ t: number; t0: number; x: number; y: number }> = ({ t, t0,
 };
 
 /* --- Yandex-Pro-like goals screen --- */
-const Goals: React.FC<{ t: number; t0: number; fill?: number; big?: number; bigCol?: string; dim?: number }> = ({ t, t0, fill = 0, big = 800000, bigCol = '#fff', dim = 0 }) => {
+const Goals: React.FC<{ t: number; t0: number; fill?: number; big?: number; bigCol?: string; dim?: number; top?: number; topCol?: string }> = ({ t, t0, fill = 0, big = 800000, bigCol = '#fff', dim = 0, top = 1000000, topCol = '#AFC2FF' }) => {
   const c1 = eout(P(t, t0 + .1, t0 + .45)), c2 = eout(P(t, t0 + .3, t0 + .65));
   return <AppBg>
     <div style={{ padding: '0 30px' }}>
@@ -55,7 +55,7 @@ const Goals: React.FC<{ t: number; t0: number; fill?: number; big?: number; bigC
       <div style={{ marginTop: 26, borderRadius: 34, background: '#1f1f1f', padding: '26px 28px', opacity: c1, translate: `0 ${(1 - c1) * 30}px` }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div><div style={{ fontSize: 26, fontWeight: 700, whiteSpace: 'nowrap' }}>40 ta buyurtma</div><div style={{ fontSize: 21, color: '#bbb', marginTop: 4 }}>haftalik</div></div>
-          <div style={{ fontFamily: HEAD, fontStyle: 'italic', fontSize: 36, fontWeight: 700, color: '#AFC2FF', whiteSpace: 'nowrap', textAlign: 'right', lineHeight: 1 }}>+1 000 000<br /><span style={{ fontSize: 26 }}>so‘m</span></div>
+          <div style={{ fontFamily: HEAD, fontStyle: 'italic', fontSize: 36, fontWeight: 700, color: topCol, whiteSpace: 'nowrap', textAlign: 'right', lineHeight: 1 }}>+{fmt(Math.round(top / 1000) * 1000)}<br /><span style={{ fontSize: 26 }}>so‘m</span></div>
         </div>
         <div style={{ marginTop: 26, height: 14, borderRadius: 7, background: '#3b3b3b', overflow: 'hidden' }}><div style={{ width: `${fill * 100}%`, height: '100%', borderRadius: 7, background: fill >= 1 ? GRN : '#AFC2FF' }} /></div>
         <div style={{ marginTop: 12, fontSize: 22, color: fill >= 1 ? GRN : '#999' }}>{Math.round(fill * 40)} / 40</div>
@@ -106,7 +106,7 @@ const Withdraw: React.FC<{ t: number; t0: number }> = ({ t, t0 }) => {
 
 /* --- support chat screen --- */
 const Chat: React.FC<{ t: number; t0: number }> = ({ t, t0 }) => {
-  const msgs: [number, boolean, string, string][] = [[.3, false, 'Assalomu alaykum, kartaga pul yechsam bo‘ladimi?', '02:14'], [1.0, true, 'Va alaykum assalom! Albatta — 5 soniyada, komissiyasiz.', '02:14'], [1.8, false, 'Здравствуйте, как подключиться?', '02:15'], [2.5, true, 'Здравствуйте! 15 минут, в офис ехать не нужно.', '02:15']];
+  const msgs: [number, boolean, string, string][] = [[.3, false, 'Assalomu alaykum, kartaga pul yechsam bo‘ladimi?', '02:14'], [1.0, true, 'Va alaykum assalom! Albatta — 5 soniyada, komissiyasiz.', '02:14'], [1.8, false, 'Здравствуйте, как подключиться?', '02:15'], [2.5, true, 'Здравствуйте! 2 минуты, в офис ехать не нужно.', '02:15']];
   return <AppBg>
     <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '6px 26px 18px', borderBottom: '1px solid #222' }}>
       <div style={{ width: 62, height: 62, borderRadius: '50%', background: `linear-gradient(135deg,${TEAL},${Y})`, display: 'grid', placeItems: 'center', fontFamily: HEAD, fontSize: 26, color: '#111' }}>ZT</div>
@@ -126,14 +126,14 @@ const PY = 650;
 const S1: React.FC<{ t: number }> = ({ t }) => {
   const a = env(t, -1, 4.6, .2, .25);
   const cut = eio(P(t, 2.5, 3.2));
-  const v = lerp(800000, 680000, eout(P(t, 2.9, 3.6)));
+  const v = lerp(1000000, 970000, eout(P(t, 2.9, 3.6)));
   return <Layer a={a}>
     <Glow x={CX} y={1050} r={560} a={.9} col={t > 2.9 ? '236,58,44' : '247,198,75'} />
-    <Phone y={PY} a={P(t, 0, .6)} tilt={lerp(-14, -6, eout(P(t, 0, 4.5)))}><Goals t={t} t0={.1} fill={.15} big={v} bigCol={t > 2.9 ? '#FF8A80' : '#fff'} /></Phone>
-    {cut > 0 && cut < 1 && <div style={{ position: 'absolute', left: lerp(CX + 160, SR - 30, cut), top: lerp(1010, 1060, cut) - Math.sin(cut * Math.PI) * 60, translate: '-50% -50%', rotate: `${cut * 20}deg`, padding: '12px 24px', borderRadius: 16, background: RED, color: '#fff', fontFamily: HEAD, fontWeight: 700, fontSize: 56, boxShadow: '0 12px 40px rgba(236,58,44,.5)' }}>−15%</div>}
-    <Pill s="parkka" x={SR - 30} y={1120} a={eout(P(t, 3.1, 3.4))} size={28} col={RED} />
-    <Pill s="misol" x={SL + 50} y={1120} a={eout(P(t, 3.1, 3.4))} size={22} dark col={GR} />
-    <Head t={t} t0={-1} t1={2.4} y={470} lines={[['yandex beradi'], ['800 000 so‘mgacha', 'y']]} size={64} />
+    <Phone y={PY} a={P(t, 0, .6)} tilt={lerp(-14, -6, eout(P(t, 0, 4.5)))}><Goals t={t} t0={.1} fill={.15} top={v} topCol={t > 2.9 ? '#FF8A80' : '#AFC2FF'} /></Phone>
+    {cut > 0 && cut < 1 && <div style={{ position: 'absolute', left: lerp(CX + 150, SR - 30, cut), top: lerp(840, 900, cut) - Math.sin(cut * Math.PI) * 60, translate: '-50% -50%', rotate: `${cut * 20}deg`, padding: '12px 24px', borderRadius: 16, background: RED, color: '#fff', fontFamily: HEAD, fontWeight: 700, fontSize: 56, boxShadow: '0 12px 40px rgba(236,58,44,.5)' }}>−3%</div>}
+    <Pill s="parkka" x={SR - 30} y={980} a={eout(P(t, 3.1, 3.4))} size={28} col={RED} />
+    <Pill s="misol" x={SL + 50} y={980} a={eout(P(t, 3.1, 3.4))} size={22} dark col={GR} />
+    <Head t={t} t0={-1} t1={2.4} y={470} lines={[['yandex beradi'], ['1 000 000 so‘mgacha', 'y']]} size={64} />
     <Head t={t} t0={2.4} t1={4.6} y={470} lines={[['parkka foiz berib'], ['charchadingizmi?', 'r']]} size={64} from="slam" />
   </Layer>;
 };
@@ -155,10 +155,10 @@ const S3: React.FC<{ t: number }> = ({ t }) => {
   const coin = eout(P(t, 11.6, 12.1));
   return <Layer a={a}>
     <Glow x={CX} y={1050} r={560} a={.9} col="61,220,132" />
-    <Phone y={PY} a={P(t, 8.5, 9)} tilt={lerp(10, 4, eout(P(t, 8.5, 13.5)))}><Goals t={t} t0={8.6} fill={fill} bigCol={t > 11 ? '#B9F5D0' : '#fff'} /></Phone>
+    <Phone y={PY} a={P(t, 8.5, 9)} tilt={lerp(10, 4, eout(P(t, 8.5, 13.5)))}><Goals t={t} t0={8.6} fill={fill} topCol={t > 11 ? '#B9F5D0' : '#AFC2FF'} /></Phone>
     <div style={{ position: 'absolute', left: CX, top: 1180, translate: '-50% -50%', opacity: coin, scale: String(lerp(.6, 1, eback(coin))), padding: '18px 34px', borderRadius: 26, background: 'rgba(10,14,12,.96)', border: `3px solid ${GRN}`, textAlign: 'center', boxShadow: '0 0 40px rgba(61,220,132,.35)' }}>
       <div style={{ fontFamily: MONO, fontSize: 22, color: GR }}>sizga to‘liq</div>
-      <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 66, lineHeight: 1, color: GRN, whiteSpace: 'nowrap' }}>800 000 so‘mgacha</div>
+      <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 66, lineHeight: 1, color: GRN, whiteSpace: 'nowrap' }}>1 000 000 so‘m</div>
       <div style={{ fontFamily: MONO, fontSize: 18, color: GR, marginTop: 8 }}>Yandex Pro «Maqsadlarim» · brendlash bilan</div>
     </div>
     <Head t={t} t0={8.5} t1={13.6} y={470} lines={[['yandex qancha bersa —'], ['hammasi sizniki', 'y']]} size={62} />
@@ -188,11 +188,10 @@ const S5: React.FC<{ t: number }> = ({ t }) => {
   const a = env(t, 17.5, 21.6, .3, .3);
   return <Layer a={a} z={logZ(P(t, 17.5, 21.5), 1, 1.04)}>
     <Glow x={CX} y={980} r={560} a={.9} />
-    <Row t={t} t0={18} y={700} l="Ulanishda" r="+10 000" />
-    <Row t={t} t0={18.8} y={880} l="10 ta buyurtma" sub="birinchi 2 kunda" r="+20 000" />
+    <Row t={t} t0={18.4} y={800} l="10 ta buyurtma" sub="birinchi 2 kunda" r="+20 000" />
     <div style={{ ...abs(SL, 1100, SR - SL), textAlign: 'center', opacity: eout(P(t, 19.7, 20.1)), scale: String(lerp(.7, 1, eback(P(t, 19.7, 20.2)))) }}>
       <div style={{ fontFamily: MONO, fontSize: 24, color: GR }}>Zero Taxi’dan sovg‘a</div>
-      <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 120, lineHeight: 1, color: GRN, textShadow: '0 0 34px rgba(61,220,132,.5)' }}>+30 000 so‘m</div>
+      <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 120, lineHeight: 1, color: GRN, textShadow: '0 0 34px rgba(61,220,132,.5)' }}>+20 000 so‘m</div>
     </div>
     <Head t={t} t0={17.5} t1={21.6} y={470} lines={[['yangi haydovchiga'], ['bonus', 'y']]} size={68} />
   </Layer>;
@@ -229,8 +228,8 @@ const S7: React.FC<{ t: number }> = ({ t }) => {
   const p = eio(P(t, 25.4, 26.6)); const off = eout(P(t, 26.8, 27.1));
   return <Layer a={a} z={logZ(P(t, 25, 28.5), 1, 1.04)}>
     <Glow x={CX} y={960} r={540} a={.9} col="63,169,184" />
-    <Ring x={CX} y={900} r={170} p={p * .25} col={Y}>
-      <div><div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 140, lineHeight: 1, color: Y }}>{Math.round(p * 15)}</div><div style={{ fontFamily: MONO, fontSize: 26, color: GR }}>daqiqa</div></div>
+    <Ring x={CX} y={900} r={170} p={p} col={Y}>
+      <div><div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 140, lineHeight: 1, color: Y }}>{Math.round(p * 2)}</div><div style={{ fontFamily: MONO, fontSize: 26, color: GR }}>daqiqa</div></div>
     </Ring>
     <div style={{ ...abs(SL, 1180, SR - SL), display: 'flex', justifyContent: 'center', opacity: off, scale: String(lerp(.7, 1, eback(off))) }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 18, padding: '16px 30px', borderRadius: 22, background: 'rgba(14,16,22,.95)', border: `2px solid ${RED}` }}>
@@ -238,7 +237,7 @@ const S7: React.FC<{ t: number }> = ({ t }) => {
         <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 34, color: WH }}>ofisga borish shart emas</div>
       </div>
     </div>
-    <Head t={t} t0={25} t1={28.6} y={470} lines={[['ulanish'], ['15 daqiqa', 'y']]} size={72} />
+    <Head t={t} t0={25} t1={28.6} y={470} lines={[['ulanish'], ['2 daqiqa', 'y']]} size={72} />
   </Layer>;
 };
 
@@ -252,7 +251,7 @@ const S8: React.FC<{ t: number }> = ({ t }) => {
 };
 
 const End: React.FC<{ t: number }> = ({ t }) => <ZtEnd t={t} t0={32.8}
-  perks={['Yandex bonusidan 0% — doimiy', 'Pul yechish bepul · 5 soniya', '+30 000 so‘m · OSGOP 3 oy bepul', 'Ulanish 15 daqiqa · yordam 24/7']} />;
+  perks={['Yandex bonusidan 0% — doimiy', 'Pul yechish bepul · 5 soniya', '+20 000 so‘m · OSGOP 3 oy bepul', 'Ulanish 2 daqiqa · yordam 24/7']} />;
 
 const HITS: [number, number, number][] = [[2.95, 9, 7], [4.5, 18, 5], [6.6, 8, 7], [11.6, 7, 7], [15.8, 7, 7], [19.7, 7, 7], [23.1, 8, 7]];
 
