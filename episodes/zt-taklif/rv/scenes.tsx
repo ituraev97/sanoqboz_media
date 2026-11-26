@@ -49,11 +49,11 @@ const Goals: React.FC<{ t: number; t0: number; fill?: number; big?: number; bigC
     <div style={{ position: 'absolute', right: 20, top: 70, height: 34, padding: '0 15px', borderRadius: 17, background: '#2a2a2a', display: 'grid', placeItems: 'center', fontSize: 15, fontWeight: 500 }}>Arxiv</div>
     <div style={{ position: 'absolute', left: 22, top: 130, fontSize: 31, fontWeight: 700, letterSpacing: -.3 }}>Maqsadlarim</div>
     <div style={{ position: 'absolute', left: 14, right: 14, top: 182, height: 168, borderRadius: 21, background: '#1c1c1e', opacity: c1, translate: `0 ${(1 - c1) * 24}px` }}>
-      <div style={{ position: 'absolute', left: 16, top: 16, fontSize: 21, fontWeight: 600 }}>40 ta buyurtma</div>
+      <div style={{ position: 'absolute', left: 16, top: 16, fontSize: 21, fontWeight: 600 }}>120 ta buyurtma</div>
       <div style={{ position: 'absolute', left: 16, top: 44, fontSize: 16, color: '#d8d8d8', lineHeight: 1.2, width: 150 }}>haftalik, 27-noyabr gacha</div>
       <div style={{ position: 'absolute', right: 14, top: 34, ...AMT(topCol, '#141832', 29) }}>+{fmt(Math.round(top / 1000) * 1000)} so‘m</div>
       <div style={{ position: 'absolute', left: 16, right: 16, top: 98, height: 5, borderRadius: 3, background: '#3a3a3c', overflow: 'hidden' }}><div style={{ width: `${fill * 100}%`, height: '100%', background: done ? '#3DDC84' : '#93A6FF' }} /></div>
-      <div style={{ position: 'absolute', left: 16, top: 120, height: 29, padding: '0 11px', borderRadius: 15, border: `1.5px solid ${done ? '#3DDC84' : '#4a4a4c'}`, display: 'grid', placeItems: 'center', fontSize: 13, color: done ? '#3DDC84' : '#a8a8a8' }}>{done ? 'Maqsad bajarildi · 40/40' : 'Barcha talablar bajarildi'}</div>
+      <div style={{ position: 'absolute', left: 16, top: 120, height: 29, padding: '0 11px', borderRadius: 15, border: `1.5px solid ${done ? '#3DDC84' : '#4a4a4c'}`, display: 'grid', placeItems: 'center', fontSize: 13, color: done ? '#3DDC84' : '#a8a8a8' }}>{done ? 'Maqsad bajarildi · 120/120' : 'Barcha talablar bajarildi'}</div>
     </div>
     <div style={{ position: 'absolute', left: 14, right: 14, top: 366, height: 135, borderRadius: 21, overflow: 'hidden', background: 'linear-gradient(90deg,#C6801A 0%,#9a6212 45%,#3a2a14 85%,#231d16 100%)', opacity: c2 * (1 - dim * .5), translate: `0 ${(1 - c2) * 24}px` }}>
       <div style={{ position: 'absolute', left: 16, top: 22, fontSize: 21, fontWeight: 600, whiteSpace: 'nowrap' }}>Maqsadni tanlang</div>
@@ -78,7 +78,7 @@ const GoalDetail: React.FC<{ t: number; t0: number; amount?: number; done?: bool
       <div style={AMT('#fff', '#10133a', 52)}>{fmt(amount)} so‘m</div>
     </div>
     <div style={{ position: 'absolute', left: 0, right: 0, top: 276, textAlign: 'center' }}>
-      <div style={{ fontSize: 26, fontWeight: 500 }}>40 ta buyurtma uchun</div>
+      <div style={{ fontSize: 26, fontWeight: 500 }}>120 ta buyurtma uchun</div>
       <div style={{ fontSize: 14, marginTop: 4, color: '#e3e3ef' }}>27 noyabr gacha (shu kuni ham) · yana 1 kun</div>
     </div>
     <div style={{ position: 'absolute', left: 17, right: 17, top: 422, height: 73, borderRadius: 19, background: '#1c1c1e', padding: '15px 22px' }}>
@@ -88,7 +88,7 @@ const GoalDetail: React.FC<{ t: number; t0: number; amount?: number; done?: bool
     </div>
     <div style={{ position: 'absolute', left: 17, right: 17, top: 510, height: 95, borderRadius: 19, background: '#1c1c1e', padding: '18px 18px' }}>
       <div style={{ fontSize: 22.5, fontWeight: 600, color: done ? '#3DDC84' : '#fff' }}>{done ? 'Maqsad bajarildi' : 'Hali boshlamadingiz'}</div>
-      <div style={{ fontSize: 13.5, color: '#d0d0d0', marginTop: 3 }}>{done ? '40/40 bajarildi' : '0/40 bajarildi'}</div>
+      <div style={{ fontSize: 13.5, color: '#d0d0d0', marginTop: 3 }}>{done ? '120/120 bajarildi' : '0/120 bajarildi'}</div>
       <div style={{ position: 'absolute', left: 18, right: 18, bottom: 16, height: 5, borderRadius: 3, background: '#3a3a3c' }}><div style={{ width: done ? '100%' : '0%', height: '100%', borderRadius: 3, background: '#3DDC84' }} /></div>
     </div>
     <div style={{ position: 'absolute', left: 17, right: 17, top: 621, height: 241, borderRadius: 19, background: '#1c1c1e', padding: '22px 18px' }}>
