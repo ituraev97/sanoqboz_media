@@ -1,5 +1,7 @@
 import React from 'react';
-import { AbsoluteFill } from 'remotion';
+import { AbsoluteFill, Img, staticFile } from 'remotion';
+import { loadFont } from '@remotion/fonts';
+loadFont({ family: 'Nun', url: staticFile('nunito-latin-900-italic.woff2'), weight: '900', style: 'italic' });
 import { CX, SL, SR, Y, WH, GR, TEAL, GRN, RED, HEAD, SANS, MONO, P, eio, eout, eback, lerp, env, clamp } from '../lib';
 import { Lockup } from '../Art';
 import { abs, Layer, logZ, yel, Head, Pill, Glow, Stamp, Num, Card, Src, fmt, Background, Reel, ZtEnd } from '../kit';
@@ -9,33 +11,24 @@ const PW = 470, PH = 1016; // screen size
 const Phone: React.FC<{ x?: number; y: number; a: number; tilt?: number; children: React.ReactNode; s?: number }> = ({ x = CX, y, a, tilt = 0, children, s = 1 }) => {
   if (a <= 0) return null;
   const k = eout(clamp(a));
-  return <div style={{ position: 'absolute', left: x, top: y + (1 - k) * 140, translate: '-50% 0', opacity: clamp(a * 1.6), perspective: 1800, scale: String(s) }}>
-    <div style={{ transform: `rotateY(${tilt}deg) rotateX(${4 - 4 * k}deg)`, transformStyle: 'preserve-3d' }}>
-      {/* side buttons */}
-      <div style={{ position: 'absolute', left: -7, top: 190, width: 7, height: 56, borderRadius: 3, background: 'linear-gradient(90deg,#4a4f57,#8a9099)' }} />
-      <div style={{ position: 'absolute', left: -7, top: 270, width: 7, height: 92, borderRadius: 3, background: 'linear-gradient(90deg,#4a4f57,#8a9099)' }} />
-      <div style={{ position: 'absolute', left: -7, top: 380, width: 7, height: 92, borderRadius: 3, background: 'linear-gradient(90deg,#4a4f57,#8a9099)' }} />
-      <div style={{ position: 'absolute', right: -7, top: 300, width: 7, height: 140, borderRadius: 3, background: 'linear-gradient(270deg,#4a4f57,#8a9099)' }} />
-      {/* titanium frame */}
-      <div style={{ padding: 7, borderRadius: 78, background: 'linear-gradient(135deg,#9aa1ab 0%,#4b5058 18%,#2b2f35 50%,#5b616a 82%,#a5acb6 100%)', boxShadow: '0 50px 120px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08), 0 0 60px rgba(63,169,184,.15)' }}>
-        <div style={{ padding: 12, borderRadius: 72, background: '#050608' }}>
-          <div style={{ position: 'relative', width: PW, height: PH, borderRadius: 60, overflow: 'hidden', background: '#000' }}>
-            {children}
-            {/* status bar + island */}
-            <div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 62, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 38px 0', fontFamily: SANS, fontWeight: 700, fontSize: 22, color: '#fff' }}>
-              <span>9:41</span>
-              <span style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-                <svg width="26" height="16" viewBox="0 0 26 16">{[0, 1, 2, 3].map((i) => <rect key={i} x={i * 7} y={12 - i * 4} width="5" height={4 + i * 4} rx="1" fill="#fff" />)}</svg>
-                <svg width="34" height="17" viewBox="0 0 34 17"><rect x="1" y="1" width="28" height="15" rx="4" fill="none" stroke="#fff" strokeOpacity=".5" strokeWidth="2" /><rect x="4" y="4" width="20" height="9" rx="2" fill="#fff" /><rect x="31" y="6" width="2" height="5" rx="1" fill="#fff" fillOpacity=".5" /></svg>
-              </span>
-            </div>
-            <div style={{ position: 'absolute', left: '50%', top: 14, translate: '-50% 0', width: 140, height: 40, borderRadius: 22, background: '#000' }} />
-            {/* glass reflection */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 32%, rgba(255,255,255,0) 70%, rgba(255,255,255,.05) 100%)', pointerEvents: 'none' }} />
-          </div>
-        </div>
+  const tl = Math.max(-16, Math.min(16, tilt)); const i0 = Math.floor(tl * 2), fr = tl * 2 - i0; const i1 = Math.min(32, i0 + 1);
+  const src = (i: number) => staticFile(`ip/ip_${String(i + 40).padStart(3, '0')}.png`);
+  const rot = `rotateY(${tl}deg)`;
+  return <div style={{ position: 'absolute', left: x, top: y - 73 + (1 - k) * 140, width: 700, height: 1200, translate: '-50% 0', opacity: clamp(a * 1.6), perspective: 1800, scale: String(s) }}>
+    <div style={{ position: 'absolute', left: 97, top: 74, width: 506, height: 1052, borderRadius: 80, background: '#000', transform: rot, boxShadow: '0 50px 120px rgba(0,0,0,.85), 0 0 70px rgba(63,169,184,.14)' }} />
+    <div style={{ position: 'absolute', left: 115, top: 92, width: PW, height: PH, borderRadius: 40, overflow: 'hidden', background: '#000', transform: rot }}>
+      {children}
+      <div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 62, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 44px 0 52px', fontFamily: SANS, fontWeight: 700, fontSize: 21, color: '#fff' }}>
+        <span>9:41</span>
+        <span style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+          <svg width="24" height="15" viewBox="0 0 26 16">{[0, 1, 2, 3].map((i) => <rect key={i} x={i * 7} y={12 - i * 4} width="5" height={4 + i * 4} rx="1" fill="#fff" />)}</svg>
+          <svg width="32" height="16" viewBox="0 0 34 17"><rect x="1" y="1" width="28" height="15" rx="4" fill="none" stroke="#fff" strokeOpacity=".5" strokeWidth="2" /><rect x="4" y="4" width="20" height="9" rx="2" fill="#fff" /><rect x="31" y="6" width="2" height="5" rx="1" fill="#fff" fillOpacity=".5" /></svg>
+        </span>
       </div>
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(115deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 72%, rgba(255,255,255,.04) 100%)', pointerEvents: 'none' }} />
     </div>
+    <Img src={src(i0)} style={{ position: 'absolute', inset: 0, width: 700, height: 1200 }} />
+    {fr > .01 && <Img src={src(i1)} style={{ position: 'absolute', inset: 0, width: 700, height: 1200, opacity: fr }} />}
   </div>;
 };
 const AppBg: React.FC<{ children: React.ReactNode }> = ({ children }) =>
@@ -45,30 +38,71 @@ const Tap: React.FC<{ t: number; t0: number; x: number; y: number }> = ({ t, t0,
   return <div style={{ position: 'absolute', left: x, top: y, translate: '-50% -50%', width: 40 + 90 * eout(p), height: 40 + 90 * eout(p), borderRadius: '50%', border: '4px solid #fff', background: `rgba(255,255,255,${.3 * (1 - p)})`, opacity: 1 - p }} />;
 };
 
-/* --- Yandex-Pro-like goals screen --- */
-const Goals: React.FC<{ t: number; t0: number; fill?: number; big?: number; bigCol?: string; dim?: number; top?: number; topCol?: string }> = ({ t, t0, fill = 0, big = 800000, bigCol = '#fff', dim = 0, top = 1000000, topCol = '#AFC2FF' }) => {
-  const c1 = eout(P(t, t0 + .1, t0 + .45)), c2 = eout(P(t, t0 + .3, t0 + .65));
-  return <AppBg>
-    <div style={{ padding: '0 30px' }}>
-      <svg width="34" height="34" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" /></svg>
-      <div style={{ fontSize: 52, fontWeight: 800, marginTop: 22, letterSpacing: -.5 }}>Maqsadlarim</div>
-      <div style={{ marginTop: 26, borderRadius: 34, background: '#1f1f1f', padding: '26px 28px', opacity: c1, translate: `0 ${(1 - c1) * 30}px` }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div><div style={{ fontSize: 26, fontWeight: 700, whiteSpace: 'nowrap' }}>40 ta buyurtma</div><div style={{ fontSize: 21, color: '#bbb', marginTop: 4 }}>haftalik</div></div>
-          <div style={{ fontFamily: HEAD, fontStyle: 'italic', fontSize: 36, fontWeight: 700, color: topCol, whiteSpace: 'nowrap', textAlign: 'right', lineHeight: 1 }}>+{fmt(Math.round(top / 1000) * 1000)}<br /><span style={{ fontSize: 26 }}>so‘m</span></div>
-        </div>
-        <div style={{ marginTop: 26, height: 14, borderRadius: 7, background: '#3b3b3b', overflow: 'hidden' }}><div style={{ width: `${fill * 100}%`, height: '100%', borderRadius: 7, background: fill >= 1 ? GRN : '#AFC2FF' }} /></div>
-        <div style={{ marginTop: 12, fontSize: 22, color: fill >= 1 ? GRN : '#999' }}>{Math.round(fill * 40)} / 40</div>
-      </div>
-      <div style={{ marginTop: 20, borderRadius: 34, background: 'linear-gradient(90deg,#d29a3c,#7a5a26 55%,#2b2b2b)', padding: '26px 28px', opacity: c2 * (1 - dim * .5), translate: `0 ${(1 - c2) * 30}px` }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 }}>
-          <div><div style={{ fontSize: 25, fontWeight: 800, whiteSpace: 'nowrap' }}>Maqsadni tanlang</div><div style={{ fontSize: 19, marginTop: 4, opacity: .9, whiteSpace: 'nowrap' }}>Brendlash talab etiladi</div></div>
-          <div style={{ textAlign: 'right', fontFamily: HEAD, fontStyle: 'italic', fontWeight: 700, fontSize: 38, lineHeight: 1, color: bigCol, textShadow: '0 2px 0 #000', whiteSpace: 'nowrap' }}>{fmt(Math.round(big / 1000) * 1000)}<br /><span style={{ fontSize: 24 }}>so‘mgacha</span></div>
-        </div>
-        <div style={{ marginTop: 22, height: 64, borderRadius: 22, background: '#fff', color: '#111', display: 'grid', placeItems: 'center', fontSize: 26, fontWeight: 700 }}>Batafsil</div>
-      </div>
+/* --- Yandex Pro goals screens (redrawn from the real app) --- */
+const AMT = (col: string, stroke: string, size: number): React.CSSProperties => ({ fontFamily: 'Nun', fontStyle: 'italic', fontWeight: 900, fontSize: size, color: col, WebkitTextStroke: `${size * .16}px ${stroke}`, paintOrder: 'stroke fill', letterSpacing: -size * .04, lineHeight: .95, whiteSpace: 'nowrap', textShadow: `0 ${size * .06}px 0 ${stroke}` });
+const Back = () => <svg width="26" height="26" viewBox="0 0 24 24" style={{ position: 'absolute', left: 30, top: 74 }}><path d="M20 12H5M11 5l-7 7 7 7" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+const Goals: React.FC<{ t: number; t0: number; fill?: number; big?: number; bigCol?: string; dim?: number; top?: number; topCol?: string }> = ({ t, t0, fill = 0, big = 800000, bigCol = '#fff', dim = 0, top = 1000000, topCol = '#93A6FF' }) => {
+  const c1 = eout(P(t, t0 + .1, t0 + .45)), c2 = eout(P(t, t0 + .3, t0 + .65)), c3 = eout(P(t, t0 + .5, t0 + .9));
+  const done = fill >= 1;
+  return <div style={{ position: 'absolute', inset: 0, background: '#000', fontFamily: SANS, color: '#fff' }}>
+    <Back />
+    <div style={{ position: 'absolute', right: 20, top: 70, height: 34, padding: '0 15px', borderRadius: 17, background: '#2a2a2a', display: 'grid', placeItems: 'center', fontSize: 15, fontWeight: 500 }}>Arxiv</div>
+    <div style={{ position: 'absolute', left: 22, top: 130, fontSize: 31, fontWeight: 700, letterSpacing: -.3 }}>Maqsadlarim</div>
+    <div style={{ position: 'absolute', left: 14, right: 14, top: 182, height: 168, borderRadius: 21, background: '#1c1c1e', opacity: c1, translate: `0 ${(1 - c1) * 24}px` }}>
+      <div style={{ position: 'absolute', left: 16, top: 16, fontSize: 21, fontWeight: 600 }}>40 ta buyurtma</div>
+      <div style={{ position: 'absolute', left: 16, top: 44, fontSize: 16, color: '#d8d8d8', lineHeight: 1.2, width: 150 }}>haftalik, 27-noyabr gacha</div>
+      <div style={{ position: 'absolute', right: 14, top: 34, ...AMT(topCol, '#141832', 29) }}>+{fmt(Math.round(top / 1000) * 1000)} so‘m</div>
+      <div style={{ position: 'absolute', left: 16, right: 16, top: 98, height: 5, borderRadius: 3, background: '#3a3a3c', overflow: 'hidden' }}><div style={{ width: `${fill * 100}%`, height: '100%', background: done ? '#3DDC84' : '#93A6FF' }} /></div>
+      <div style={{ position: 'absolute', left: 16, top: 120, height: 29, padding: '0 11px', borderRadius: 15, border: `1.5px solid ${done ? '#3DDC84' : '#4a4a4c'}`, display: 'grid', placeItems: 'center', fontSize: 13, color: done ? '#3DDC84' : '#a8a8a8' }}>{done ? 'Maqsad bajarildi · 40/40' : 'Barcha talablar bajarildi'}</div>
     </div>
-  </AppBg>;
+    <div style={{ position: 'absolute', left: 14, right: 14, top: 366, height: 135, borderRadius: 21, overflow: 'hidden', background: 'linear-gradient(90deg,#C6801A 0%,#9a6212 45%,#3a2a14 85%,#231d16 100%)', opacity: c2 * (1 - dim * .5), translate: `0 ${(1 - c2) * 24}px` }}>
+      <div style={{ position: 'absolute', left: 16, top: 22, fontSize: 21, fontWeight: 600, whiteSpace: 'nowrap' }}>Maqsadni tanlang</div>
+      <div style={{ position: 'absolute', left: 16, top: 48, fontSize: 16, whiteSpace: 'nowrap' }}>Brendlash talab etiladi</div>
+      <div style={{ position: 'absolute', right: 14, top: 16, textAlign: 'right', ...AMT(bigCol, '#1a1208', 26) }}>{fmt(Math.round(big / 1000) * 1000)} so‘m<br />gacha</div>
+      <div style={{ position: 'absolute', left: 12, right: 12, top: 77, height: 43, borderRadius: 12, background: '#fff', color: '#111', display: 'grid', placeItems: 'center', fontSize: 16, fontWeight: 500 }}>Batafsil</div>
+    </div>
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 690, textAlign: 'center', opacity: c3 }}>
+      <svg width="96" height="96" viewBox="0 0 96 96"><g transform="rotate(-14 48 48)"><rect x="22" y="14" width="52" height="68" rx="8" fill="#7FD08A" stroke="#1d3b22" strokeWidth="4" /><path d="M22 40h52M48 14v68" stroke="#1d3b22" strokeWidth="3" opacity=".5" /><circle cx="48" cy="48" r="11" fill="#D9F5DD" stroke="#1d3b22" strokeWidth="3" /></g></svg>
+      <div style={{ marginTop: 22, fontSize: 20.5, fontWeight: 600 }}>Buyurtmalar ko‘paysa, daromad oshadi</div>
+      <div style={{ marginTop: 6, fontSize: 12.5, color: '#bdbdbd', lineHeight: 1.35, padding: '0 10px' }}>Liniyadagi daromadingizni oshiring – ko‘proq buyurtmalarni bajaring<br />va safar maqsadlarini o‘tkazib yubormang</div>
+    </div>
+  </div>;
+};
+const GoalDetail: React.FC<{ t: number; t0: number; amount?: number; done?: boolean }> = ({ t, t0, amount = 1000000, done = true }) => {
+  const h = eback(P(t, t0 + .15, t0 + .6));
+  return <div style={{ position: 'absolute', inset: 0, background: '#000', fontFamily: SANS, color: '#fff' }}>
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 410, background: 'linear-gradient(180deg,#000 0%,#0d1033 22%,#3340a0 52%,#232a6e 72%,#0b0c18 100%)' }} />
+    <Back />
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 150, textAlign: 'center', rotate: '-4deg', scale: String(lerp(.6, 1, h)), opacity: clamp(h * 2) }}>
+      <div style={{ ...AMT('#fff', '#10133a', 24), display: 'inline-block', translate: '-140px 12px' }}>MAQSAD</div>
+      <div style={AMT('#fff', '#10133a', 52)}>{fmt(amount)} so‘m</div>
+    </div>
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 276, textAlign: 'center' }}>
+      <div style={{ fontSize: 26, fontWeight: 500 }}>40 ta buyurtma uchun</div>
+      <div style={{ fontSize: 14, marginTop: 4, color: '#e3e3ef' }}>27 noyabr gacha (shu kuni ham) · yana 1 kun</div>
+    </div>
+    <div style={{ position: 'absolute', left: 17, right: 17, top: 422, height: 73, borderRadius: 19, background: '#1c1c1e', padding: '15px 22px' }}>
+      <div style={{ fontSize: 17, fontWeight: 500 }}>Maqsadni o‘zgartirishingiz mumkin</div>
+      <div style={{ fontSize: 13.5, color: '#d0d0d0', marginTop: 3 }}>Birinchi safargacha</div>
+      <svg width="16" height="16" viewBox="0 0 24 24" style={{ position: 'absolute', right: 26, top: 28 }}><path d="M9 5l7 7-7 7" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" /></svg>
+    </div>
+    <div style={{ position: 'absolute', left: 17, right: 17, top: 510, height: 95, borderRadius: 19, background: '#1c1c1e', padding: '18px 18px' }}>
+      <div style={{ fontSize: 22.5, fontWeight: 600, color: done ? '#3DDC84' : '#fff' }}>{done ? 'Maqsad bajarildi' : 'Hali boshlamadingiz'}</div>
+      <div style={{ fontSize: 13.5, color: '#d0d0d0', marginTop: 3 }}>{done ? '40/40 bajarildi' : '0/40 bajarildi'}</div>
+      <div style={{ position: 'absolute', left: 18, right: 18, bottom: 16, height: 5, borderRadius: 3, background: '#3a3a3c' }}><div style={{ width: done ? '100%' : '0%', height: '100%', borderRadius: 3, background: '#3DDC84' }} /></div>
+    </div>
+    <div style={{ position: 'absolute', left: 17, right: 17, top: 621, height: 241, borderRadius: 19, background: '#1c1c1e', padding: '22px 18px' }}>
+      <div style={{ fontSize: 16.5, fontWeight: 600 }}>Maqsadlar haqida</div>
+      <div style={{ fontSize: 15.5, color: '#9a9a9e', marginTop: 20, lineHeight: 1.3 }}>Maqsad tanlandi. Uni birinchi buyurtmagacha o‘zgartirish mumkin.</div>
+      <div style={{ fontSize: 15.5, color: '#9a9a9e', marginTop: 18, lineHeight: 1.3 }}>Amalga oshirilgan maqsad balansda va ish haqida 28-noyabr kuni ko‘rinadi.</div>
+      <div style={{ position: 'absolute', left: 18, right: 18, bottom: 22, borderTop: '1px solid #333', paddingTop: 16, display: 'flex', justifyContent: 'space-between', fontSize: 15.5 }}><span>Balansda ko‘rinadi</span><span>28-noyabr, 15:00 gacha</span></div>
+    </div>
+    <div style={{ position: 'absolute', left: 17, right: 17, top: 876, height: 200, borderRadius: 19, background: '#1c1c1e', padding: '20px 18px' }}>
+      <div style={{ fontSize: 16.5, fontWeight: 600 }}>Talablar</div>
+      <div style={{ marginTop: 22, marginLeft: 44, fontSize: 11, color: '#8e8e93' }}>Faol tariflar</div>
+      <div style={{ marginLeft: 44, fontSize: 16, marginTop: 2 }}>Komfort+, Elektro</div>
+    </div>
+  </div>;
 };
 
 /* --- withdrawal screen --- */
@@ -129,7 +163,7 @@ const S1: React.FC<{ t: number }> = ({ t }) => {
   const v = lerp(1000000, 970000, eout(P(t, 2.9, 3.6)));
   return <Layer a={a}>
     <Glow x={CX} y={1050} r={560} a={.9} col={t > 2.9 ? '236,58,44' : '247,198,75'} />
-    <Phone y={PY} a={P(t, 0, .6)} tilt={lerp(-14, -6, eout(P(t, 0, 4.5)))}><Goals t={t} t0={.1} fill={.15} top={v} topCol={t > 2.9 ? '#FF8A80' : '#AFC2FF'} /></Phone>
+    <Phone y={PY} a={P(t, 0, .6)} tilt={lerp(-14, -6, eout(P(t, 0, 4.5)))}><Goals t={t} t0={.1} fill={.15} top={v} topCol={t > 2.9 ? '#FF8A80' : '#93A6FF'} /></Phone>
     {cut > 0 && cut < 1 && <div style={{ position: 'absolute', left: lerp(CX + 150, SR - 30, cut), top: lerp(840, 900, cut) - Math.sin(cut * Math.PI) * 60, translate: '-50% -50%', rotate: `${cut * 20}deg`, padding: '12px 24px', borderRadius: 16, background: RED, color: '#fff', fontFamily: HEAD, fontWeight: 700, fontSize: 56, boxShadow: '0 12px 40px rgba(236,58,44,.5)' }}>−3%</div>}
     <Pill s="parkka" x={SR - 30} y={980} a={eout(P(t, 3.1, 3.4))} size={28} col={RED} />
     <Pill s="misol" x={SL + 50} y={980} a={eout(P(t, 3.1, 3.4))} size={22} dark col={GR} />
@@ -155,12 +189,8 @@ const S3: React.FC<{ t: number }> = ({ t }) => {
   const coin = eout(P(t, 11.6, 12.1));
   return <Layer a={a}>
     <Glow x={CX} y={1050} r={560} a={.9} col="61,220,132" />
-    <Phone y={PY} a={P(t, 8.5, 9)} tilt={lerp(10, 4, eout(P(t, 8.5, 13.5)))}><Goals t={t} t0={8.6} fill={fill} topCol={t > 11 ? '#B9F5D0' : '#AFC2FF'} /></Phone>
-    <div style={{ position: 'absolute', left: CX, top: 1180, translate: '-50% -50%', opacity: coin, scale: String(lerp(.6, 1, eback(coin))), padding: '18px 34px', borderRadius: 26, background: 'rgba(10,14,12,.96)', border: `3px solid ${GRN}`, textAlign: 'center', boxShadow: '0 0 40px rgba(61,220,132,.35)' }}>
-      <div style={{ fontFamily: MONO, fontSize: 22, color: GR }}>sizga to‘liq</div>
-      <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 66, lineHeight: 1, color: GRN, whiteSpace: 'nowrap' }}>1 000 000 so‘m</div>
-      <div style={{ fontFamily: MONO, fontSize: 18, color: GR, marginTop: 8 }}>Yandex Pro «Maqsadlarim» · brendlash bilan</div>
-    </div>
+    <Phone y={PY} a={P(t, 8.5, 9)} tilt={lerp(10, 4, eout(P(t, 8.5, 13.5)))}>{t < 11.45 ? <Goals t={t} t0={8.6} fill={fill} topCol={t > 10.8 ? '#7CF0A8' : '#93A6FF'} /> : <GoalDetail t={t} t0={11.45} />}<Tap t={t} t0={11.05} x={330} y={240} /></Phone>
+    <Pill s="zero taxi hech narsa ushlamaydi" x={CX} y={1310} a={coin} size={26} col={GRN} />
     <Head t={t} t0={8.5} t1={13.6} y={470} lines={[['yandex qancha bersa —'], ['hammasi sizniki', 'y']]} size={62} />
   </Layer>;
 };
@@ -261,7 +291,7 @@ export const Cover: React.FC = () =>
   <AbsoluteFill style={{ backgroundColor: '#06070a', overflow: 'hidden' }}>
     <Background t={1} />
     <Glow x={CX} y={1250} r={620} a={1} col="61,220,132" />
-    <Phone y={760} a={1} tilt={-8}><Goals t={5} t0={0} fill={1} bigCol="#B9F5D0" /></Phone>
+    <Phone y={760} a={1} tilt={-8}><Goals t={5} t0={0} fill={1} topCol="#7CF0A8" /></Phone>
     <div style={{ ...abs(SL, 230, SR - SL), display: 'flex', justifyContent: 'center' }}><Lockup h={96} /></div>
     <div style={{ ...abs(SL, 380, SR - SL), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 96, lineHeight: 1.02, ...yel }}>YANDEX BONUSI<br />HAMMASI SIZGA</div>
     <div style={{ ...abs(SL, 590, SR - SL), textAlign: 'center', fontFamily: HEAD, fontWeight: 700, fontSize: 64, color: GRN }}>PARKKA 0%</div>

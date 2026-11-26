@@ -1,0 +1,49 @@
+<!doctype html><html><body style="margin:0;background:transparent">
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const W=700,H=1200,D=1800;
+const r=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
+r.setPixelRatio(window.DPR||1); r.setSize(W,H); r.setClearColor(0,0); r.autoClear=false;
+r.toneMapping=THREE.ACESFilmicToneMapping; r.toneMappingExposure=1.45; r.outputColorSpace=THREE.SRGBColorSpace;
+document.body.appendChild(r.domElement);
+const scene=new THREE.Scene();
+const pm=new THREE.PMREMGenerator(r); scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const key=new THREE.DirectionalLight(0xffffff,1.2); key.position.set(-600,900,1500); scene.add(key); scene.environmentIntensity=1.6; for(const [x,y,z,i] of [[-1500,300,-400,3.0],[1500,200,-400,3.0],[0,1600,200,1.2]]){const l=new THREE.DirectionalLight(0xdfe8ff,i); l.position.set(x,y,z); scene.add(l);}
+const cam=new THREE.PerspectiveCamera(2*Math.atan(H/2/D)*180/Math.PI,W/H,10,5000); cam.position.set(0,0,D);
+const g=await new GLTFLoader().loadAsync('./iphone.glb');
+const tilt=new THREE.Group(); const flip=new THREE.Group(); tilt.add(flip); scene.add(tilt);
+const m=g.scene; flip.add(m); scene.add(tilt); scene.updateMatrixWorld(true);
+let screen=null; const top=[];
+m.traverse(o=>{ if(!o.isMesh) return; const n=o.material.name;
+  if(n==='pIJKfZsazmcpEiU') screen=o;
+  if(n==='zFdeDaGNRwzccye') { o.material.transparent=true; o.material.opacity=0.0; o.material.depthWrite=false; }
+});
+const sb=new THREE.Box3().setFromObject(screen), fb=new THREE.Box3().setFromObject(m);
+const ss=sb.getSize(new THREE.Vector3()); const sc=sb.getCenter(new THREE.Vector3()); const fc=fb.getCenter(new THREE.Vector3());
+console.log('screen',JSON.stringify(ss),JSON.stringify(sc),'full',JSON.stringify(fc));
+const K=470/ss.x; const front=Math.sign(sc.z-fc.z);
+m.position.set(-sc.x,-sc.y,-sc.z); const sw=new THREE.Group(); flip.remove(m); sw.add(m); flip.add(sw); sw.scale.setScalar(K);
+if(front<0) flip.rotation.y=Math.PI;
+scene.updateMatrixWorld(true);
+const ys=[]; m.traverse(o=>{ if(!o.isMesh||o===screen) return; const b=new THREE.Box3().setFromObject(o); const c=b.getCenter(new THREE.Vector3()); const z=b.getSize(new THREE.Vector3());
+  if(b.max.z>-4 && c.y>440 && Math.abs(c.x)<80 && z.y<60) top.push(o); });
+console.log('screenH', ss.y*K, 'top', top.length);
+scene.remove(tilt);
+const erase=new THREE.MeshBasicMaterial({color:0,transparent:true,depthTest:false,depthWrite:false,blending:THREE.CustomBlending,blendEquation:THREE.AddEquation,blendSrc:THREE.ZeroFactor,blendDst:THREE.ZeroFactor,blendSrcAlpha:THREE.ZeroFactor,blendDstAlpha:THREE.ZeroFactor});
+const sMat=screen.material;
+window.render=(deg)=>{
+  tilt.rotation.y=deg*Math.PI/180; scene.add(tilt); scene.updateMatrixWorld(true);
+  r.clear(); screen.visible=false; r.render(scene,cam);
+  // erase screen area
+  const s2=new THREE.Scene(); const ghost=new THREE.Mesh(screen.geometry,erase); screen.matrixWorld.decompose(ghost.position,ghost.quaternion,ghost.scale); s2.add(ghost); r.render(s2,cam);
+  // island on top
+  const s3=new THREE.Scene(); s3.environment=scene.environment; s3.environmentIntensity=1.6; s3.add(key.clone());
+  for(const o of top){ const c=new THREE.Mesh(o.geometry,o.material); o.matrixWorld.decompose(c.position,c.quaternion,c.scale); s3.add(c); }
+  r.clearDepth(); r.render(s3,cam);
+  return r.domElement.toDataURL('image/png');
+};
+window.ready=top.length;
+</script></body></html>
