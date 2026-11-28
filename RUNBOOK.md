@@ -1,5 +1,11 @@
 # SANOQBOZ — daily production runbook
 
+> - **VOICE RULES (owner 2026-11-28): work HARD on intonation, pace and pronunciation; this channel has its OWN voice — ElevenLabs mirzaev, Uzbek (reserved for Sanoqboz; YUZ must not use it). Uzbek pronunciation: Latin script with correct oʻ/gʻ, numbers in words, foreign names respelled the Uzbek way. Never use another channel's voice.**
+>   Intonation: give every line a tone/energy (≈25% energetic on reveals, numbers, verdicts; ≈15% calm for context; rest normal); short sentences of varied length, the key word at the end, commas where a speaker breathes; never one flat tone for a whole video. After voicing measure the take: pitch variation ≥ 4 semitones, loudness range ≥ 6 LU — re-voice a flat take.
+>   Pace: long narration 150–165 wpm (sleep content excepted: keep its slow pace), Shorts 160–180 wpm; never speed long narration up to fit a duration — cut words; no silence > 0.6 s except one deliberate beat (sleep pipeline: its verse pauses stay).
+>   Pronunciation: numbers, dates, money, units written out in words in the TTS text; every unclear name/place/foreign word gets a phonetic respelling for the voice only (real spelling in captions/titles); keep them in `voice_lexicon.md` and reuse them; acronyms as letters with hyphens (F-B-I) unless said as a word. Speech-recognition check: any misread name → re-voice before rendering.
+
+
 One run = **1 vertical reel (35–45 s + YUZ promo, Uzbek Latin)** for ONE Tashkent day, published at **20:00 Asia/Tashkent** (+ Trial Reel 21:00) to Instagram (Reel), YouTube (Short) and TikTok. No Facebook.
 
 > **Owner rule 2026-11-11 — ONE reel per day (ElevenLabs credits are running low).** Only the 20:00 slot (+ its Instagram Trial Reel at 21:00). Wherever below this runbook still mentions 3 reels, 08:00/13:00 slots, s08/s13/c08/c13 or EP08/EP13 — ignore those parts: make one episode, upload only s20.mp4 + c20.jpg, schedule only the 20:00 post and the 21:00 trial. A day is "taken" if its 20:00 daily post exists. **Rubric rotation:** take the rubric (Nega / Qanday — qiziq · Agar… · Internetda pul) whose most recent `done` date in backlog.md is the oldest (tie → Internetda pul, then Nega / Qanday, then Agar…), and its first `todo` row. Exactly ONE ElevenLabs generation per run (generations_count 1, never retry a generation that started).
